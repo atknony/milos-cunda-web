@@ -1,0 +1,87 @@
+{
+  "slug": "ege",
+  "sortOrder": 2,
+  "title": {
+    "tr": "Ege Süit",
+    "en": "Aegean Suite",
+    "el": "Σουίτα Αιγαίο"
+  },
+  "tagline": {
+    "tr": "Mavinin sonsuz tonları",
+    "en": "Infinite shades of blue",
+    "el": "Άπειρες αποχρώσεις του μπλε"
+  },
+  "description": {
+    "tr": "Denize sıfır konumuyla öne çıkan Ege Süit, panoramik Ege manzarasıyla misafirlerine unutulmaz bir konaklama sunuyor. Geleneksel taş işçiliği ve modern dokunuşlar bir arada.",
+    "en": "The Aegean Suite stands out with its waterfront location, offering guests an unforgettable stay with panoramic Aegean views. Traditional stonework meets modern touches.",
+    "el": "Η Σουίτα Αιγαίο ξεχωρίζει με την παραθαλάσσια τοποθεσία της, προσφέροντας στους επισκέπτες μια αξέχαστη διαμονή με πανοραμική θέα στο Αιγαίο."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 0
+  },
+  "size": {
+    "value": 55,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "King Size Yatak",
+    "en": "King Size Bed",
+    "el": "Κρεβάτι King Size"
+  },
+  "view": {
+    "tr": "Tam Deniz Manzarası",
+    "en": "Full Sea View",
+    "el": "Πλήρης Θέα στη Θάλασσα"
+  },
+  "amenities": [
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "wifi", "label": { "tr": "Ücretsiz Wi-Fi", "en": "Free Wi-Fi", "el": "Δωρεάν Wi-Fi" } },
+    { "icon": "coffee", "label": { "tr": "Nespresso Makinesi", "en": "Nespresso Machine", "el": "Μηχανή Nespresso" } },
+    { "icon": "bath", "label": { "tr": "Jakuzi Küvet", "en": "Jacuzzi Bathtub", "el": "Μπανιέρα Τζακούζι" } },
+    { "icon": "sunrise", "label": { "tr": "Özel Balkon", "en": "Private Balcony", "el": "Ιδιωτικό Μπαλκόνι" } },
+    { "icon": "lock", "label": { "tr": "Oda Kasası", "en": "In-Room Safe", "el": "Χρηματοκιβώτιο" } }
+  ],
+  "priceHint": {
+    "amount": 320,
+    "currency": "EUR",
+    "period": "night"
+  },
+  "featuredImage": {
+    "src": "/images/rooms/ege/featured.jpg",
+    "alt": {
+      "tr": "Ege Süit — panoramik deniz manzarası ve taş duvarlar",
+      "en": "Aegean Suite — panoramic sea view and stone walls",
+      "el": "Σουίτα Αιγαίο — πανοραμική θέα στη θάλασσα και πέτρινοι τοίχοι"
+    },
+    "width": 1600,
+    "height": 1067
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/ege/bedroom.jpg",
+      "alt": { "tr": "Yatak odası", "en": "Bedroom", "el": "Υπνοδωμάτιο" },
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/images/rooms/ege/bathroom.jpg",
+      "alt": { "tr": "Banyo — jakuzi küvet", "en": "Bathroom — jacuzzi tub", "el": "Μπάνιο — τζακούζι" },
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/images/rooms/ege/balcony.jpg",
+      "alt": { "tr": "Özel balkon — deniz manzarası", "en": "Private balcony — sea view", "el": "Ιδιωτικό μπαλκόνι — θέα στη θάλασσα" },
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/images/rooms/ege/detail.jpg",
+      "alt": { "tr": "Oda detayı", "en": "Room detail", "el": "Λεπτομέρεια δωματίου" },
+      "width": 1600,
+      "height": 1067
+    }
+  ],
+  "isPublished": true
+}

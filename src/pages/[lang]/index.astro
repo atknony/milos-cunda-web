@@ -1,0 +1,130 @@
+---
+/**
+ * Milos Cunda — Homepage
+ * Route: /[lang]/
+ */
+
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import RoomCard from "../../components/RoomCard.astro";
+import Footer from "../../components/Footer.astro";
+
+import { languages, type Lang } from "../../i18n/ui";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+export const getStaticPaths = (() => {
+  return (Object.keys(languages) as Lang[]).map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+/* ─── Load Featured Rooms (first 2) ─── */
+const allRooms = await getCollection("rooms");
+const featuredRooms = allRooms
+  .filter((r) => r.data.isPublished)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 2);
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const breadcrumbs = [
+  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+];
+---
+
+<MainLayout breadcrumbs={breadcrumbs}>
+
+  <Header slot="header" />
+
+  <Hero />
+
+  <!-- ─── Rooms Preview ─── -->
+  <section class="section-padding bg-stone-50">
+    <div class="container-narrow">
+      <div class="reveal text-center max-w-xl mx-auto mb-16 lg:mb-20">
+        <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-stone-900 mb-4">
+          {t("section.rooms.title")}
+        </h2>
+        <p class="text-stone-500 text-base sm:text-lg leading-relaxed">
+          {t("section.rooms.subtitle")}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14 lg:gap-x-10 lg:gap-y-16 mb-12 lg:mb-16">
+        {featuredRooms.map((room, i) => (
+          <RoomCard
+            lang={lang}
+            slug={room.data.slug}
+            title={room.data.title[lang]}
+            tagline={room.data.tagline?.[lang]}
+            featuredImage={{
+              src: room.data.featuredImage.src,
+              alt: room.data.featuredImage.alt[lang],
+            }}
+            capacity={room.data.capacity}
+            size={room.data.size}
+            bedType={room.data.bedType[lang]}
+            view={room.data.view?.[lang]}
+            priceHint={room.data.priceHint}
+            index={i}
+          />
+        ))}
+      </div>
+
+      <!-- All Rooms Link -->
+      <div class="reveal text-center">
+        <a
+          href={getLocalizedPath(lang, "rooms")}
+          class="inline-flex items-center gap-2.5 text-[0.7rem] font-medium tracking-[0.2em]
+                 uppercase text-stone-600 hover:text-stone-900 transition-colors duration-200 group"
+        >
+          {t("cta.allRooms")}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Cunda Island Teaser ─── -->
+  <section class="relative section-padding bg-stone-100/50 overflow-hidden">
+    <div class="container-narrow">
+      <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <div class="line-accent mb-6" aria-hidden="true"></div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-stone-900 mb-5">
+            {t("section.guide.title")}
+          </h2>
+          <p class="text-stone-500 text-base sm:text-lg leading-relaxed mb-8">
+            {t("section.guide.subtitle")}
+          </p>
+          <a
+            href={getLocalizedPath(lang, "guide")}
+            class="inline-flex items-center gap-2 text-sm font-medium tracking-widest uppercase
+                   text-stone-700 hover:text-stone-900 transition-colors duration-200 group"
+          >
+            {t("cta.explore")}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="relative aspect-[3/4] lg:aspect-[4/5] bg-stone-200 rounded-sm overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 animate-pulse" />
+          <div class="absolute top-4 right-4 w-16 h-16 border-t border-r border-stone-400/30" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+
+</MainLayout>

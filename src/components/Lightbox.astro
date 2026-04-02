@@ -1,0 +1,130 @@
+---
+/**
+ * Milos Cunda — Lightbox
+ *
+ * Zero-dependency image lightbox. Activated by clicking any element
+ * with [data-lightbox-trigger] that contains a data-src attribute.
+ *
+ * Features:
+ * - Prev/Next navigation (arrow keys + click)
+ * - Close on Escape / overlay click
+ * - Counter display (1 / 5)
+ * - Body scroll lock
+ *
+ * Usage on a page:
+ *   <img data-lightbox-trigger data-src="/images/rooms/zeytin/01.jpg" ... />
+ *   <Lightbox />
+ */
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!-- Lightbox Shell (hidden by default via CSS) -->
+<div data-lightbox aria-label="Image gallery" role="dialog" aria-modal="true">
+
+  <!-- Backdrop (click to close) -->
+  <div data-lightbox-backdrop class="absolute inset-0" aria-hidden="true"></div>
+
+  <!-- Image -->
+  <img data-lightbox-img src="" alt="" class="relative z-10" />
+
+  <!-- Close -->
+  <button
+    data-lightbox-close
+    class="absolute top-5 right-5 z-20 w-10 h-10 flex items-center justify-center
+           text-stone-400 hover:text-stone-50 transition-colors duration-200"
+    aria-label={t("lightbox.close")}
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+    </svg>
+  </button>
+
+  <!-- Prev -->
+  <button data-lightbox-prev class="lb-btn lb-prev z-20" aria-label={t("lightbox.prev")}>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  </button>
+
+  <!-- Next -->
+  <button data-lightbox-next class="lb-btn lb-next z-20" aria-label={t("lightbox.next")}>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  </button>
+
+  <!-- Counter -->
+  <div
+    data-lightbox-counter
+    class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20
+           text-stone-400 text-xs tracking-[0.3em] uppercase font-medium"
+  ></div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const box = document.querySelector("[data-lightbox]") as HTMLElement | null;
+    const img = document.querySelector("[data-lightbox-img]") as HTMLImageElement | null;
+    const counter = document.querySelector("[data-lightbox-counter]") as HTMLElement | null;
+    if (!box || !img || !counter) return;
+
+    let sources: string[] = [];
+    let alts: string[] = [];
+    let idx = 0;
+
+    function show(i: number) {
+      idx = ((i % sources.length) + sources.length) % sources.length; // wrap
+      img!.src = sources[idx];
+      img!.alt = alts[idx] || "";
+      counter!.textContent = `${idx + 1} / ${sources.length}`;
+    }
+
+    function open(startIdx: number) {
+      show(startIdx);
+      box!.setAttribute("data-active", "");
+      document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+      box!.removeAttribute("data-active");
+      document.body.style.overflow = "";
+    }
+
+    // Collect triggers
+    function collectTriggers() {
+      const triggers = document.querySelectorAll<HTMLElement>("[data-lightbox-trigger]");
+      sources = [];
+      alts = [];
+      triggers.forEach((el, i) => {
+        const src = el.getAttribute("data-src") || (el as HTMLImageElement).src || "";
+        const alt = el.getAttribute("alt") || el.getAttribute("data-alt") || "";
+        sources.push(src);
+        alts.push(alt);
+        el.style.cursor = "pointer";
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          open(i);
+        });
+      });
+    }
+    collectTriggers();
+
+    // Navigation
+    box.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => show(idx - 1));
+    box.querySelector("[data-lightbox-next]")?.addEventListener("click", () => show(idx + 1));
+    box.querySelector("[data-lightbox-close]")?.addEventListener("click", close);
+    box.querySelector("[data-lightbox-backdrop]")?.addEventListener("click", close);
+
+    // Keyboard
+    document.addEventListener("keydown", (e) => {
+      if (!box.hasAttribute("data-active")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") show(idx - 1);
+      if (e.key === "ArrowRight") show(idx + 1);
+    });
+  });
+</script>

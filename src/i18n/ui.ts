@@ -144,6 +144,50 @@ export const ui = {
     en: "{count} Guests",
     el: "{count} Επισκέπτες",
   },
+  "room.from": {
+    tr: "Gecelik",
+    en: "per night",
+    el: "ανά βράδυ",
+  },
+  "room.startingFrom": {
+    tr: "Başlangıç fiyatı",
+    en: "Starting from",
+    el: "Από",
+  },
+
+  // ─── Rooms Listing Page ───
+  "rooms.title": {
+    tr: "Odalar & Süitler",
+    en: "Rooms & Suites",
+    el: "Δωμάτια & Σουίτες",
+  },
+  "rooms.subtitle": {
+    tr: "Her biri Cunda'nın ruhunu yansıtan, özenle tasarlanmış sekiz oda",
+    en: "Eight carefully designed rooms, each reflecting the spirit of Cunda",
+    el: "Οκτώ προσεκτικά σχεδιασμένα δωμάτια, καθένα αντανακλά το πνεύμα της Κούνδα",
+  },
+
+  // ─── Lightbox ───
+  "lightbox.close": {
+    tr: "Galeriyi kapat",
+    en: "Close gallery",
+    el: "Κλείσιμο γκαλερί",
+  },
+  "lightbox.prev": {
+    tr: "Önceki fotoğraf",
+    en: "Previous photo",
+    el: "Προηγούμενη φωτογραφία",
+  },
+  "lightbox.next": {
+    tr: "Sonraki fotoğraf",
+    en: "Next photo",
+    el: "Επόμενη φωτογραφία",
+  },
+  "lightbox.counter": {
+    tr: "{current} / {total}",
+    en: "{current} / {total}",
+    el: "{current} / {total}",
+  },
 
   // ─── Footer ───
   "footer.tagline": {
@@ -160,6 +204,26 @@ export const ui = {
     tr: "Gizlilik Politikası",
     en: "Privacy Policy",
     el: "Πολιτική Απορρήτου",
+  },
+  "footer.description": {
+    tr: "Ege mimarisinden ilham alan, Cunda Adası'nın kalbinde bir butik otel deneyimi.",
+    en: "A boutique hotel experience in the heart of Cunda Island, inspired by Aegean architecture.",
+    el: "Μια εμπειρία μπουτίκ ξενοδοχείου στην καρδιά της Κούνδα, εμπνευσμένη από την αρχιτεκτονική του Αιγαίου.",
+  },
+  "footer.contact": {
+    tr: "İletişim",
+    en: "Contact",
+    el: "Επικοινωνία",
+  },
+  "footer.navigation": {
+    tr: "Keşfet",
+    en: "Explore",
+    el: "Εξερευνήστε",
+  },
+  "footer.followUs": {
+    tr: "Bizi Takip Edin",
+    en: "Follow Us",
+    el: "Ακολουθήστε μας",
   },
 
   // ─── Accessibility & Meta ───
@@ -187,6 +251,30 @@ export const ui = {
     tr: "Cunda Adası'nın kalbinde, Ege mimarisinden ilham alan butik otel. Huzur, zarafet ve yerel gastronomi deneyimi.",
     en: "A boutique hotel in the heart of Cunda Island, inspired by Aegean architecture. Tranquility, elegance, and local gastronomy.",
     el: "Ένα μπουτίκ ξενοδοχείο στην καρδιά της Κούνδα, εμπνευσμένο από την αιγαιοπελαγίτικη αρχιτεκτονική.",
+  },
+
+  // ─── Header ───
+  "header.reserve": {
+    tr: "Rezervasyon",
+    en: "Reserve",
+    el: "Κράτηση",
+  },
+  "header.langLabel": {
+    tr: "Dil seçimi",
+    en: "Language selection",
+    el: "Επιλογή γλώσσας",
+  },
+
+  // ─── Hero ───
+  "hero.scroll": {
+    tr: "Keşfetmek için kaydırın",
+    en: "Scroll to discover",
+    el: "Κάντε κύλιση για να ανακαλύψετε",
+  },
+  "hero.videoLabel": {
+    tr: "Milos Cunda havadan görünüm",
+    en: "Aerial view of Milos Cunda",
+    el: "Αεροφωτογραφία του Milos Cunda",
   },
 
   // ─── 404 ───

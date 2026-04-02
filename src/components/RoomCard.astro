@@ -1,0 +1,168 @@
+---
+/**
+ * Milos Cunda — Room Card
+ *
+ * Displays a single room in the listing grid.
+ * Hover: image zoom + overlay with "View Room" CTA.
+ * Shows: featured image, title, tagline, capacity, size, price hint.
+ */
+
+import type { Lang } from "../i18n/ui";
+import { useTranslations, getLocalizedPath, getWhatsAppUrl } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  title: string;
+  tagline?: string;
+  featuredImage: { src: string; alt: string };
+  capacity: { adults: number; children: number };
+  size: { value: number; unit: string };
+  bedType: string;
+  view?: string;
+  priceHint?: { amount: number; currency: string; period: string };
+  /** Index for stagger animation delay */
+  index?: number;
+}
+
+const {
+  lang,
+  slug,
+  title,
+  tagline,
+  featuredImage,
+  capacity,
+  size,
+  bedType,
+  view,
+  priceHint,
+  index = 0,
+} = Astro.props;
+
+const t = useTranslations(lang);
+const roomUrl = getLocalizedPath(lang, "rooms", slug);
+const whatsappUrl = getWhatsAppUrl(lang, title);
+
+const totalGuests = capacity.adults + capacity.children;
+const staggerDelay = `${index * 0.12}s`;
+---
+
+<article
+  class="room-card group reveal"
+  style={`transition-delay: ${staggerDelay}`}
+>
+  <a href={roomUrl} class="block">
+
+    <!-- Image Container -->
+    <div class="relative aspect-[4/3] overflow-hidden">
+      <img
+        src={featuredImage.src}
+        alt={featuredImage.alt}
+        width="800"
+        height="600"
+        loading="lazy"
+        decoding="async"
+        class="img-cover img-warm"
+      />
+
+      <!-- Hover Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/10 to-transparent
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
+          <span class="text-stone-50 text-[0.7rem] font-medium tracking-[0.2em] uppercase">
+            {t("cta.viewRoom")}
+          </span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+               class="text-stone-50 translate-x-0 group-hover:translate-x-1 transition-transform duration-300">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Price Badge (top-right) -->
+      {priceHint && (
+        <div class="absolute top-4 right-4 bg-stone-950/50 backdrop-blur-sm
+                    rounded-[2px] px-3 py-1.5 text-stone-50">
+          <span class="text-[0.65rem] tracking-wider uppercase opacity-70">
+            {t("room.startingFrom")}
+          </span>
+          <div class="text-base font-serif font-medium leading-tight mt-0.5">
+            {priceHint.currency === "EUR" ? "€" : priceHint.currency === "USD" ? "$" : "₺"}{priceHint.amount}
+            <span class="text-[0.6rem] font-sans opacity-60 ml-1">/ {t("room.from")}</span>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Card Body -->
+    <div class="px-1 pt-5 pb-2">
+      <!-- Title -->
+      <h3 class="font-serif text-xl lg:text-2xl text-stone-900 mb-1 group-hover:text-aegean-700 transition-colors duration-300">
+        {title}
+      </h3>
+
+      <!-- Tagline -->
+      {tagline && (
+        <p class="text-stone-400 text-sm italic mb-4">{tagline}</p>
+      )}
+
+      <!-- Meta Row -->
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-stone-500 text-[0.75rem] tracking-wide">
+        <!-- Guests -->
+        <span class="inline-flex items-center gap-1.5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          {t("room.guests", { count: String(totalGuests) })}
+        </span>
+
+        <!-- Size -->
+        <span class="inline-flex items-center gap-1.5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+          </svg>
+          {size.value} {size.unit}
+        </span>
+
+        <!-- Bed Type -->
+        <span class="inline-flex items-center gap-1.5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4v16" /><path d="M2 8h18a2 2 0 0 1 2 2v10" /><path d="M2 17h20" /><path d="M6 8v9" />
+          </svg>
+          {bedType}
+        </span>
+
+        <!-- View (if available) -->
+        {view && (
+          <span class="inline-flex items-center gap-1.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" />
+            </svg>
+            {view}
+          </span>
+        )}
+      </div>
+    </div>
+  </a>
+
+  <!-- WhatsApp Quick CTA -->
+  <div class="px-1 pb-1 pt-3">
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 text-[0.7rem] font-medium tracking-[0.15em]
+             uppercase text-olive-600 hover:text-olive-800 transition-colors duration-200"
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      </svg>
+      {t("cta.whatsapp")}
+    </a>
+  </div>
+</article>
