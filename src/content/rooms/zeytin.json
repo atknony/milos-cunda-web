@@ -1,0 +1,81 @@
+{
+  "slug": "zeytin",
+  "sortOrder": 1,
+  "title": {
+    "tr": "Zeytin Süit",
+    "en": "Olive Suite",
+    "el": "Σουίτα Ελιά"
+  },
+  "tagline": {
+    "tr": "Zeytin ağaçlarının huzurunda",
+    "en": "In the serenity of olive trees",
+    "el": "Στη γαλήνη των ελαιόδεντρων"
+  },
+  "description": {
+    "tr": "Tarihi taş duvarlı süitimiz, Cunda'nın ikonik zeytin bahçelerine bakan geniş terasıyla konuklarını ağırlamaktadır. Ege mimarisinin sadeliğini modern konforla harmanlayan bu oda, huzurlu bir kaçamak sunar.",
+    "en": "Our stone-walled suite welcomes guests with a spacious terrace overlooking Cunda's iconic olive groves. Blending the simplicity of Aegean architecture with modern comfort, this room offers a tranquil retreat.",
+    "el": "Η σουίτα μας με πέτρινους τοίχους καλωσορίζει τους επισκέπτες με μια ευρύχωρη βεράντα με θέα τους εμβληματικούς ελαιώνες της Κούνδα."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 1
+  },
+  "size": {
+    "value": 45,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "King Size Yatak",
+    "en": "King Size Bed",
+    "el": "Κρεβάτι King Size"
+  },
+  "view": {
+    "tr": "Zeytin Bahçesi & Kısmi Deniz Manzarası",
+    "en": "Olive Grove & Partial Sea View",
+    "el": "Ελαιώνας & Μερική Θέα στη Θάλασσα"
+  },
+  "amenities": [
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "wifi", "label": { "tr": "Ücretsiz Wi-Fi", "en": "Free Wi-Fi", "el": "Δωρεάν Wi-Fi" } },
+    { "icon": "coffee", "label": { "tr": "Nespresso Makinesi", "en": "Nespresso Machine", "el": "Μηχανή Nespresso" } },
+    { "icon": "bath", "label": { "tr": "Yağmur Duşu", "en": "Rain Shower", "el": "Ντους Βροχής" } },
+    { "icon": "shirt", "label": { "tr": "Bornoz & Terlik", "en": "Robes & Slippers", "el": "Μπουρνούζια & Παντόφλες" } },
+    { "icon": "lock", "label": { "tr": "Oda Kasası", "en": "In-Room Safe", "el": "Χρηματοκιβώτιο" } }
+  ],
+  "priceHint": {
+    "amount": 220,
+    "currency": "EUR",
+    "period": "night"
+  },
+  "featuredImage": {
+    "src": "/images/rooms/zeytin/featured.jpg",
+    "alt": {
+      "tr": "Zeytin Süit — taş duvarlar ve zeytin bahçesine bakan teras",
+      "en": "Olive Suite — stone walls and terrace overlooking olive groves",
+      "el": "Σουίτα Ελιά — πέτρινοι τοίχοι και βεράντα με θέα ελαιώνες"
+    },
+    "width": 1600,
+    "height": 1067
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/zeytin/bedroom.jpg",
+      "alt": { "tr": "Yatak odası", "en": "Bedroom", "el": "Υπνοδωμάτιο" },
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/images/rooms/zeytin/bathroom.jpg",
+      "alt": { "tr": "Banyo", "en": "Bathroom", "el": "Μπάνιο" },
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/images/rooms/zeytin/terrace.jpg",
+      "alt": { "tr": "Teras", "en": "Terrace", "el": "Βεράντα" },
+      "width": 1600,
+      "height": 1067
+    }
+  ],
+  "isPublished": true
+}

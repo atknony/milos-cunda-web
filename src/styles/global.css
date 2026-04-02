@@ -1,0 +1,269 @@
+/* ============================================
+   Milos Cunda — Global Stylesheet
+   Tailwind CSS v4 + Custom Theme Layer
+   ============================================ */
+
+@import "tailwindcss";
+
+/* ─── Custom Fonts ─── */
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/PlayfairDisplay-Italic-Variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/DMSans-Variable.woff2") format("woff2");
+}
+
+/* ─── Tailwind v4 Theme Configuration ─── */
+@theme {
+  /* --- Color Palette: Aegean Minimalism --- */
+  --color-stone-50: #faf9f7;
+  --color-stone-100: #f5f3ef;
+  --color-stone-200: #e8e4dd;
+  --color-stone-300: #d4cec4;
+  --color-stone-400: #b8b0a3;
+  --color-stone-500: #9c9285;
+  --color-stone-600: #7a7068;
+  --color-stone-700: #5e554e;
+  --color-stone-800: #433c37;
+  --color-stone-900: #2a2522;
+  --color-stone-950: #171412;
+
+  --color-olive-50: #f6f7f0;
+  --color-olive-100: #e8ebd8;
+  --color-olive-200: #d2d8b3;
+  --color-olive-300: #b5be86;
+  --color-olive-400: #97a35e;
+  --color-olive-500: #7a8644;
+  --color-olive-600: #5e6a34;
+  --color-olive-700: #48522a;
+  --color-olive-800: #3a4224;
+  --color-olive-900: #2e351f;
+  --color-olive-950: #1a1e11;
+
+  --color-aegean-50: #f0f6fa;
+  --color-aegean-100: #dceaf3;
+  --color-aegean-200: #b8d5e8;
+  --color-aegean-300: #89b8d6;
+  --color-aegean-400: #5a97bf;
+  --color-aegean-500: #3d7aa5;
+  --color-aegean-600: #30618a;
+  --color-aegean-700: #2a5071;
+  --color-aegean-800: #26445e;
+  --color-aegean-900: #243a50;
+  --color-aegean-950: #172535;
+
+  --color-terra-50: #fbf6f1;
+  --color-terra-100: #f3e8da;
+  --color-terra-200: #e6cdb4;
+  --color-terra-300: #d6ad87;
+  --color-terra-400: #c78d5e;
+  --color-terra-500: #bb7643;
+  --color-terra-600: #ad6238;
+  --color-terra-700: #904d30;
+  --color-terra-800: #74402c;
+  --color-terra-900: #5f3627;
+  --color-terra-950: #341b13;
+
+  /* --- Typography --- */
+  --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;
+  --font-sans: "DM Sans", "Helvetica Neue", "Arial", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-display: clamp(2.5rem, 5vw + 1rem, 6rem);
+
+  /* --- Spacing & Layout --- */
+  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-gutter: clamp(1.5rem, 4vw, 3rem);
+
+  /* --- Transitions --- */
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-slow: 600ms;
+  --duration-base: 350ms;
+  --duration-fast: 150ms;
+
+  /* --- Border Radius --- */
+  --radius-subtle: 2px;
+  --radius-soft: 6px;
+
+  /* --- Shadows (warm-toned) --- */
+  --shadow-soft: 0 2px 20px rgba(42, 37, 34, 0.06);
+  --shadow-medium: 0 4px 30px rgba(42, 37, 34, 0.1);
+  --shadow-elevated: 0 12px 60px rgba(42, 37, 34, 0.14);
+
+  /* --- Z-index Scale --- */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+
+  /* --- Breakpoints --- */
+  --breakpoint-xs: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+
+/* ─── Base Layer ─── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-stone-800);
+    background-color: var(--color-stone-50);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: var(--color-aegean-200);
+    color: var(--color-aegean-900);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-stone-900);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+    max-width: 68ch;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Elegant focus ring for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-aegean-400);
+    outline-offset: 3px;
+    border-radius: var(--radius-subtle);
+  }
+}
+
+/* ─── Utility Layer ─── */
+@layer utilities {
+  .text-display {
+    font-size: var(--font-size-display);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .text-editorial {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    max-width: 62ch;
+  }
+
+  .section-padding {
+    padding-block: var(--spacing-section);
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .container-narrow {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .container-wide {
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  /* Reveal animation base */
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity var(--duration-slow) var(--ease-elegant),
+      transform var(--duration-slow) var(--ease-elegant);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Decorative line — used as visual separator */
+  .line-accent {
+    width: 3rem;
+    height: 1px;
+    background-color: var(--color-olive-400);
+  }
+
+  /* Image treatments */
+  .img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .img-warm {
+    filter: saturate(0.92) contrast(1.02) brightness(1.01);
+  }
+
+  /* Grain overlay for atmospheric texture */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+}
