@@ -40,7 +40,7 @@ export function useTranslations(lang: Lang) {
       return key;
     }
 
-    let text = entry[lang] ?? entry[defaultLang];
+    let text: string = entry[lang] ?? entry[defaultLang];
 
     if (params) {
       for (const [param, value] of Object.entries(params)) {
@@ -127,8 +127,7 @@ export function getAlternateUrls(
 
 /* ─── WhatsApp URL Builder ─── */
 
-const WHATSAPP_NUMBER = "905XXXXXXXXX"; // Replace with actual number
-
+const WHATSAPP_NUMBER = "905336657431";
 /**
  * Build a WhatsApp click-to-chat URL with a pre-filled localized message.
  */
@@ -143,7 +142,7 @@ export function getWhatsAppUrl(lang: Lang, roomName?: string): string {
 
 /* ─── Phone URL ─── */
 
-const PHONE_NUMBER = "+90-5XX-XXX-XXXX"; // Replace with actual number
+const PHONE_NUMBER = "+90-533-665-7431";
 
 export function getPhoneUrl(): string {
   return `tel:${PHONE_NUMBER.replace(/[^+\d]/g, "")}`;

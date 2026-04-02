@@ -6,36 +6,36 @@
 import type { Lang } from "../i18n/ui";
 import { useTranslations } from "../i18n/utils";
 
-const SITE_URL = "https://miloscunda.com"; // Replace with production URL
+const SITE_URL = "https://miloscunda.com";
 const HOTEL_NAME = "Milos Cunda";
-const PHONE = "+905XXXXXXXXX";
-const WHATSAPP = "+905XXXXXXXXX";
+const PHONE = "+905336657431";
+const WHATSAPP = "+905336657431";
 
 const COORDINATES = {
-  latitude: 39.3275,
-  longitude: 26.6927,
+  latitude: 39.3363,
+  longitude: 26.6578,
 };
 
 const ADDRESS = {
   tr: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal Mahallesi, Karanfil Sokak",
     addressLocality: "Ayvalık",
     addressRegion: "Balıkesir",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
   en: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal Mahallesi, Karanfil Sokak",
     addressLocality: "Ayvalık",
     addressRegion: "Balıkesir",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
   el: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal Mahallesi, Karanfil Sokak",
     addressLocality: "Αϊβαλί",
     addressRegion: "Μπαλίκεσιρ",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
 };
@@ -72,7 +72,7 @@ export function generateHotelSchema(lang: Lang) {
       "@type": "Rating",
       ratingValue: "4",
     },
-    numberOfRooms: 8,
+    numberOfRooms: 6,
     petsAllowed: false,
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Free WiFi", value: true },
