@@ -15,6 +15,12 @@
 import { getLangFromUrl, useTranslations, getLocalizedPath, getHomePath, getWhatsAppUrl } from "../i18n/utils";
 import { languages, type Lang } from "../i18n/ui";
 
+interface Props {
+  /** When true, header starts transparent (for pages with dark hero backgrounds). */
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -38,7 +44,7 @@ const langOptions = (Object.keys(languages) as Lang[]).map((l) => ({
 ---
 
 <!-- ══════════════ HEADER ══════════════ -->
-<header data-header role="banner">
+<header data-header role="banner" {...(!transparent && { "data-scrolled": "" })}>
   <div class="container-wide">
     <div class="flex items-center justify-between h-20 lg:h-24">
 
@@ -181,27 +187,34 @@ const langOptions = (Object.keys(languages) as Lang[]).map((l) => ({
 <!-- ══════════════ SCRIPT ══════════════ -->
 <script>
   document.addEventListener("astro:page-load", () => {
-    const header = document.querySelector("[data-header]");
-    const hamburger = document.querySelector("[data-hamburger]");
-    const menu = document.querySelector("[data-mobile-menu]");
+    const header = document.querySelector("[data-header]") as HTMLElement;
+    const hamburger = document.querySelector("[data-hamburger]") as HTMLElement;
+    const menu = document.querySelector("[data-mobile-menu]") as HTMLElement;
     if (!header || !hamburger || !menu) return;
 
     // ── Scroll state ──
+    const isTransparent = !header.hasAttribute("data-scrolled");
     let ticking = false;
     function onScroll() {
       if (!ticking) {
         requestAnimationFrame(() => {
-          if (window.scrollY > 50) {
-            header.setAttribute("data-scrolled", "");
-          } else {
-            header.removeAttribute("data-scrolled");
+          if (isTransparent) {
+            // Only toggle on pages that started transparent (homepage)
+            if (window.scrollY > 50) {
+              header.setAttribute("data-scrolled", "");
+            } else {
+              header.removeAttribute("data-scrolled");
+            }
           }
+          // Pages that started solid stay solid — no toggling needed
           ticking = false;
         });
         ticking = true;
       }
     }
-    onScroll();
+      if (isTransparent) {
+      onScroll(); // Only bind scroll listener on transparent pages
+    }
     window.addEventListener("scroll", onScroll, { passive: true });
 
     // ── Mobile menu ──
@@ -220,5 +233,10 @@ const langOptions = (Object.keys(languages) as Lang[]).map((l) => ({
     hamburger.addEventListener("click", toggle);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && open) toggle(); });
     menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { if (open) toggle(); }));
+
+    // Close on backdrop click (clicking empty space outside menu content)
+    menu.addEventListener("click", (e) => {
+      if (e.target === menu && open) toggle();
+    });
   });
 </script>
