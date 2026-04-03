@@ -1,43 +1,30 @@
-# Astro Starter Kit: Minimal
+# Milos Cunda
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A modern, fast, and multilingual (Turkish, English, Greek) web project developed for the Milos Cunda boutique hotel. Built with Astro v5 and Tailwind CSS utilizing a static site generation (SSG) architecture. It offers a minimalist and accessible interface aligned with the "quiet luxury" concept.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Installation and Execution
 
-## 🚀 Project Structure
+Follow the steps below to run the project in your local environment. Node.js must be installed on your system.
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Clone the project to your local machine:
+    git clone https://github.com/atknony/milos-cunda-web
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+2. Navigate to the project directory:
+    cd milos-cunda-web
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Install the required dependencies:
+    npm install
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+4. Start the development server:
+    npm run dev
 
-Any static assets, like images, can be placed in the `public/` directory.
+Once the terminal process is complete, you can view the project by navigating to `http://localhost:4321` in your browser.
 
-## 🧞 Commands
+## Our Approach to SEO and GEO Architecture
 
-All commands are run from the root of the project, from a terminal:
+Our application features a technical infrastructure designed to perform optimally in search engines and regional searches:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+* **Multilingual Indexing (Hreflang):** The three language options are explicitly communicated to search engines via `hreflang` tags, ensuring users are accurately directed to the corresponding localized pages.
+* **Semantic Data (JSON-LD):** Pages are structured not only as HTML documents but also as data objects (Hotel, Restaurant, Landmark) based on Schema.org standards, enabling search engines to generate "Rich Results".
+* **Local SEO (GEO):** Location and entity data specific to Cunda Island and the Ayvalık region are embedded within the markup, enhancing the establishment's domain authority for regional tourism and hospitality queries.
+* **High Performance (SSG):** Since all pages are pre-rendered during the build phase, server response times are minimized to milliseconds, ensuring top scores in Google Core Web Vitals metrics.
