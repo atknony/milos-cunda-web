@@ -167,6 +167,58 @@ export const ui = {
     el: "Οκτώ προσεκτικά σχεδιασμένα δωμάτια, καθένα αντανακλά το πνεύμα της Κούνδα",
   },
 
+  // ─── Room Detail Page ───
+  "room.about": {
+    tr: "Oda Hakkında",
+    en: "About This Room",
+    el: "Σχετικά με το Δωμάτιο",
+  },
+  "room.gallery": {
+    tr: "Fotoğraf Galerisi",
+    en: "Photo Gallery",
+    el: "Φωτογραφικό Άλμπουμ",
+  },
+  "room.specs": {
+    tr: "Oda Detayları",
+    en: "Room Details",
+    el: "Λεπτομέρειες Δωματίου",
+  },
+  "room.bedType": {
+    tr: "Yatak",
+    en: "Bed",
+    el: "Κρεβάτι",
+  },
+  "room.view": {
+    tr: "Manzara",
+    en: "View",
+    el: "Θέα",
+  },
+  "room.checkIn": {
+    tr: "Giriş: 14:00",
+    en: "Check-in: 2:00 PM",
+    el: "Check-in: 14:00",
+  },
+  "room.checkOut": {
+    tr: "Çıkış: 11:00",
+    en: "Check-out: 11:00 AM",
+    el: "Check-out: 11:00",
+  },
+  "room.bookThis": {
+    tr: "Bu Odayı Rezerve Edin",
+    en: "Reserve This Room",
+    el: "Κρατήστε αυτό το Δωμάτιο",
+  },
+  "room.otherRooms": {
+    tr: "Diğer Odalarımız",
+    en: "Our Other Rooms",
+    el: "Τα Άλλα Δωμάτιά μας",
+  },
+  "room.backToRooms": {
+    tr: "Tüm Odalara Dön",
+    en: "Back to All Rooms",
+    el: "Πίσω σε Όλα τα Δωμάτια",
+  },
+
   // ─── Lightbox ───
   "lightbox.close": {
     tr: "Galeriyi kapat",
@@ -277,6 +329,219 @@ export const ui = {
     el: "Αεροφωτογραφία του Milos Cunda",
   },
 
+  // ─── Guide Listing ───
+  "guide.title": {
+    tr: "Cunda Adası Rehberi",
+    en: "Cunda Island Guide",
+    el: "Οδηγός Νησιού Κούνδα",
+  },
+  "guide.subtitle": {
+    tr: "Tarihi, mimarisi ve lezzetleriyle Ege'nin saklı incisi",
+    en: "The Aegean's hidden gem — its history, architecture, and flavors",
+    el: "Το κρυμμένο στολίδι του Αιγαίου — ιστορία, αρχιτεκτονική και γεύσεις",
+  },
+  "guide.readMore": {
+    tr: "Devamını Oku",
+    en: "Read More",
+    el: "Διαβάστε Περισσότερα",
+  },
+  "guide.readTime": {
+    tr: "{min} dk okuma",
+    en: "{min} min read",
+    el: "{min} λεπτά ανάγνωση",
+  },
+  "guide.backToGuide": {
+    tr: "Rehbere Dön",
+    en: "Back to Guide",
+    el: "Πίσω στον Οδηγό",
+  },
+  "guide.relatedPlaces": {
+    tr: "İlgili Mekanlar",
+    en: "Related Places",
+    el: "Σχετικοί Τόποι",
+  },
+  "guide.publishedOn": {
+    tr: "Yayın Tarihi",
+    en: "Published",
+    el: "Δημοσιεύτηκε",
+  },
+  "guide.all": {
+    tr: "Tümü",
+    en: "All",
+    el: "Όλα",
+  },
+  "guide.category.history": {
+    tr: "Tarih",
+    en: "History",
+    el: "Ιστορία",
+  },
+  "guide.category.architecture": {
+    tr: "Mimari",
+    en: "Architecture",
+    el: "Αρχιτεκτονική",
+  },
+  "guide.category.gastronomy": {
+    tr: "Gastronomi",
+    en: "Gastronomy",
+    el: "Γαστρονομία",
+  },
+  "guide.category.nature": {
+    tr: "Doğa",
+    en: "Nature",
+    el: "Φύση",
+  },
+  "guide.category.culture": {
+    tr: "Kültür",
+    en: "Culture",
+    el: "Πολιτισμός",
+  },
+  "guide.category.activities": {
+    tr: "Aktiviteler",
+    en: "Activities",
+    el: "Δραστηριότητες",
+  },
+
+  // ─── Contact Page ───
+  "contact.title": {
+    tr: "İletişim",
+    en: "Contact",
+    el: "Επικοινωνία",
+  },
+  "contact.subtitle": {
+    tr: "Sizinle tanışmak için sabırsızlanıyoruz",
+    en: "We look forward to welcoming you",
+    el: "Ανυπομονούμε να σας καλωσορίσουμε",
+  },
+  "contact.address": {
+    tr: "Adres",
+    en: "Address",
+    el: "Διεύθυνση",
+  },
+  "contact.phone": {
+    tr: "Telefon",
+    en: "Phone",
+    el: "Τηλέφωνο",
+  },
+  "contact.email": {
+    tr: "E-posta",
+    en: "Email",
+    el: "Email",
+  },
+  "contact.hours": {
+    tr: "Resepsiyon Saatleri",
+    en: "Reception Hours",
+    el: "Ώρες Ρεσεψιόν",
+  },
+  "contact.hoursValue": {
+    tr: "08:00 – 22:00",
+    en: "8:00 AM – 10:00 PM",
+    el: "08:00 – 22:00",
+  },
+  "contact.directions": {
+    tr: "Yol Tarifi",
+    en: "Get Directions",
+    el: "Οδηγίες",
+  },
+  "contact.directionsDesc": {
+    tr: "Ayvalık'tan Cunda Adası'na köprü ile yaklaşık 5 dakikada ulaşabilirsiniz. Otelimiz Sahil Mahallesi'nde, deniz kıyısında yer almaktadır.",
+    en: "Cunda Island is a 5-minute drive from Ayvalık over the bridge. Our hotel is located on the waterfront in Sahil Mahallesi.",
+    el: "Η Κούνδα απέχει 5 λεπτά με αυτοκίνητο από το Αϊβαλί μέσω της γέφυρας. Το ξενοδοχείο μας βρίσκεται στην παραλία στο Sahil Mahallesi.",
+  },
+  "contact.mapLabel": {
+    tr: "Haritada Göster",
+    en: "View on Map",
+    el: "Δείτε στον Χάρτη",
+  },
+
+  // ─── Experience Page ───
+  "experience.title": {
+    tr: "Milos Deneyimi",
+    en: "The Milos Experience",
+    el: "Η Εμπειρία Milos",
+  },
+  "experience.subtitle": {
+    tr: "Her detayın özenle düşünüldüğü bir konaklama deneyimi",
+    en: "A stay where every detail has been carefully considered",
+    el: "Μια διαμονή όπου κάθε λεπτομέρεια έχει μελετηθεί προσεκτικά",
+  },
+  "experience.breakfast.title": {
+    tr: "Ege Kahvaltısı",
+    en: "Aegean Breakfast",
+    el: "Αιγαιοπελαγίτικο Πρωινό",
+  },
+  "experience.breakfast.text": {
+    tr: "Her sabah avlumuzda, yerel zeytin yağı, taze peynirler, köy yumurtası, kekik balı ve mevsim meyveleriyle hazırlanan geleneksel bir Ege kahvaltısı servis edilir. Ekmekler günlük pişirilir, reçeller el yapımıdır.",
+    en: "Each morning in our courtyard, a traditional Aegean breakfast is served with local olive oil, fresh cheeses, farm eggs, thyme honey, and seasonal fruits. Breads are baked daily, jams are homemade.",
+    el: "Κάθε πρωί στην αυλή μας, σερβίρεται ένα παραδοσιακό αιγαιοπελαγίτικο πρωινό με τοπικό ελαιόλαδο, φρέσκα τυριά, αυγά φάρμας, μέλι θυμαριού και εποχιακά φρούτα.",
+  },
+  "experience.courtyard.title": {
+    tr: "Taş Avlu",
+    en: "The Stone Courtyard",
+    el: "Η Πέτρινη Αυλή",
+  },
+  "experience.courtyard.text": {
+    tr: "Otelimizin kalbi olan avlu, yüzyıllık taş duvarlar ve begonvil çiçekleriyle çevrilmiştir. Sabah kahvaltınızı güneşin altında, akşam aperatifinizi yıldızların altında yapacağınız huzurlu bir vahadır.",
+    en: "The heart of our hotel, the courtyard is enclosed by centuries-old stone walls and cascading bougainvillea. A serene oasis where you'll enjoy morning breakfast under the sun and evening aperitifs under the stars.",
+    el: "Η καρδιά του ξενοδοχείου μας, η αυλή περιβάλλεται από αιωνόβιους πέτρινους τοίχους και μπουκαμβίλιες. Μια γαλήνια όαση.",
+  },
+  "experience.service.title": {
+    tr: "Kişiye Özel Hizmet",
+    en: "Personalized Service",
+    el: "Εξατομικευμένη Εξυπηρέτηση",
+  },
+  "experience.service.text": {
+    tr: "Sadece sekiz odamız olması, her misafire özel ilgi göstermemizi sağlar. Restoran rezervasyonlarından tekne turlarına, zeytin hasadı deneyiminden yerel rehberliğe — seyahatinizi size özel kılıyoruz.",
+    en: "With only eight rooms, we give every guest personal attention. From restaurant reservations to boat tours, olive harvest experiences to local guided walks — we tailor your journey to you.",
+    el: "Με μόνο οκτώ δωμάτια, προσφέρουμε σε κάθε επισκέπτη προσωπική προσοχή. Από κρατήσεις εστιατορίων έως βόλτες με βάρκα.",
+  },
+  "experience.sunset.title": {
+    tr: "Gün Batımı Terası",
+    en: "Sunset Terrace",
+    el: "Βεράντα Ηλιοβασιλέματος",
+  },
+  "experience.sunset.text": {
+    tr: "Çatı terasımız, Ege üzerinde batan güneşin Midilli Adası'nın siluetini boyamasını izlemek için tasarlanmıştır. Yerel şaraplar ve mevsimsel mezelerin eşliğinde günü uğurlamak, Milos deneyiminin en özel anlarından biridir.",
+    en: "Our rooftop terrace is designed for watching the sun paint Lesbos Island's silhouette as it sets over the Aegean. Accompanied by local wines and seasonal mezes, bidding farewell to the day is one of the most treasured moments of the Milos experience.",
+    el: "Η ταράτσα μας είναι σχεδιασμένη για να παρακολουθείτε τον ήλιο να ζωγραφίζει τη σιλουέτα της Λέσβου καθώς δύει πάνω από το Αιγαίο.",
+  },
+
+  // ─── Gallery Page ───
+  "gallery.title": {
+    tr: "Galeri",
+    en: "Gallery",
+    el: "Γκαλερί",
+  },
+  "gallery.subtitle": {
+    tr: "Milos Cunda'nın atmosferini keşfedin",
+    en: "Discover the atmosphere of Milos Cunda",
+    el: "Ανακαλύψτε την ατμόσφαιρα του Milos Cunda",
+  },
+  "gallery.cat.all": {
+    tr: "Tümü",
+    en: "All",
+    el: "Όλα",
+  },
+  "gallery.cat.rooms": {
+    tr: "Odalar",
+    en: "Rooms",
+    el: "Δωμάτια",
+  },
+  "gallery.cat.exterior": {
+    tr: "Dış Mekan",
+    en: "Exterior",
+    el: "Εξωτερικοί Χώροι",
+  },
+  "gallery.cat.dining": {
+    tr: "Gastronomi",
+    en: "Dining",
+    el: "Γαστρονομία",
+  },
+  "gallery.cat.island": {
+    tr: "Cunda Adası",
+    en: "Cunda Island",
+    el: "Νησί Κούνδα",
+  },
+
   // ─── 404 ───
   "404.title": {
     tr: "Sayfa Bulunamadı",
@@ -287,6 +552,16 @@ export const ui = {
     tr: "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
     en: "The page you're looking for doesn't exist or has been moved.",
     el: "Η σελίδα που αναζητάτε δεν υπάρχει ή έχει μετακινηθεί.",
+  },
+  "404.home": {
+    tr: "Ana Sayfaya Dön",
+    en: "Return Home",
+    el: "Επιστροφή στην Αρχική",
+  },
+  "404.rooms": {
+    tr: "Odalarımızı Keşfedin",
+    en: "Explore Our Rooms",
+    el: "Εξερευνήστε τα Δωμάτιά μας",
   },
 } as const;
 

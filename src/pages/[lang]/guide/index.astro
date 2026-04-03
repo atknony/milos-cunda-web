@@ -1,0 +1,215 @@
+---
+/**
+ * Milos Cunda — Cunda Island Guide (Listing)
+ * Route: /[lang]/guide/
+ *
+ * Magazine-style editorial index.
+ * - Featured article (large card, 2-column)
+ * - Category filter tabs (client-side filter, ~15 lines JS)
+ * - Article grid (3-column)
+ */
+
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+
+import { languages, type Lang } from "../../../i18n/ui";
+import { useTranslations, getLocalizedPath } from "../../../i18n/utils";
+
+export const getStaticPaths = (() => {
+  return (Object.keys(languages) as Lang[]).map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+/* ─── Load guides for this language ─── */
+const allGuides = await getCollection("guides");
+const guides = allGuides
+  .filter((g) => g.data.lang === lang && g.data.isPublished)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+const featured = guides[0];
+const remaining = guides.slice(1);
+
+/* Unique categories present in this language */
+const categories = [...new Set(guides.map((g) => g.data.category))];
+
+/* Reading time estimate helper */
+function readTime(body: string): number {
+  const words = body.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+/* ─── SEO ─── */
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const breadcrumbs = [
+  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: t("guide.title"), url: `${siteUrl}${getLocalizedPath(lang, "guide")}` },
+];
+---
+
+<MainLayout
+  title={`${t("guide.title")} | Milos Cunda`}
+  description={t("guide.subtitle")}
+  breadcrumbs={breadcrumbs}
+>
+  <Header slot="header" />
+
+  <!-- ─── Page Header ─── -->
+  <section class="pt-32 lg:pt-40 pb-10 lg:pb-14 bg-stone-50">
+    <div class="container-narrow text-center">
+      <div class="line-accent mx-auto mb-6 hero-stagger-1" aria-hidden="true"></div>
+      <h1 class="text-display text-stone-900 mb-4 hero-stagger-2">
+        {t("guide.title")}
+      </h1>
+      <p class="text-stone-500 text-base sm:text-lg leading-relaxed max-w-lg mx-auto hero-stagger-3">
+        {t("guide.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Category Tabs ─── -->
+  {categories.length > 1 && (
+    <section class="bg-stone-50 pb-10 lg:pb-14">
+      <div class="container-narrow">
+        <div class="flex flex-wrap items-center justify-center gap-2" id="guide-filters">
+          <button class="cat-tab" data-active data-filter="all">{t("guide.all")}</button>
+          {categories.map((cat) => {
+            const catKey = `guide.category.${cat}` as any;
+            return (
+              <button class="cat-tab" data-filter={cat}>
+                {t(catKey)}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── Featured Article ─── -->
+  {featured && (
+    <section class="bg-stone-50 pb-12 lg:pb-16">
+      <div class="container-wide">
+        <a
+          href={getLocalizedPath(lang, "guide", featured.data.urSlug)}
+          class="guide-featured group reveal"
+          data-category={featured.data.category}
+        >
+          <div class="aspect-[16/10] lg:aspect-auto overflow-hidden">
+            <img
+              src={featured.data.featuredImage.src}
+              alt={featured.data.featuredImage.alt[lang]}
+              width={featured.data.featuredImage.width ?? 1600}
+              height={featured.data.featuredImage.height ?? 1067}
+              loading="eager"
+              decoding="async"
+              class="img-cover img-warm"
+            />
+          </div>
+          <div class="p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="cat-badge">{t(`guide.category.${featured.data.category}` as any)}</span>
+              <span class="text-stone-400 text-[0.65rem] tracking-wider">
+                {t("guide.readTime", { min: String(readTime(featured.body ?? "")) })}
+              </span>
+            </div>
+            <h2 class="font-serif text-2xl lg:text-3xl xl:text-4xl text-stone-900 mb-4
+                       group-hover:text-aegean-700 transition-colors duration-300">
+              {featured.data.title}
+            </h2>
+            <p class="text-stone-500 text-base leading-relaxed mb-6 max-w-md">
+              {featured.data.excerpt}
+            </p>
+            <span class="inline-flex items-center gap-2 text-[0.7rem] font-medium tracking-[0.18em]
+                         uppercase text-stone-600 group-hover:text-aegean-700 transition-colors duration-200">
+              {t("guide.readMore")}
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── Article Grid ─── -->
+  {remaining.length > 0 && (
+    <section class="section-padding bg-stone-50 pt-0" id="guide-grid">
+      <div class="container-wide">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          {remaining.map((guide, i) => (
+            <a
+              href={getLocalizedPath(lang, "guide", guide.data.urSlug)}
+              class="guide-card group reveal"
+              data-category={guide.data.category}
+              style={`transition-delay: ${i * 0.1}s`}
+            >
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={guide.data.featuredImage.src}
+                  alt={guide.data.featuredImage.alt[lang]}
+                  width={guide.data.featuredImage.width ?? 800}
+                  height={guide.data.featuredImage.height ?? 534}
+                  loading="lazy"
+                  decoding="async"
+                  class="img-cover img-warm"
+                />
+              </div>
+              <div class="p-5 lg:p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="cat-badge">{t(`guide.category.${guide.data.category}` as any)}</span>
+                  <span class="text-stone-400 text-[0.6rem] tracking-wider">
+                    {t("guide.readTime", { min: String(readTime(guide.body ?? "")) })}
+                  </span>
+                </div>
+                <h3 class="font-serif text-lg lg:text-xl text-stone-900 mb-2
+                           group-hover:text-aegean-700 transition-colors duration-200">
+                  {guide.data.title}
+                </h3>
+                <p class="text-stone-500 text-sm leading-relaxed line-clamp-3">
+                  {guide.data.excerpt}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer slot="footer" />
+</MainLayout>
+
+<!-- Category Filter Script (~15 lines) -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const tabs = document.querySelectorAll<HTMLElement>("[data-filter]");
+    const cards = document.querySelectorAll<HTMLElement>("[data-category]");
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.removeAttribute("data-active"));
+        tab.setAttribute("data-active", "");
+
+        const filter = tab.getAttribute("data-filter");
+        cards.forEach((card) => {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>

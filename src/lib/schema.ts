@@ -173,3 +173,114 @@ export function generateWebSiteSchema(lang: Lang) {
     },
   };
 }
+
+/**
+ * HotelRoom schema for individual room detail pages.
+ * Links back to the parent Hotel entity.
+ */
+export interface RoomSchemaInput {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  gallery: string[];
+  occupancy: { adults: number; children: number };
+  size: { value: number; unit: string };
+  bedType: string;
+  amenities: string[];
+  priceHint?: { amount: number; currency: string };
+}
+
+export function generateRoomSchema(lang: Lang, room: RoomSchemaInput) {
+  const roomUrl = `${SITE_URL}/${lang}/rooms/${room.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "HotelRoom",
+    "@id": `${roomUrl}#room`,
+    name: room.name,
+    description: room.description,
+    url: roomUrl,
+    image: [room.image, ...room.gallery].map(
+      (src) => (src.startsWith("http") ? src : `${SITE_URL}${src}`)
+    ),
+    occupancy: {
+      "@type": "QuantitativeValue",
+      value: room.occupancy.adults + room.occupancy.children,
+      unitText: "persons",
+    },
+    floorSize: {
+      "@type": "QuantitativeValue",
+      value: room.size.value,
+      unitCode: room.size.unit === "m2" ? "MTK" : "FTK",
+    },
+    bed: {
+      "@type": "BedDetails",
+      typeOfBed: room.bedType,
+      numberOfBeds: 1,
+    },
+    amenityFeature: room.amenities.map((name) => ({
+      "@type": "LocationFeatureSpecification",
+      name,
+      value: true,
+    })),
+    ...(room.priceHint && {
+      priceRange: `From ${room.priceHint.currency === "EUR" ? "€" : room.priceHint.currency}${room.priceHint.amount}`,
+    }),
+    containedInPlace: {
+      "@id": `${SITE_URL}/#hotel`,
+    },
+  };
+}
+
+/**
+ * Article schema for guide/editorial detail pages.
+ * Includes relatedEntities as mentions for GEO enrichment.
+ */
+export interface ArticleSchemaInput {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  author?: string;
+  publishedAt: string;
+  updatedAt?: string;
+  relatedEntities?: { name: string; type: string; sameAs?: string }[];
+}
+
+export function generateArticleSchema(lang: Lang, article: ArticleSchemaInput) {
+  const articleUrl = `${SITE_URL}/${lang}/guide/${article.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${articleUrl}#article`,
+    headline: article.title,
+    description: article.excerpt,
+    url: articleUrl,
+    image: article.image.startsWith("http")
+      ? article.image
+      : `${SITE_URL}${article.image}`,
+    datePublished: article.publishedAt,
+    ...(article.updatedAt && { dateModified: article.updatedAt }),
+    author: {
+      "@type": "Organization",
+      name: HOTEL_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@id": `${SITE_URL}/#hotel`,
+    },
+    ...(article.relatedEntities &&
+      article.relatedEntities.length > 0 && {
+        mentions: article.relatedEntities.map((entity) => ({
+          "@type": entity.type,
+          name: entity.name,
+          ...(entity.sameAs && { sameAs: entity.sameAs }),
+        })),
+      }),
+    isPartOf: {
+      "@id": `${SITE_URL}/#website`,
+    },
+  };
+}

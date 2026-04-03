@@ -1,0 +1,151 @@
+---
+/**
+ * Milos Cunda — Gallery
+ * Route: /[lang]/gallery/
+ *
+ * CSS columns masonry layout with:
+ * - Category filter tabs (rooms, exterior, dining, island)
+ * - Mixed aspect ratios for editorial tension
+ * - Lightbox integration via data-lightbox-trigger
+ * - Hover captions with image title
+ */
+
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Lightbox from "../../components/Lightbox.astro";
+
+import { languages, type Lang } from "../../i18n/ui";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+export const getStaticPaths = (() => {
+  return (Object.keys(languages) as Lang[]).map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+/**
+ * Gallery images.
+ * In production, these would come from a CMS or content collection.
+ * Category: rooms | exterior | dining | island
+ */
+const galleryImages = [
+  { src: "/images/gallery/exterior-facade.jpg", alt: { tr: "Otel cephesi", en: "Hotel facade", el: "Πρόσοψη ξενοδοχείου" }, category: "exterior" },
+  { src: "/images/gallery/room-zeytin-01.jpg", alt: { tr: "Zeytin Süit yatak odası", en: "Olive Suite bedroom", el: "Υπνοδωμάτιο Σουίτα Ελιά" }, category: "rooms" },
+  { src: "/images/gallery/dining-breakfast.jpg", alt: { tr: "Ege kahvaltısı", en: "Aegean breakfast spread", el: "Αιγαιοπελαγίτικο πρωινό" }, category: "dining" },
+  { src: "/images/gallery/island-harbor.jpg", alt: { tr: "Cunda limanı", en: "Cunda harbor", el: "Λιμάνι Κούνδα" }, category: "island" },
+  { src: "/images/gallery/room-ege-01.jpg", alt: { tr: "Ege Süit balkon", en: "Aegean Suite balcony", el: "Μπαλκόνι Σουίτα Αιγαίο" }, category: "rooms" },
+  { src: "/images/gallery/exterior-courtyard.jpg", alt: { tr: "Taş avlu", en: "Stone courtyard", el: "Πέτρινη αυλή" }, category: "exterior" },
+  { src: "/images/gallery/island-streets.jpg", alt: { tr: "Cunda sokakları", en: "Cunda streets", el: "Δρόμοι Κούνδα" }, category: "island" },
+  { src: "/images/gallery/dining-table.jpg", alt: { tr: "Akşam yemeği", en: "Dinner setting", el: "Δείπνο" }, category: "dining" },
+  { src: "/images/gallery/room-zeytin-02.jpg", alt: { tr: "Zeytin Süit banyo", en: "Olive Suite bathroom", el: "Μπάνιο Σουίτα Ελιά" }, category: "rooms" },
+  { src: "/images/gallery/exterior-terrace.jpg", alt: { tr: "Gün batımı terası", en: "Sunset terrace", el: "Βεράντα ηλιοβασιλέματος" }, category: "exterior" },
+  { src: "/images/gallery/island-church.jpg", alt: { tr: "Taksiyarhis Kilisesi", en: "Taksiyarhis Church", el: "Ναός Ταξιαρχών" }, category: "island" },
+  { src: "/images/gallery/dining-olive-oil.jpg", alt: { tr: "Zeytinyağı tadımı", en: "Olive oil tasting", el: "Δοκιμή ελαιολάδου" }, category: "dining" },
+  { src: "/images/gallery/room-ege-02.jpg", alt: { tr: "Ege Süit detay", en: "Aegean Suite detail", el: "Λεπτομέρεια Σουίτα Αιγαίο" }, category: "rooms" },
+  { src: "/images/gallery/exterior-entrance.jpg", alt: { tr: "Otel girişi", en: "Hotel entrance", el: "Είσοδος ξενοδοχείου" }, category: "exterior" },
+  { src: "/images/gallery/island-olive-groves.jpg", alt: { tr: "Zeytin bahçeleri", en: "Olive groves", el: "Ελαιώνες" }, category: "island" },
+];
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const breadcrumbs = [
+  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: t("gallery.title"), url: `${siteUrl}${getLocalizedPath(lang, "gallery")}` },
+];
+---
+
+<MainLayout
+  title={`${t("gallery.title")} | Milos Cunda`}
+  description={t("gallery.subtitle")}
+  breadcrumbs={breadcrumbs}
+>
+  <Header slot="header" />
+
+  <!-- ─── Page Header ─── -->
+  <section class="pt-32 lg:pt-40 pb-10 lg:pb-14 bg-stone-50">
+    <div class="container-narrow text-center">
+      <div class="line-accent mx-auto mb-6 hero-stagger-1" aria-hidden="true"></div>
+      <h1 class="text-display text-stone-900 mb-4 hero-stagger-2">
+        {t("gallery.title")}
+      </h1>
+      <p class="text-stone-500 text-base sm:text-lg leading-relaxed max-w-md mx-auto hero-stagger-3">
+        {t("gallery.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Category Filter Tabs ─── -->
+  <section class="bg-stone-50 pb-10 lg:pb-14">
+    <div class="container-narrow">
+      <div class="flex flex-wrap items-center justify-center gap-2" id="gallery-filters">
+        <button class="cat-tab" data-active data-filter="all">{t("gallery.cat.all")}</button>
+        <button class="cat-tab" data-filter="rooms">{t("gallery.cat.rooms")}</button>
+        <button class="cat-tab" data-filter="exterior">{t("gallery.cat.exterior")}</button>
+        <button class="cat-tab" data-filter="dining">{t("gallery.cat.dining")}</button>
+        <button class="cat-tab" data-filter="island">{t("gallery.cat.island")}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Masonry Gallery ─── -->
+  <section class="section-padding bg-stone-50 pt-0">
+    <div class="container-wide">
+      <div class="gallery-grid" id="gallery-grid">
+        {galleryImages.map((img, i) => (
+          <div
+            class="gallery-grid-item reveal"
+            data-category={img.category}
+            style={`transition-delay: ${Math.min(i * 0.04, 0.4)}s`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt[lang]}
+              width="800"
+              height="600"
+              loading={i < 6 ? "eager" : "lazy"}
+              decoding="async"
+              data-lightbox-trigger
+              data-src={img.src}
+              data-alt={img.alt[lang]}
+            />
+            <div class="gallery-caption">
+              {img.alt[lang]}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <Lightbox />
+</MainLayout>
+
+<!-- Gallery Filter Script -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const tabs = document.querySelectorAll<HTMLElement>("#gallery-filters [data-filter]");
+    const items = document.querySelectorAll<HTMLElement>("#gallery-grid [data-category]");
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.removeAttribute("data-active"));
+        tab.setAttribute("data-active", "");
+
+        const filter = tab.getAttribute("data-filter");
+        items.forEach((item) => {
+          if (filter === "all" || item.getAttribute("data-category") === filter) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>

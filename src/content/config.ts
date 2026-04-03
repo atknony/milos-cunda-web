@@ -100,7 +100,7 @@ const guides = defineCollection({
   type: "content", // Markdown/MDX files
   schema: z.object({
     /** URL-safe identifier */
-    slug: z.string().regex(/^[a-z0-9-]+$/),
+    urSlug: z.string().regex(/^[a-z0-9-]+$/),
 
     /** Language of this content file */
     lang: z.enum(["tr", "en", "el"]),

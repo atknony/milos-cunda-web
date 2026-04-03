@@ -40,7 +40,7 @@ export function useTranslations(lang: Lang) {
       return key;
     }
 
-    let text = entry[lang] ?? entry[defaultLang];
+    let text: string = entry[lang] ?? entry[defaultLang];
 
     if (params) {
       for (const [param, value] of Object.entries(params)) {
@@ -58,12 +58,24 @@ export function useTranslations(lang: Lang) {
  * Route slug translations for named pages.
  * Keys are the internal route identifiers, values are localized slugs.
  */
+/**
+ * Route slug map.
+ *
+ * IMPORTANT: These MUST match the actual Astro page filenames under
+ * src/pages/[lang]/. Astro's file-based routing uses the literal
+ * filename as the URL segment. Language differentiation comes from
+ * the /[lang]/ prefix, not from translated slugs.
+ *
+ * If you need localized URL segments (e.g. /tr/odalar/ instead of
+ * /tr/rooms/), you must restructure pages to use [...slug] catch-all
+ * routes with getStaticPaths generating every localized variant.
+ */
 const routeSlugs: Record<string, Record<Lang, string>> = {
-  rooms: { tr: "odalar", en: "rooms", el: "domatia" },
-  experience: { tr: "deneyim", en: "experience", el: "empeiria" },
-  guide: { tr: "rehber", en: "guide", el: "odigos" },
-  gallery: { tr: "galeri", en: "gallery", el: "galeri" },
-  contact: { tr: "iletisim", en: "contact", el: "epikoinonia" },
+  rooms:      { tr: "rooms",      en: "rooms",      el: "rooms" },
+  experience: { tr: "experience", en: "experience", el: "experience" },
+  guide:      { tr: "guide",      en: "guide",      el: "guide" },
+  gallery:    { tr: "gallery",    en: "gallery",    el: "gallery" },
+  contact:    { tr: "contact",    en: "contact",    el: "contact" },
 };
 
 /**

@@ -1,0 +1,175 @@
+---
+/**
+ * Milos Cunda — The Experience
+ * Route: /[lang]/experience/
+ *
+ * Editorial lifestyle page:
+ * - Hero statement
+ * - 4 alternating feature blocks (image + prose), visually numbered
+ * - Closing booking CTA
+ */
+
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+import { languages, type Lang } from "../../i18n/ui";
+import { useTranslations, getLocalizedPath, getWhatsAppUrl, getPhoneUrl } from "../../i18n/utils";
+
+export const getStaticPaths = (() => {
+  return (Object.keys(languages) as Lang[]).map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+const whatsappUrl = getWhatsAppUrl(lang);
+const phoneUrl = getPhoneUrl();
+
+/* ─── Feature blocks data ─── */
+const features = [
+  {
+    titleKey: "experience.breakfast.title" as const,
+    textKey: "experience.breakfast.text" as const,
+    image: "/images/experience/breakfast.jpg",
+    alt: { tr: "Ege kahvaltısı avluda", en: "Aegean breakfast in the courtyard", el: "Αιγαιοπελαγίτικο πρωινό στην αυλή" },
+  },
+  {
+    titleKey: "experience.courtyard.title" as const,
+    textKey: "experience.courtyard.text" as const,
+    image: "/images/experience/courtyard.jpg",
+    alt: { tr: "Taş avlu ve begonviller", en: "Stone courtyard and bougainvillea", el: "Πέτρινη αυλή και μπουκαμβίλιες" },
+  },
+  {
+    titleKey: "experience.service.title" as const,
+    textKey: "experience.service.text" as const,
+    image: "/images/experience/service.jpg",
+    alt: { tr: "Kişiye özel hizmet", en: "Personalized service", el: "Εξατομικευμένη εξυπηρέτηση" },
+  },
+  {
+    titleKey: "experience.sunset.title" as const,
+    textKey: "experience.sunset.text" as const,
+    image: "/images/experience/sunset.jpg",
+    alt: { tr: "Gün batımı terası", en: "Sunset terrace view", el: "Θέα ηλιοβασιλέματος" },
+  },
+];
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const breadcrumbs = [
+  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: t("experience.title"), url: `${siteUrl}${getLocalizedPath(lang, "experience")}` },
+];
+---
+
+<MainLayout
+  title={`${t("experience.title")} | Milos Cunda`}
+  description={t("experience.subtitle")}
+  breadcrumbs={breadcrumbs}
+>
+  <Header slot="header" />
+
+  <!-- ─── Page Header ─── -->
+  <section class="pt-32 lg:pt-40 pb-16 lg:pb-24 bg-stone-50">
+    <div class="container-narrow text-center">
+      <div class="line-accent mx-auto mb-6 hero-stagger-1" aria-hidden="true"></div>
+      <h1 class="text-display text-stone-900 mb-5 hero-stagger-2">
+        {t("experience.title")}
+      </h1>
+      <p class="text-stone-500 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto hero-stagger-3">
+        {t("experience.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Feature Blocks ─── -->
+  <section class="bg-stone-50 pb-16 lg:pb-24">
+    <div class="container-wide flex flex-col gap-10 lg:gap-14">
+      {features.map((feat, i) => {
+        const isReversed = i % 2 === 1;
+        const num = String(i + 1).padStart(2, "0");
+        return (
+          <div
+            class:list={["exp-block reveal", isReversed && "exp-block-reverse"]}
+            style={`transition-delay: ${i * 0.08}s`}
+          >
+            {/* Image */}
+            <div class="aspect-[4/3] lg:aspect-auto overflow-hidden">
+              <img
+                src={feat.image}
+                alt={feat.alt[lang]}
+                width="900"
+                height="675"
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+                class="img-cover img-warm"
+              />
+            </div>
+
+            {/* Content */}
+            <div class="relative p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
+              <span class="exp-number" aria-hidden="true">{num}</span>
+              <div class="relative z-10">
+                <div class="line-accent mb-5" aria-hidden="true"></div>
+                <h2 class="font-serif text-2xl lg:text-3xl text-stone-900 mb-5">
+                  {t(feat.titleKey)}
+                </h2>
+                <p class="text-stone-600 text-base lg:text-lg leading-[1.85] max-w-md">
+                  {t(feat.textKey)}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- ─── Booking CTA ─── -->
+  <section class="bg-stone-900 text-stone-50 py-20 lg:py-28">
+    <div class="container-narrow text-center">
+      <div class="reveal">
+        <div class="line-accent mx-auto mb-6 !bg-olive-400/50" aria-hidden="true"></div>
+        <h2 class="font-serif text-3xl lg:text-4xl mb-4">
+          {t("hero.tagline")}
+        </h2>
+        <p class="text-stone-400 text-base sm:text-lg mb-10 max-w-md mx-auto">
+          {t("hero.subtitle")}
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-5">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-8 py-4
+                   bg-stone-50 hover:bg-white text-stone-900
+                   text-[0.7rem] font-medium tracking-[0.18em] uppercase
+                   rounded-[2px] transition-colors duration-300"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+            {t("cta.whatsapp")}
+          </a>
+          <a
+            href={phoneUrl}
+            class="inline-flex items-center gap-2 text-[0.7rem] font-medium tracking-[0.18em]
+                   uppercase text-stone-400 hover:text-stone-50
+                   border border-stone-700 hover:border-stone-400
+                   rounded-[2px] px-8 py-4 transition-all duration-300"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            {t("cta.call")}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</MainLayout>
