@@ -146,6 +146,7 @@ const guides = defineCollection({
               "Museum",
               "Event",
               "FoodEstablishment",
+              "CafeOrCoffeeShop"
             ])
             .default("Place"),
           sameAs: z.string().url().optional().describe("Wikidata or Wikipedia URL"),

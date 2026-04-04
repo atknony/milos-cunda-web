@@ -22,7 +22,7 @@ const HOTEL_NAME = "Milos Cunda";
 const PHONE = "+905XXXXXXXXX";
 const WHATSAPP = "+905XXXXXXXXX";
 
-const COORDINATES = { latitude: 39.3275, longitude: 26.6927 };
+const COORDINATES = { latitude: 39.3363, longitude: 26.6579 };
 
 const ADDRESS: Record<Lang, Record<string, string>> = {
   tr: {
@@ -147,8 +147,8 @@ export function generateHotelSchema(lang: Lang): JsonLd {
       "@id": `${SITE_URL}/#cunda-island`,
       name: "Cunda Island",
       alternateName: ["Alibey Adası", "Αλιμπέι", "Alibey Island"],
-      sameAs: "https://www.wikidata.org/wiki/Q1815973",
-      geo: { "@type": "GeoCoordinates", latitude: 39.33, longitude: 26.69 },
+      sameAs: "https://www.wikidata.org/wiki/Q2740733",
+      geo: { "@type": "GeoCoordinates", latitude: 39.33, longitude: 26.65 },
     },
     // Speakable: what voice assistants should read aloud for this business
     speakable: {
@@ -328,6 +328,7 @@ const ENTITY_TYPE_MAP: Record<string, string> = {
   Event: "Event",
   FoodEstablishment: "FoodEstablishment",
   TouristAttraction: "TouristAttraction",
+  CafeOrCoffeeShop: "CafeOrCoffeeShop",
 };
 
 export interface StandaloneEntityInput {
@@ -353,7 +354,7 @@ export function generateStandaloneEntitySchema(entity: StandaloneEntityInput): J
       "@type": "Place",
       "@id": `${SITE_URL}/#cunda-island`,
       name: "Cunda Island",
-      sameAs: "https://www.wikidata.org/wiki/Q1815973",
+      sameAs: "https://www.wikidata.org/wiki/Q2740733",
     },
     // Back-link to the article that provides information about this entity
     subjectOf: {
@@ -364,7 +365,7 @@ export function generateStandaloneEntitySchema(entity: StandaloneEntityInput): J
     isPartOf: {
       "@type": "Place",
       name: entity.lang === "tr" ? "Ayvalık" : entity.lang === "el" ? "Αϊβαλί" : "Ayvalık",
-      sameAs: "https://www.wikidata.org/wiki/Q487270",
+      sameAs: "https://www.wikidata.org/wiki/Q793383",
     },
   };
 }
