@@ -401,6 +401,23 @@ export const ui = {
     el: "Δραστηριότητες",
   },
 
+  // ─── Guide Article CTA (end of every article) ───
+  "guide.cta.title": {
+    tr: "Cunda'yı Milos'ta Yaşayın",
+    en: "Experience Cunda at Milos",
+    el: "Ζήστε την Κούνδα στο Milos",
+  },
+  "guide.cta.text": {
+    tr: "Cunda Adası'nın kalbinde, tarihi ve doğasıyla iç içe bir konaklama deneyimi sizi bekliyor.",
+    en: "A stay immersed in the island's history and nature awaits you in the heart of Cunda.",
+    el: "Μια διαμονή βυθισμένη στην ιστορία και τη φύση του νησιού σας περιμένει στην καρδιά της Κούνδα.",
+  },
+  "guide.cta.rooms": {
+    tr: "Odalarımızı Keşfedin",
+    en: "Discover Our Rooms",
+    el: "Ανακαλύψτε τα Δωμάτιά μας",
+  },
+
   // ─── Contact Page ───
   "contact.title": {
     tr: "İletişim",

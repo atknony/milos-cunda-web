@@ -17,6 +17,7 @@ import Footer from "../../../components/Footer.astro";
 
 import { languages, type Lang } from "../../../i18n/ui";
 import { useTranslations, getLocalizedPath } from "../../../i18n/utils";
+import { generateItemListSchema } from "../../../lib/schema";
 
 export const getStaticPaths = (() => {
   return (Object.keys(languages) as Lang[]).map((lang) => ({
@@ -51,12 +52,23 @@ const breadcrumbs = [
   { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
   { name: t("guide.title"), url: `${siteUrl}${getLocalizedPath(lang, "guide")}` },
 ];
+
+const guideListSchema = generateItemListSchema(
+  t("guide.title"),
+  guides.map((g, i) => ({
+    name: g.data.title,
+    url: `${siteUrl}${getLocalizedPath(lang, "guide", g.data.urlSlug)}`,
+    image: g.data.featuredImage.src,
+    position: i + 1,
+  }))
+);
 ---
 
 <MainLayout
   title={`${t("guide.title")} | Milos Cunda`}
   description={t("guide.subtitle")}
   breadcrumbs={breadcrumbs}
+  additionalSchemas={[guideListSchema]}
 >
   <Header slot="header" />
 
@@ -97,7 +109,7 @@ const breadcrumbs = [
     <section class="bg-stone-50 pb-12 lg:pb-16">
       <div class="container-wide">
         <a
-          href={getLocalizedPath(lang, "guide", featured.data.urSlug)}
+          href={getLocalizedPath(lang, "guide", featured.data.urlSlug)}
           class="guide-featured group reveal"
           data-category={featured.data.category}
         >
@@ -148,7 +160,7 @@ const breadcrumbs = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {remaining.map((guide, i) => (
             <a
-              href={getLocalizedPath(lang, "guide", guide.data.urSlug)}
+              href={getLocalizedPath(lang, "guide", guide.data.urlSlug)}
               class="guide-card group reveal"
               data-category={guide.data.category}
               style={`transition-delay: ${i * 0.1}s`}

@@ -100,9 +100,7 @@ const guides = defineCollection({
   type: "content", // Markdown/MDX files
   schema: z.object({
     /** URL-safe identifier */
-    urSlug: z.string().regex(/^[a-z0-9-]+$/),
-
-    /** Language of this content file */
+    urlSlug: z.string().regex(/^[a-z0-9-]+$/),
     lang: z.enum(["tr", "en", "el"]),
 
     /** Display order */
@@ -144,12 +142,23 @@ const guides = defineCollection({
               "Place",
               "Restaurant",
               "LandmarksOrHistoricalBuildings",
+              "TouristAttraction",
               "Museum",
               "Event",
               "FoodEstablishment",
             ])
             .default("Place"),
           sameAs: z.string().url().optional().describe("Wikidata or Wikipedia URL"),
+        })
+      )
+      .optional(),
+
+    /** FAQ entries for FAQPage JSON-LD (conversational AI / RAG readiness) */
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
         })
       )
       .optional(),

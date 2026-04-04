@@ -18,6 +18,7 @@ import Lightbox from "../../components/Lightbox.astro";
 
 import { languages, type Lang } from "../../i18n/ui";
 import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+import { generateItemListSchema } from "../../lib/schema";
 
 /* ─── Static Paths ─── */
 export const getStaticPaths = (() => {
@@ -42,12 +43,23 @@ const breadcrumbs = [
   { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
   { name: t("rooms.title"), url: `${siteUrl}${getLocalizedPath(lang, "rooms")}` },
 ];
+
+const roomListSchema = generateItemListSchema(
+  t("rooms.title"),
+  rooms.map((room, i) => ({
+    name: room.data.title[lang],
+    url: `${siteUrl}${getLocalizedPath(lang, "rooms", room.data.slug)}`,
+    image: room.data.featuredImage.src,
+    position: i + 1,
+  }))
+);
 ---
 
 <MainLayout
   title={`${t("rooms.title")} | Milos Cunda`}
   description={t("rooms.subtitle")}
   breadcrumbs={breadcrumbs}
+  additionalSchemas={[roomListSchema]}
 >
   <Header slot="header" />
 
