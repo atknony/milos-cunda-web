@@ -71,7 +71,7 @@ const roomsPath = getLocalizedPath(lang, "rooms");
   </div>
 
   <!-- ─── Hero Content ─── -->
-  <div class="relative z-10 container-wide pb-20 sm:pb-24 lg:pb-32">
+  <div class="relative z-10 container-wide pb-28 sm:pb-32 lg:pb-36">
     <div class="max-w-2xl lg:max-w-3xl">
 
       <!-- Accent Line -->
@@ -91,7 +91,7 @@ const roomsPath = getLocalizedPath(lang, "rooms");
       </p>
 
       <!-- CTAs -->
-      <div class="hero-stagger-4 flex flex-wrap items-center gap-5 sm:gap-7">
+      <div class="hero-stagger-4 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-5 sm:gap-7">
 
         <!-- Primary CTA: Explore Rooms -->
         <a href={roomsPath} class="btn-primary">
@@ -124,14 +124,14 @@ const roomsPath = getLocalizedPath(lang, "rooms");
 
   <!-- ─── Scroll Indicator ─── -->
   <div
-    class="hero-stagger-5 absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+    class="hero-stagger-5 absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
     aria-hidden="true"
   >
-    <span class="text-stone-300/60 text-[0.6rem] tracking-[0.35em] uppercase font-medium">
+    <span class="text-stone-300/60 text-[0.55rem] sm:text-[0.6rem] tracking-[0.35em] uppercase font-medium">
       {t("hero.scroll")}
     </span>
     <div
-      class="w-px h-8 bg-gradient-to-b from-stone-300/50 to-transparent"
+      class="w-px h-6 sm:h-8 bg-gradient-to-b from-stone-300/50 to-transparent"
       style="animation: scroll-hint-bob 2.4s ease-in-out infinite;"
     ></div>
   </div>

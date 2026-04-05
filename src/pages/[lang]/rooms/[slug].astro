@@ -140,17 +140,17 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
       <span class="text-stone-100/80">{title}</span>
     </nav>
 
-    <!-- Price Badge (top-right) -->
+    <!-- Price Badge (top-right on desktop, bottom-right on mobile) -->
     {d.priceHint && (
-      <div class="absolute top-28 lg:top-32 right-[var(--spacing-gutter)] z-10 hero-stagger-5">
-        <div class="bg-stone-950/40 backdrop-blur-sm rounded-[2px] px-5 py-3 text-stone-50 text-right">
-          <span class="block text-[0.6rem] tracking-[0.2em] uppercase opacity-60 mb-0.5">
+      <div class="absolute bottom-24 sm:bottom-auto sm:top-28 lg:top-32 right-[var(--spacing-gutter)] z-10 hero-stagger-5">
+        <div class="bg-stone-950/40 backdrop-blur-sm rounded-[2px] px-4 py-2.5 sm:px-5 sm:py-3 text-stone-50 text-right">
+          <span class="block text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] uppercase opacity-60 mb-0.5">
             {t("room.startingFrom")}
           </span>
-          <span class="block font-serif text-2xl font-medium leading-tight">
+          <span class="block font-serif text-xl sm:text-2xl font-medium leading-tight">
             {currencySymbol}{d.priceHint.amount}
           </span>
-          <span class="block text-[0.6rem] opacity-50 mt-0.5">/ {t("room.from")}</span>
+          <span class="block text-[0.55rem] sm:text-[0.6rem] opacity-50 mt-0.5">/ {t("room.from")}</span>
         </div>
       </div>
     )}
@@ -176,10 +176,10 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
        ═══════════════════════════════════════ -->
   <section class="bg-stone-50 border-b border-stone-200">
     <div class="container-wide">
-      <div class="flex flex-wrap items-stretch -mx-1 py-1">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center">
         <!-- Guests -->
-        <div class="flex-1 min-w-[120px] px-4 py-5 flex flex-col items-center gap-1.5
-                    border-r border-stone-200 last:border-r-0">
+        <div class="px-4 py-5 flex flex-col items-center gap-1.5
+                    border-b sm:border-b-0 border-r border-stone-200">
           <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
             {t("room.capacity")}
           </span>
@@ -188,16 +188,16 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
           </span>
         </div>
         <!-- Size -->
-        <div class="flex-1 min-w-[120px] px-4 py-5 flex flex-col items-center gap-1.5
-                    border-r border-stone-200 last:border-r-0">
+        <div class="px-4 py-5 flex flex-col items-center gap-1.5
+                    border-b sm:border-b-0 border-r-0 sm:border-r border-stone-200">
           <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
             {t("room.size")}
           </span>
           <span class="text-sm text-stone-800">{d.size.value} {d.size.unit}</span>
         </div>
         <!-- Bed -->
-        <div class="flex-1 min-w-[120px] px-4 py-5 flex flex-col items-center gap-1.5
-                    border-r border-stone-200 last:border-r-0">
+        <div class="px-4 py-5 flex flex-col items-center gap-1.5
+                    border-b lg:border-b-0 border-r border-stone-200">
           <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
             {t("room.bedType")}
           </span>
@@ -205,8 +205,8 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
         </div>
         <!-- View -->
         {view && (
-          <div class="flex-1 min-w-[120px] px-4 py-5 flex flex-col items-center gap-1.5
-                      border-r border-stone-200 last:border-r-0">
+          <div class="px-4 py-5 flex flex-col items-center gap-1.5
+                      border-b lg:border-b-0 border-r-0 lg:border-r border-stone-200">
             <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
               {t("room.view")}
             </span>
@@ -214,7 +214,7 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
           </div>
         )}
         <!-- Check-in / Check-out -->
-        <div class="flex-1 min-w-[120px] px-4 py-5 flex flex-col items-center gap-1.5">
+        <div class="col-span-2 sm:col-span-1 px-4 py-5 flex flex-col items-center gap-1.5">
           <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
             {t("room.checkIn")}
           </span>
