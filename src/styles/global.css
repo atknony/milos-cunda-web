@@ -209,7 +209,6 @@
 
   .section-padding {
     padding-block: var(--spacing-section);
-    padding-inline: var(--spacing-gutter);
   }
 
   .container-narrow {
@@ -231,6 +230,12 @@
     transition:
       opacity var(--duration-slow) var(--ease-elegant),
       transform var(--duration-slow) var(--ease-elegant);
+  }
+
+  @media (max-width: 30rem) {
+    .reveal {
+      transform: none;
+    }
   }
 
   .reveal.is-visible {
@@ -266,6 +271,13 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     mix-blend-mode: multiply;
   }
+}
+
+/* ─── Viewport overflow guard — outside @layer for full specificity ─── */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -590,7 +602,7 @@
 .room-hero {
   position: relative;
   height: clamp(50vh, 65vw, 72vh);
-  min-height: 400px;
+  min-height: clamp(280px, 50vh, 400px);
   overflow: hidden;
 }
 
@@ -799,6 +811,8 @@
   font-size: var(--font-size-lg);
   line-height: 1.85;
   max-width: 68ch;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .prose-guide h2 {
@@ -832,6 +846,12 @@
 .prose-guide em {
   font-style: italic;
   color: var(--color-stone-600);
+}
+
+@media (max-width: 30rem) {
+  .prose-guide {
+    font-size: var(--font-size-base);
+  }
 }
 
 /* ─── Contact Page ─── */
