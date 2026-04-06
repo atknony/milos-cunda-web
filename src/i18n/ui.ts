@@ -417,6 +417,11 @@ export const ui = {
     en: "Discover Our Rooms",
     el: "Ανακαλύψτε τα Δωμάτιά μας",
   },
+  "guide.faq.title": {
+    tr: "Sıkça Sorulan Sorular",
+    en: "Frequently Asked Questions",
+    el: "Συχνές Ερωτήσεις",
+  },
 
   // ─── Contact Page ───
   "contact.title": {
