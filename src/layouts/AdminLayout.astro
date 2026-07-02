@@ -1,0 +1,68 @@
+---
+/**
+ * PMS panel iskeleti — Türkçe, noindex, site i18n sisteminden bağımsız.
+ */
+import "@styles/global.css";
+
+interface Props {
+  title: string;
+  /** Aktif menü öğesi vurgusu için */
+  active?: "dashboard" | "rooms" | "reservations" | "sync";
+}
+
+const { title, active } = Astro.props;
+
+const nav = [
+  { key: "dashboard", href: "/admin", label: "Takvim" },
+  { key: "rooms", href: "/admin/rooms", label: "Odalar" },
+  { key: "reservations", href: "/admin/reservations", label: "Rezervasyonlar" },
+  { key: "sync", href: "/admin/sync", label: "Senkronizasyon" },
+] as const;
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} · Milos Cunda Panel</title>
+  </head>
+  <body class="min-h-screen bg-stone-100 text-stone-900 antialiased">
+    <header class="border-b border-stone-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+        <a href="/admin" class="font-serif text-lg font-bold tracking-tight">
+          Milos Cunda <span class="font-sans text-xs font-normal text-stone-500">PANEL</span>
+        </a>
+        <nav class="flex items-center gap-1 text-sm">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  "rounded-md px-3 py-1.5 transition-colors",
+                  active === item.key
+                    ? "bg-stone-900 text-white"
+                    : "text-stone-600 hover:bg-stone-100 hover:text-stone-900",
+                ]}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <form method="post" action="/api/auth/logout" class="ml-2">
+            <button
+              type="submit"
+              class="rounded-md px-3 py-1.5 text-stone-400 transition-colors hover:bg-red-50 hover:text-red-600"
+            >
+              Çıkış
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
+    <main class="mx-auto max-w-7xl px-4 py-6">
+      <slot />
+    </main>
+  </body>
+</html>

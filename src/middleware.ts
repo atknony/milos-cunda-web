@@ -1,17 +1,28 @@
 import { defineMiddleware } from "astro:middleware";
+import { getSessionUser } from "@/lib/supabase/server";
 
 /**
- * PMS middleware — Faz 1 iskeleti.
- * Faz 2'de Supabase oturum doğrulaması eklenecek; şimdilik yalnızca
- * /admin ve /api yollarına noindex başlığı ekler.
+ * PMS koruması:
+ * - /admin/* (login hariç) yalnızca oturum açmış admin tarafından görülebilir.
+ * - /admin ve /api yolları arama motorlarına kapalıdır (noindex).
+ * - Oturum doğrulaması Supabase çerezleri üzerinden yapılır; API rotaları
+ *   ayrıca kendi içlerinde yeniden doğrular (savunma katmanı).
  */
 export const onRequest = defineMiddleware(async (context, next) => {
   const { pathname } = context.url;
-  const isPms = pathname.startsWith("/admin") || pathname.startsWith("/api");
+  const isAdminPage = pathname.startsWith("/admin");
+  const isApi = pathname.startsWith("/api");
+
+  if (isAdminPage && pathname !== "/admin/login") {
+    const user = await getSessionUser(context.request, context.cookies);
+    if (!user) {
+      return context.redirect("/admin/login");
+    }
+  }
 
   const response = await next();
 
-  if (isPms) {
+  if (isAdminPage || isApi) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 
