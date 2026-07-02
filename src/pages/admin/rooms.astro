@@ -1,0 +1,28 @@
+---
+import AdminLayout from "@layouts/AdminLayout.astro";
+import RoomManager from "@/components/admin/RoomManager.tsx";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import type { Room } from "@/lib/supabase/types";
+
+export const prerender = false;
+
+const supabase = createSupabaseAdminClient();
+const { data: rooms, error } = await supabase
+  .from("rooms")
+  .select("*")
+  .order("sort_order")
+  .order("name");
+
+const origin = import.meta.env.PROD ? Astro.site?.origin ?? Astro.url.origin : Astro.url.origin;
+---
+
+<AdminLayout title="Odalar" active="rooms">
+  <h1 class="mb-4 font-serif text-2xl font-bold">Odalar</h1>
+  {
+    error ? (
+      <p class="text-sm text-red-600">Odalar yüklenemedi: {error.message}</p>
+    ) : (
+      <RoomManager client:load initialRooms={(rooms ?? []) as Room[]} origin={origin} />
+    )
+  }
+</AdminLayout>
