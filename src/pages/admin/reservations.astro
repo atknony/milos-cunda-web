@@ -1,0 +1,27 @@
+---
+import AdminLayout from "@layouts/AdminLayout.astro";
+import ReservationList from "@/components/admin/ReservationList.tsx";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { todayInHotelTz } from "@/lib/pms/dates";
+import type { Room } from "@/lib/supabase/types";
+
+export const prerender = false;
+
+const supabase = createSupabaseAdminClient();
+const { data: rooms, error } = await supabase
+  .from("rooms")
+  .select("*")
+  .order("sort_order")
+  .order("name");
+---
+
+<AdminLayout title="Rezervasyonlar" active="reservations">
+  <h1 class="mb-4 font-serif text-2xl font-bold">Rezervasyonlar</h1>
+  {
+    error ? (
+      <p class="text-sm text-red-600">Veriler yüklenemedi: {error.message}</p>
+    ) : (
+      <ReservationList client:load rooms={(rooms ?? []) as Room[]} today={todayInHotelTz()} />
+    )
+  }
+</AdminLayout>
