@@ -1,10 +1,27 @@
 ---
 import AdminLayout from "@layouts/AdminLayout.astro";
+import ReservationTimeline from "@/components/admin/ReservationTimeline.tsx";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { todayInHotelTz } from "@/lib/pms/dates";
+import type { Room } from "@/lib/supabase/types";
 
 export const prerender = false;
+
+const supabase = createSupabaseAdminClient();
+const { data: rooms, error } = await supabase
+  .from("rooms")
+  .select("*")
+  .order("sort_order")
+  .order("name");
 ---
 
 <AdminLayout title="Takvim" active="dashboard">
   <h1 class="mb-4 font-serif text-2xl font-bold">Takvim</h1>
-  <p class="text-sm text-stone-500">Rezervasyon takvimi Faz 5'te eklenecek.</p>
+  {
+    error ? (
+      <p class="text-sm text-red-600">Takvim yüklenemedi: {error.message}</p>
+    ) : (
+      <ReservationTimeline client:load rooms={(rooms ?? []) as Room[]} today={todayInHotelTz()} />
+    )
+  }
 </AdminLayout>
