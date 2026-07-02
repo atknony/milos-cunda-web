@@ -2,7 +2,7 @@
   "slug": "ege",
   "sortOrder": 2,
   "title": {
-    "tr": "Ege Süit",
+    "tr": "Ege Suit",
     "en": "Aegean Suite",
     "el": "Σουίτα Αιγαίο"
   },
@@ -12,7 +12,7 @@
     "el": "Άπειρες αποχρώσεις του μπλε"
   },
   "description": {
-    "tr": "Denize sıfır konumuyla öne çıkan Ege Süit, panoramik Ege manzarasıyla misafirlerine unutulmaz bir konaklama sunuyor. Geleneksel taş işçiliği ve modern dokunuşlar bir arada.",
+    "tr": "Denize sıfır konumuyla öne çıkan Ege Suit, panoramik Ege manzarasıyla misafirlerine unutulmaz bir konaklama sunuyor. Geleneksel taş işçiliği ve modern dokunuşlar bir arada.",
     "en": "The Aegean Suite stands out with its waterfront location, offering guests an unforgettable stay with panoramic Aegean views. Traditional stonework meets modern touches.",
     "el": "Η Σουίτα Αιγαίο ξεχωρίζει με την παραθαλάσσια τοποθεσία της, προσφέροντας στους επισκέπτες μια αξέχαστη διαμονή με πανοραμική θέα στο Αιγαίο."
   },
@@ -50,7 +50,7 @@
   "featuredImage": {
     "src": "/images/rooms/ege/featured.jpg",
     "alt": {
-      "tr": "Ege Süit — panoramik deniz manzarası ve taş duvarlar",
+      "tr": "Ege Suit — panoramik deniz manzarası ve taş duvarlar",
       "en": "Aegean Suite — panoramic sea view and stone walls",
       "el": "Σουίτα Αιγαίο — πανοραμική θέα στη θάλασσα και πέτρινοι τοίχοι"
     },

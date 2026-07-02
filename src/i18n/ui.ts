@@ -157,7 +157,7 @@ export const ui = {
 
   // ─── Rooms Listing Page ───
   "rooms.title": {
-    tr: "Odalar & Süitler",
+    tr: "Odalar & Suitler",
     en: "Rooms & Suites",
     el: "Δωμάτια & Σουίτες",
   },

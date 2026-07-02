@@ -329,6 +329,7 @@ const ENTITY_TYPE_MAP: Record<string, string> = {
   FoodEstablishment: "FoodEstablishment",
   TouristAttraction: "TouristAttraction",
   CafeOrCoffeeShop: "CafeOrCoffeeShop",
+  Beach: "Beach",
 };
 
 export interface StandaloneEntityInput {

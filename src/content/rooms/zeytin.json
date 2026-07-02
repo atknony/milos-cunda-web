@@ -2,7 +2,7 @@
   "slug": "zeytin",
   "sortOrder": 1,
   "title": {
-    "tr": "Zeytin Süit",
+    "tr": "Zeytin Suit",
     "en": "Olive Suite",
     "el": "Σουίτα Ελιά"
   },
@@ -12,7 +12,7 @@
     "el": "Στη γαλήνη των ελαιόδεντρων"
   },
   "description": {
-    "tr": "Tarihi taş duvarlı süitimiz, Cunda'nın ikonik zeytin bahçelerine bakan geniş terasıyla konuklarını ağırlamaktadır. Ege mimarisinin sadeliğini modern konforla harmanlayan bu oda, huzurlu bir kaçamak sunar.",
+    "tr": "Tarihi taş duvarlı suitimiz, Cunda'nın ikonik zeytin bahçelerine bakan geniş terasıyla konuklarını ağırlamaktadır. Ege mimarisinin sadeliğini modern konforla harmanlayan bu oda, huzurlu bir kaçamak sunar.",
     "en": "Our stone-walled suite welcomes guests with a spacious terrace overlooking Cunda's iconic olive groves. Blending the simplicity of Aegean architecture with modern comfort, this room offers a tranquil retreat.",
     "el": "Η σουίτα μας με πέτρινους τοίχους καλωσορίζει τους επισκέπτες με μια ευρύχωρη βεράντα με θέα τους εμβληματικούς ελαιώνες της Κούνδα."
   },
@@ -50,7 +50,7 @@
   "featuredImage": {
     "src": "/images/rooms/zeytin/featured.jpg",
     "alt": {
-      "tr": "Zeytin Süit — taş duvarlar ve zeytin bahçesine bakan teras",
+      "tr": "Zeytin Suit — taş duvarlar ve zeytin bahçesine bakan teras",
       "en": "Olive Suite — stone walls and terrace overlooking olive groves",
       "el": "Σουίτα Ελιά — πέτρινοι τοίχοι και βεράντα με θέα ελαιώνες"
     },
