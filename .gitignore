@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code local-only files (machine-specific permissions; skill symlinks
+# regenerate via `npx skills add` and don't port across machines)
+.claude/settings.local.json
+.claude/skills/

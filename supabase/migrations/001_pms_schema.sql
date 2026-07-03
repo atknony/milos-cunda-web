@@ -84,7 +84,8 @@ create table sync_logs (
 );
 
 -- ─── Çakışma görünümü (okuma anında hesaplanır; bayrak saklanmaz) ───
-create view v_conflicts as
+-- security_invoker: sorguyu yapan rolün RLS'ini uygular, view sahibininkini değil
+create view v_conflicts with (security_invoker = true) as
 select
   a.id as reservation_a,
   b.id as reservation_b,
@@ -99,7 +100,8 @@ join reservations b
 
 -- ─── updated_at tetikleyicisi ───
 create or replace function set_updated_at()
-returns trigger language plpgsql as $$
+returns trigger language plpgsql
+set search_path = '' as $$
 begin
   new.updated_at = now();
   return new;
