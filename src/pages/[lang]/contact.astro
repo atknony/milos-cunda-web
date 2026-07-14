@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Contact Page
+ * Cunda Milos — Contact Page
  * Route: /[lang]/contact/
  *
  * Split-screen editorial layout:
@@ -41,15 +41,15 @@ const mapsUrl = `https://www.google.com/maps?q=${COORDINATES.lat},${COORDINATES.
 const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3095.0!2d${COORDINATES.lng}!3d${COORDINATES.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDE5JzM5LjAiTiAyNsKwNDEnMzMuNyJF!5e0!3m2!1str!2str!4v1`;
 
 /* ─── SEO ─── */
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("contact.title"), url: `${siteUrl}${getLocalizedPath(lang, "contact")}` },
 ];
 ---
 
 <MainLayout
-  title={`${t("contact.title")} | Milos Cunda`}
+  title={`${t("contact.title")} | Cunda Milos`}
   description={t("contact.subtitle")}
   breadcrumbs={breadcrumbs}
 >
@@ -210,9 +210,9 @@ const breadcrumbs = [
               </div>
               <div>
                 <span class="spec-label">{t("contact.email")}</span>
-                <a href="mailto:info@miloscunda.com"
+                <a href="mailto:info@cundamilos.com"
                    class="block text-sm text-stone-700 hover:text-stone-900 transition-colors duration-200 mt-1">
-                  info@miloscunda.com
+                  info@cundamilos.com
                 </a>
               </div>
             </div>
@@ -242,7 +242,7 @@ const breadcrumbs = [
             </h3>
             <div class="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/miloscunda"
+                href="https://www.instagram.com/cundamilos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="w-10 h-10 flex items-center justify-center rounded-full
@@ -259,7 +259,7 @@ const breadcrumbs = [
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com/miloscunda"
+                href="https://www.facebook.com/cundamilos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="w-10 h-10 flex items-center justify-center rounded-full

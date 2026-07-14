@@ -1,5 +1,5 @@
 /**
- * Milos Cunda — i18n Translation Dictionary
+ * Cunda Milos — i18n Translation Dictionary
  * Languages: Turkish (tr), English (en), Greek (el)
  */
 
@@ -86,9 +86,9 @@ export const ui = {
 
   // ─── WhatsApp Pre-filled Messages ───
   "whatsapp.message": {
-    tr: "Merhaba, Milos Cunda'da müsaitlik durumunu öğrenmek istiyorum.",
-    en: "Hello, I would like to inquire about availability at Milos Cunda.",
-    el: "Γεια σας, θα ήθελα να ρωτήσω για τη διαθεσιμότητα στο Milos Cunda.",
+    tr: "Merhaba, Cunda Milos'ta müsaitlik durumunu öğrenmek istiyorum.",
+    en: "Hello, I would like to inquire about availability at Cunda Milos.",
+    el: "Γεια σας, θα ήθελα να ρωτήσω για τη διαθεσιμότητα στο Cunda Milos.",
   },
   "whatsapp.roomMessage": {
     tr: "Merhaba, {roomName} odası hakkında bilgi almak istiyorum.",
@@ -295,9 +295,9 @@ export const ui = {
     el: "Κλείσιμο μενού",
   },
   "meta.title": {
-    tr: "Milos Cunda | Cunda Adası Butik Otel — Ayvalık",
-    en: "Milos Cunda | Boutique Hotel on Cunda Island — Ayvalık",
-    el: "Milos Cunda | Μπουτίκ Ξενοδοχείο στην Κούνδα — Αϊβαλί",
+    tr: "Cunda Milos | Cunda Adası Butik Otel — Ayvalık",
+    en: "Cunda Milos | Boutique Hotel on Cunda Island — Ayvalık",
+    el: "Cunda Milos | Μπουτίκ Ξενοδοχείο στην Κούνδα — Αϊβαλί",
   },
   "meta.description": {
     tr: "Cunda Adası'nın kalbinde, Ege mimarisinden ilham alan butik otel. Huzur, zarafet ve yerel gastronomi deneyimi.",
@@ -324,9 +324,9 @@ export const ui = {
     el: "Κάντε κύλιση για να ανακαλύψετε",
   },
   "hero.videoLabel": {
-    tr: "Milos Cunda havadan görünüm",
-    en: "Aerial view of Milos Cunda",
-    el: "Αεροφωτογραφία του Milos Cunda",
+    tr: "Cunda Milos havadan görünüm",
+    en: "Aerial view of Cunda Milos",
+    el: "Αεροφωτογραφία του Cunda Milos",
   },
 
   // ─── Guide Listing ───
@@ -534,9 +534,9 @@ export const ui = {
     el: "Γκαλερί",
   },
   "gallery.subtitle": {
-    tr: "Milos Cunda'nın atmosferini keşfedin",
-    en: "Discover the atmosphere of Milos Cunda",
-    el: "Ανακαλύψτε την ατμόσφαιρα του Milos Cunda",
+    tr: "Cunda Milos'un atmosferini keşfedin",
+    en: "Discover the atmosphere of Cunda Milos",
+    el: "Ανακαλύψτε την ατμόσφαιρα του Cunda Milos",
   },
   "gallery.cat.all": {
     tr: "Tümü",

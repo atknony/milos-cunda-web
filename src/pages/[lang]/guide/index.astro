@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Cunda Island Guide (Listing)
+ * Cunda Milos — Cunda Island Guide (Listing)
  * Route: /[lang]/guide/
  *
  * Magazine-style editorial index.
@@ -47,9 +47,9 @@ function readTime(body: string): number {
 }
 
 /* ─── SEO ─── */
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("guide.title"), url: `${siteUrl}${getLocalizedPath(lang, "guide")}` },
 ];
 
@@ -65,7 +65,7 @@ const guideListSchema = generateItemListSchema(
 ---
 
 <MainLayout
-  title={`${t("guide.title")} | Milos Cunda`}
+  title={`${t("guide.title")} | Cunda Milos`}
   description={t("guide.subtitle")}
   breadcrumbs={breadcrumbs}
   additionalSchemas={[guideListSchema]}

@@ -7,7 +7,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://miloscunda.com",
+  site: "https://cundamilos.com",
 
   /* ─── Adapter (public site stays prerendered; only /admin + /api opt into SSR) ─── */
   adapter: vercel(),
@@ -40,7 +40,7 @@ export default defineConfig({
 
   /* ─── Image Optimization ─── */
   image: {
-    domains: ["miloscunda.com"],
+    domains: ["cundamilos.com"],
     remotePatterns: [{ protocol: "https" }],
   },
 

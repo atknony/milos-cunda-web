@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Rooms & Suites Listing
+ * Cunda Milos — Rooms & Suites Listing
  * Route: /[lang]/rooms/ (en), /[lang]/odalar/ (tr), /[lang]/domatia/ (el)
  *
  * Loads all published rooms from the content collection.
@@ -38,9 +38,9 @@ const rooms = allRooms
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 
 /* ─── SEO ─── */
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("rooms.title"), url: `${siteUrl}${getLocalizedPath(lang, "rooms")}` },
 ];
 
@@ -56,7 +56,7 @@ const roomListSchema = generateItemListSchema(
 ---
 
 <MainLayout
-  title={`${t("rooms.title")} | Milos Cunda`}
+  title={`${t("rooms.title")} | Cunda Milos`}
   description={t("rooms.subtitle")}
   breadcrumbs={breadcrumbs}
   additionalSchemas={[roomListSchema]}

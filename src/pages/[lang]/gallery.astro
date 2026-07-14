@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Gallery
+ * Cunda Milos — Gallery
  * Route: /[lang]/gallery/
  *
  * CSS columns masonry layout with:
@@ -51,15 +51,15 @@ const galleryImages = [
   { src: "/images/gallery/island-olive-groves.jpg", alt: { tr: "Zeytin bahçeleri", en: "Olive groves", el: "Ελαιώνες" }, category: "island" },
 ];
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("gallery.title"), url: `${siteUrl}${getLocalizedPath(lang, "gallery")}` },
 ];
 ---
 
 <MainLayout
-  title={`${t("gallery.title")} | Milos Cunda`}
+  title={`${t("gallery.title")} | Cunda Milos`}
   description={t("gallery.subtitle")}
   breadcrumbs={breadcrumbs}
 >

@@ -3,7 +3,7 @@ import type { Room } from "@/lib/supabase/types";
 
 interface Props {
   initialRooms: Room[];
-  /** Örn. https://miloscunda.com — export URL'lerini kurmak için */
+  /** Örn. https://cundamilos.com — export URL'lerini kurmak için */
   origin: string;
 }
 

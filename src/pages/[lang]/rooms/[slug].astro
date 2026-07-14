@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Room Detail Page
+ * Cunda Milos — Room Detail Page
  * Route: /[lang]/rooms/[slug]
  *
  * Editorial magazine layout:
@@ -74,9 +74,9 @@ const otherRooms = allRooms
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 
 /* ─── SEO ─── */
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("rooms.title"), url: `${siteUrl}${roomsListUrl}` },
   { name: title, url: `${siteUrl}${getLocalizedPath(lang, "rooms", slug)}` },
 ];
@@ -96,7 +96,7 @@ const roomSchema = generateRoomSchema(lang, {
     : undefined,
 });
 
-const pageTitle = `${title} | Milos Cunda`;
+const pageTitle = `${title} | Cunda Milos`;
 const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
 ---
 

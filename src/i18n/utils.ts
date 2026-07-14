@@ -1,5 +1,5 @@
 /**
- * Milos Cunda — i18n Utilities
+ * Cunda Milos — i18n Utilities
  * Handles language detection, path translation, and UI string resolution.
  */
 

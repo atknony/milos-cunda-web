@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Homepage
+ * Cunda Milos — Homepage
  * Route: /[lang]/
  */
 
@@ -31,9 +31,9 @@ const featuredRooms = allRooms
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 2);
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
 ];
 ---
 

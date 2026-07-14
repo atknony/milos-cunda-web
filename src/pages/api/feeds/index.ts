@@ -47,7 +47,7 @@ export const POST: APIRoute = async (context) => {
   try {
     const res = await fetch(url, {
       signal: AbortSignal.timeout(8_000),
-      headers: { "User-Agent": "MilosCundaPMS/1.0 (+https://miloscunda.com)" },
+      headers: { "User-Agent": "CundaMilosPMS/1.0 (+https://cundamilos.com)" },
     });
     if (!res.ok) return json({ error: `Adres erişilebilir değil (HTTP ${res.status}).` }, 400);
   } catch {

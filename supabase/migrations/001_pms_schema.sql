@@ -1,5 +1,5 @@
 -- ============================================================
--- Milos Cunda PMS — Şema v1
+-- Cunda Milos PMS — Şema v1
 -- Supabase SQL Editor'de tek seferde çalıştırın.
 -- ============================================================
 

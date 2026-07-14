@@ -69,7 +69,7 @@ export function buildCalendar(calendarName: string, events: IcalEvent[]): string
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Milos Cunda//PMS 1.0//TR",
+    "PRODID:-//Cunda Milos//PMS 1.0//TR",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     `X-WR-CALNAME:${escapeText(calendarName)}`,
@@ -80,7 +80,7 @@ export function buildCalendar(calendarName: string, events: IcalEvent[]): string
   for (const event of events) {
     lines.push(
       "BEGIN:VEVENT",
-      `UID:${event.uid}@miloscunda.com`,
+      `UID:${event.uid}@cundamilos.com`,
       `DTSTAMP:${event.updatedAt ? toBasicDateTime(event.updatedAt) : fallbackStamp}`,
       `DTSTART;VALUE=DATE:${toBasicDate(event.start)}`,
       `DTEND;VALUE=DATE:${toBasicDate(event.end)}`,

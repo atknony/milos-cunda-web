@@ -17,7 +17,7 @@ export const prerender = false;
  *
  * Platform ekli beslemeler O PLATFORMDAN içe aktarılan kayıtları DIŞLAR —
  * platform kendi rezervasyonlarını geri okumaz (döngü önlenir).
- * Misafir bilgisi asla dışarı verilmez; tüm etkinlikler "CLOSED - Milos Cunda".
+ * Misafir bilgisi asla dışarı verilmez; tüm etkinlikler "CLOSED - Cunda Milos".
  */
 const FEED_KEY = /^([0-9a-f]{48})(?:-(airbnb|booking_com|hotels_com))?$/;
 
@@ -60,11 +60,11 @@ export const GET: APIRoute = async ({ params }) => {
       uid: r.id,
       start: r.check_in,
       end: r.check_out,
-      summary: "CLOSED - Milos Cunda",
+      summary: "CLOSED - Cunda Milos",
       updatedAt: r.updated_at,
     }));
 
-  const body = buildCalendar(`Milos Cunda — ${room.name}`, events);
+  const body = buildCalendar(`Cunda Milos — ${room.name}`, events);
 
   return new Response(body, {
     headers: {

@@ -50,7 +50,7 @@ function addOneDay(isoDate: string): string {
 export async function fetchAndParseFeed(url: string): Promise<ParsedEvent[]> {
   const res = await fetch(url, {
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    headers: { "User-Agent": "MilosCundaPMS/1.0 (+https://miloscunda.com)" },
+    headers: { "User-Agent": "CundaMilosPMS/1.0 (+https://cundamilos.com)" },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
 

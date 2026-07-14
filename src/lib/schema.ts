@@ -1,5 +1,5 @@
 /**
- * Milos Cunda — JSON-LD Schema Generator Library
+ * Cunda Milos — JSON-LD Schema Generator Library
  *
  * Typed generators for Schema.org structured data.
  * All functions return plain objects; the caller serializes via JSON.stringify.
@@ -17,8 +17,8 @@ import type { Lang } from "../i18n/ui";
 import { useTranslations } from "../i18n/utils";
 
 /* ─── Constants ─── */
-export const SITE_URL = "https://miloscunda.com";
-const HOTEL_NAME = "Milos Cunda";
+export const SITE_URL = "https://cundamilos.com";
+const HOTEL_NAME = "Cunda Milos";
 const PHONE = "+905XXXXXXXXX";
 const WHATSAPP = "+905XXXXXXXXX";
 
@@ -78,11 +78,11 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     "@type": ["Hotel", "LodgingBusiness", "LocalBusiness"],
     "@id": `${SITE_URL}/#hotel`,
     name: HOTEL_NAME,
-    alternateName: ["Milos Cunda Boutique Hotel", "Milos Cunda Butik Otel"],
+    alternateName: ["Cunda Milos Boutique Hotel", "Cunda Milos Butik Otel"],
     description: t("meta.description"),
     url: `${SITE_URL}/${lang}/`,
     telephone: PHONE,
-    email: "info@miloscunda.com",
+    email: "info@cundamilos.com",
     image: [
       `${SITE_URL}/images/og/hotel-exterior.jpg`,
       `${SITE_URL}/images/og/hotel-interior.jpg`,
@@ -129,8 +129,8 @@ export function generateHotelSchema(lang: Lang): JsonLd {
       },
     ],
     sameAs: [
-      "https://www.instagram.com/miloscunda",
-      "https://www.facebook.com/miloscunda",
+      "https://www.instagram.com/cundamilos",
+      "https://www.facebook.com/cundamilos",
     ],
     areaServed: {
       "@type": "Place",

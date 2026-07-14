@@ -1,5 +1,5 @@
 /**
- * Milos Cunda — Content Collections Configuration
+ * Cunda Milos — Content Collections Configuration
  * Defines schemas for: rooms, guides
  * Uses Astro Content Collections with Zod validation.
  */

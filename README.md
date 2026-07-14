@@ -1,6 +1,6 @@
-# Milos Cunda
+# Cunda Milos
 
-A modern, fast, and multilingual (Turkish, English, Greek) web project developed for the Milos Cunda boutique hotel. Built with Astro v5 and Tailwind CSS utilizing a static site generation (SSG) architecture. It offers a minimalist and accessible interface aligned with the "quiet luxury" concept.
+A modern, fast, and multilingual (Turkish, English, Greek) web project developed for the Cunda Milos boutique hotel. Built with Astro v5 and Tailwind CSS utilizing a static site generation (SSG) architecture. It offers a minimalist and accessible interface aligned with the "quiet luxury" concept.
 
 ## Installation and Execution
 

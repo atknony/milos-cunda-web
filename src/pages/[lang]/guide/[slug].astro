@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — Guide Article Detail
+ * Cunda Milos — Guide Article Detail
  * Route: /[lang]/guide/[slug]
  *
  * Long-form editorial layout:
@@ -70,9 +70,9 @@ const otherArticles = allGuides
   .slice(0, 2);
 
 /* ─── SEO ─── */
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("guide.title"), url: `${siteUrl}${guideListUrl}` },
   { name: d.title, url: `${siteUrl}${getLocalizedPath(lang, "guide", slug)}` },
 ];
@@ -115,7 +115,7 @@ const pageSchemas = [
 ---
 
 <MainLayout
-  title={`${d.title} | Milos Cunda`}
+  title={`${d.title} | Cunda Milos`}
   description={d.excerpt}
   ogImage={d.featuredImage.src}
   ogType="article"

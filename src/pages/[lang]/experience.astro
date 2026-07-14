@@ -1,6 +1,6 @@
 ---
 /**
- * Milos Cunda — The Experience
+ * Cunda Milos — The Experience
  * Route: /[lang]/experience/
  *
  * Editorial lifestyle page:
@@ -56,15 +56,15 @@ const features = [
   },
 ];
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://miloscunda.com";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
 const breadcrumbs = [
-  { name: "Milos Cunda", url: `${siteUrl}/${lang}/` },
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("experience.title"), url: `${siteUrl}${getLocalizedPath(lang, "experience")}` },
 ];
 ---
 
 <MainLayout
-  title={`${t("experience.title")} | Milos Cunda`}
+  title={`${t("experience.title")} | Cunda Milos`}
   description={t("experience.subtitle")}
   breadcrumbs={breadcrumbs}
 >
