@@ -1,0 +1,11 @@
+# Cunda Milos — https://cundamilos.com
+# All crawlers welcome, including AI/answer-engine bots (GPTBot, ClaudeBot,
+# PerplexityBot, Google-Extended, etc.) — no bot-specific groups on purpose:
+# a bot-specific group would override the * group and drop the disallows below.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://cundamilos.com/sitemap-index.xml

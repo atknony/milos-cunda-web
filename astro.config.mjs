@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
@@ -26,6 +27,17 @@ export default defineConfig({
   integrations: [
     mdx(),   // MDX support for guide content collection
     react(), // React 19 islands
+    sitemap({
+      // Allowlist: only public localized pages. Excludes the root 302 redirect,
+      // 404, and the SSR /admin + /api routes (which DO appear in Astro's page
+      // list despite never being prerendered).
+      filter: (page) => /^https:\/\/cundamilos\.com\/(tr|en|el)\//.test(page),
+      i18n: {
+        defaultLocale: "tr",
+        // Same bare language codes the pages' hreflang tags use (see getAlternateUrls).
+        locales: { tr: "tr", en: "en", el: "el" },
+      },
+    }),
   ],
 
   /* ─── Vite Configuration ─── */
