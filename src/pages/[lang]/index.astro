@@ -43,6 +43,21 @@ const breadcrumbs = [
 
   <Hero />
 
+  <!-- ─── Intro: what & where we are (crawlable prose for SEO/GEO) ─── -->
+  <section class="pt-16 lg:pt-24 bg-stone-50">
+    <div class="container-narrow">
+      <div class="reveal text-center max-w-2xl mx-auto">
+        <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-stone-900 mb-5">
+          {t("home.intro.title")}
+        </h2>
+        <p class="text-stone-600 text-base sm:text-lg leading-[1.85] mx-auto" data-speakable-desc>
+          {t("home.intro.text")}
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── Rooms Preview ─── -->
   <section class="section-padding bg-stone-50">
     <div class="container-narrow">

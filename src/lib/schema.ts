@@ -75,10 +75,19 @@ export function generateHotelSchema(lang: Lang): JsonLd {
   const t = useTranslations(lang);
   return {
     "@context": "https://schema.org",
-    "@type": ["Hotel", "LodgingBusiness", "LocalBusiness"],
+    "@type": ["Hotel", "BedAndBreakfast", "LodgingBusiness", "LocalBusiness"],
     "@id": `${SITE_URL}/#hotel`,
     name: HOTEL_NAME,
-    alternateName: ["Cunda Milos Boutique Hotel", "Cunda Milos Butik Otel"],
+    // "Cunda Milos Otel" matches the Google Business Profile name exactly;
+    // "Milos Cunda" captures the common word-order flip in searches.
+    alternateName: [
+      "Cunda Milos Otel",
+      "Cunda Milos Boutique Hotel",
+      "Cunda Milos Butik Otel",
+      "Cunda Milos Pansiyon",
+      "Milos Cunda",
+    ],
+    slogan: t("hero.tagline"),
     description: t("meta.description"),
     url: `${SITE_URL}/${lang}/`,
     telephone: PHONE,
@@ -94,7 +103,7 @@ export function generateHotelSchema(lang: Lang): JsonLd {
       width: 200,
       height: 60,
     },
-    priceRange: "€€€",
+    priceRange: "€€",
     currenciesAccepted: "TRY, EUR, USD",
     paymentAccepted: "Cash, Credit Card, Bank Transfer",
     checkinTime: "14:00",

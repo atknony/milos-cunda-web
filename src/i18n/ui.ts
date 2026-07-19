@@ -52,9 +52,21 @@ export const ui = {
     el: "Κομψότητα στην Καρδιά του Αιγαίου",
   },
   "hero.subtitle": {
-    tr: "Cunda Adası'nda butik konaklama deneyimi",
-    en: "A boutique stay on Cunda Island",
-    el: "Μπουτίκ διαμονή στο νησί της Κούνδα",
+    tr: "Ayvalık Cunda Adası'nda taş ev butik otel",
+    en: "A stone house boutique hotel on Cunda Island, Ayvalık",
+    el: "Πέτρινο μπουτίκ ξενοδοχείο στην Κούνδα, Αϊβαλί",
+  },
+
+  // ─── Homepage Intro (SEO/GEO: crawlable statement of what & where we are) ───
+  "home.intro.title": {
+    tr: "Cunda'da Tarihi Bir Taş Ev Otel",
+    en: "A Historic Stone House Hotel in Cunda",
+    el: "Ένα Ιστορικό Πέτρινο Ξενοδοχείο στην Κούνδα",
+  },
+  "home.intro.text": {
+    tr: "Cunda Milos, Ayvalık'ın Cunda Adası'nda, 1907 yılında inşa edilmiş ve tarihi eser statüsündeki bir Rum evinde konumlanan altı odalı bir butik oteldir. Taş ev mimarisini modern konforla buluşturan otelimiz; çarşıya, değirmene ve denize yürüme mesafesindedir. İster butik otel ister pansiyon sıcaklığında bir konaklama arıyor olun, sizi Ege'nin en özel adasında ağırlamaktan mutluluk duyarız.",
+    en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house built in 1907 on Cunda Island, Ayvalık. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a family-run guesthouse, we look forward to welcoming you.",
+    el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας οικογενειακής πανσιόν, σας περιμένουμε.",
   },
 
   // ─── CTAs ───
@@ -160,6 +172,11 @@ export const ui = {
     tr: "Odalar & Suitler",
     en: "Rooms & Suites",
     el: "Δωμάτια & Σουίτες",
+  },
+  "rooms.metaTitle": {
+    tr: "Odalar & Suitler — Cunda Taş Ev Otel Odaları | Cunda Milos",
+    en: "Rooms & Suites — Boutique Hotel Rooms in Cunda, Ayvalık | Cunda Milos",
+    el: "Δωμάτια & Σουίτες — Ξενοδοχείο στην Κούνδα, Αϊβαλί | Cunda Milos",
   },
   "rooms.subtitle": {
     tr: "Her biri Cunda'nın ruhunu yansıtan, özenle tasarlanmış altı oda",
@@ -295,14 +312,14 @@ export const ui = {
     el: "Κλείσιμο μενού",
   },
   "meta.title": {
-    tr: "Cunda Milos | Cunda Adası Butik Otel — Ayvalık",
-    en: "Cunda Milos | Boutique Hotel on Cunda Island — Ayvalık",
-    el: "Cunda Milos | Μπουτίκ Ξενοδοχείο στην Κούνδα — Αϊβαλί",
+    tr: "Cunda Milos | Cunda Butik Otel — Tarihi Taş Ev, Ayvalık",
+    en: "Cunda Milos | Boutique Hotel in a Historic Stone House — Cunda, Ayvalık",
+    el: "Cunda Milos | Μπουτίκ Ξενοδοχείο σε Πέτρινο Σπίτι — Κούνδα, Αϊβαλί",
   },
   "meta.description": {
-    tr: "Cunda Milos — Cunda Adası'nın kalbinde, Ege mimarisinden ilham alan butik otel. Huzur, zarafet ve yerel gastronomi deneyimi.",
-    en: "Cunda Milos — a boutique hotel in the heart of Cunda Island, inspired by Aegean architecture. Tranquility, elegance, and local gastronomy.",
-    el: "Cunda Milos — μπουτίκ ξενοδοχείο στην καρδιά της Κούνδα, εμπνευσμένο από την αιγαιοπελαγίτικη αρχιτεκτονική.",
+    tr: "Cunda Milos — Ayvalık Cunda Adası'nda 1907 tarihli Rum evinde 6 odalı butik otel. Taş ev mimarisi, geleneksel Ege kahvaltısı ve deniz manzaralı bahçe.",
+    en: "Cunda Milos — a six-room boutique hotel in a 1907 Greek stone house on Cunda Island, Ayvalık. Stone architecture, traditional Aegean breakfast, and a sea-view garden.",
+    el: "Cunda Milos — μπουτίκ ξενοδοχείο 6 δωματίων σε ρωμαίικο πέτρινο σπίτι του 1907 στην Κούνδα (Μοσχονήσι) του Αϊβαλί. Πέτρινη αρχιτεκτονική, αιγαιοπελαγίτικο πρωινό, κήπος με θέα στη θάλασσα.",
   },
 
   // ─── Header ───
