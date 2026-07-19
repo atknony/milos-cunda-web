@@ -22,7 +22,7 @@ const HOTEL_NAME = "Cunda Milos";
 const PHONE = "+905306566892";
 const WHATSAPP = "+905306566892";
 
-const COORDINATES = { latitude: 39.336237, longitude: 26.657681 };
+const COORDINATES = { latitude: 39.336233, longitude: 26.6576815 };
 
 const ADDRESS: Record<Lang, Record<string, string>> = {
   tr: {
@@ -121,7 +121,8 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     ],
     address: { "@type": "PostalAddress", ...ADDRESS[lang] },
     geo: { "@type": "GeoCoordinates", ...COORDINATES },
-    hasMap: `https://www.google.com/maps?q=${COORDINATES.latitude},${COORDINATES.longitude}`,
+    // Google Business Profile listing (stable CID link), not a bare pin
+    hasMap: "https://maps.google.com/?cid=12231583961060775956",
     contactPoint: [
       {
         "@type": "ContactPoint",

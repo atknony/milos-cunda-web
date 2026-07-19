@@ -36,9 +36,13 @@ const t = useTranslations(lang);
 const whatsappUrl = getWhatsAppUrl(lang);
 const phoneUrl = getPhoneUrl();
 
-const COORDINATES = { lat: 39.336237, lng: 26.657681 };
-const mapsUrl = `https://www.google.com/maps?q=${COORDINATES.lat},${COORDINATES.lng}`;
-const embedUrl = `https://maps.google.com/maps?q=${COORDINATES.lat},${COORDINATES.lng}&z=17&output=embed`;
+const COORDINATES = { lat: 39.336233, lng: 26.6576815 };
+/* Links target the Google Business Profile listing (CID from the GBP maps
+   URL), not a bare coordinate pin — visitors see the business card with
+   reviews and directions. */
+const GOOGLE_MAPS_CID = "12231583961060775956";
+const mapsUrl = `https://maps.google.com/?cid=${GOOGLE_MAPS_CID}`;
+const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent("Cunda Milos Otel, Ayvalık")}&ll=${COORDINATES.lat},${COORDINATES.lng}&z=17&output=embed`;
 
 /* ─── SEO ─── */
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
