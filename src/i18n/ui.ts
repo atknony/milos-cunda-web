@@ -300,9 +300,9 @@ export const ui = {
     el: "Cunda Milos | Μπουτίκ Ξενοδοχείο στην Κούνδα — Αϊβαλί",
   },
   "meta.description": {
-    tr: "Cunda Adası'nın kalbinde, Ege mimarisinden ilham alan butik otel. Huzur, zarafet ve yerel gastronomi deneyimi.",
-    en: "A boutique hotel in the heart of Cunda Island, inspired by Aegean architecture. Tranquility, elegance, and local gastronomy.",
-    el: "Ένα μπουτίκ ξενοδοχείο στην καρδιά της Κούνδα, εμπνευσμένο από την αιγαιοπελαγίτικη αρχιτεκτονική.",
+    tr: "Cunda Milos — Cunda Adası'nın kalbinde, Ege mimarisinden ilham alan butik otel. Huzur, zarafet ve yerel gastronomi deneyimi.",
+    en: "Cunda Milos — a boutique hotel in the heart of Cunda Island, inspired by Aegean architecture. Tranquility, elegance, and local gastronomy.",
+    el: "Cunda Milos — μπουτίκ ξενοδοχείο στην καρδιά της Κούνδα, εμπνευσμένο από την αιγαιοπελαγίτικη αρχιτεκτονική.",
   },
 
   // ─── Header ───
@@ -465,9 +465,9 @@ export const ui = {
     el: "Οδηγίες",
   },
   "contact.directionsDesc": {
-    tr: "Ayvalık'tan Cunda Adası'na köprü ile yaklaşık 5 dakikada ulaşabilirsiniz. Otelimiz Sahil Mahallesi'nde, deniz kıyısında yer almaktadır.",
-    en: "Cunda Island is a 5-minute drive from Ayvalık over the bridge. Our hotel is located on the waterfront in Sahil Mahallesi.",
-    el: "Η Κούνδα απέχει 5 λεπτά με αυτοκίνητο από το Αϊβαλί μέσω της γέφυρας. Το ξενοδοχείο μας βρίσκεται στην παραλία στο Sahil Mahallesi.",
+    tr: "Ayvalık Merkezden kalkan eski yol minibüs ve otobüsleri ile, Cunda çarşıdan değirmene doğru yukarı yürüyerek ulaşım sağlayabilir veya özel aracınızla gelebilirsiniz.",
+    en: "You can reach us by taking one of the old-road minibuses or buses departing from Ayvalık town center, then walking uphill from Cunda's market square toward the windmill — or simply arrive by private car.",
+    el: "Μπορείτε να μας βρείτε με τα μίνι λεωφορεία και τα λεωφορεία του παλιού δρόμου που αναχωρούν από το κέντρο του Αϊβαλί, ανεβαίνοντας με τα πόδια από την αγορά της Κούνδα προς τον ανεμόμυλο — ή να έρθετε με το δικό σας όχημα.",
   },
   "contact.mapLabel": {
     tr: "Haritada Göster",

@@ -17,7 +17,7 @@ import RoomCard from "../../components/RoomCard.astro";
 import Lightbox from "../../components/Lightbox.astro";
 
 import { languages, type Lang } from "../../i18n/ui";
-import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+import { useTranslations, getLocalizedPath, getWhatsAppUrl, getPhoneUrl } from "../../i18n/utils";
 import { generateItemListSchema } from "../../lib/schema";
 
 /* ─── Static Paths ─── */
@@ -152,7 +152,7 @@ const roomListSchema = generateItemListSchema(
         </p>
         <div class="flex flex-wrap items-center justify-center gap-5">
           <a
-            href={`https://wa.me/905XXXXXXXXX?text=${encodeURIComponent(t("whatsapp.message"))}`}
+            href={getWhatsAppUrl(lang)}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2.5 px-7 py-3.5 text-xs font-medium
@@ -166,7 +166,7 @@ const roomListSchema = generateItemListSchema(
             {t("cta.whatsapp")}
           </a>
           <a
-            href="tel:+905XXXXXXXXX"
+            href={getPhoneUrl()}
             class="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em]
                    uppercase text-stone-400 hover:text-stone-100 transition-colors duration-200"
           >

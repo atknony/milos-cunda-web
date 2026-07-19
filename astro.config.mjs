@@ -13,6 +13,12 @@ export default defineConfig({
   /* ─── Adapter (public site stays prerendered; only /admin + /api opt into SSR) ─── */
   adapter: vercel(),
 
+  /* ─── Root → default locale (real HTTP redirect via Vercel routing, not a
+         prerendered meta-refresh page, which rendered as a white screen) ─── */
+  redirects: {
+    "/": { status: 302, destination: "/tr/" },
+  },
+
   /* ─── i18n Prefix Routing ─── */
   i18n: {
     defaultLocale: "tr",

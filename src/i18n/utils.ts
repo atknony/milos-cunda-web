@@ -139,7 +139,7 @@ export function getAlternateUrls(
 
 /* ─── WhatsApp URL Builder ─── */
 
-const WHATSAPP_NUMBER = "905XXXXXXXXX"; // Replace with actual number
+const WHATSAPP_NUMBER = "905306566892";
 
 /**
  * Build a WhatsApp click-to-chat URL with a pre-filled localized message.
@@ -155,7 +155,7 @@ export function getWhatsAppUrl(lang: Lang, roomName?: string): string {
 
 /* ─── Phone URL ─── */
 
-const PHONE_NUMBER = "+90-5XX-XXX-XXXX"; // Replace with actual number
+const PHONE_NUMBER = "+90 530 656 68 92";
 
 export function getPhoneUrl(): string {
   return `tel:${PHONE_NUMBER.replace(/[^+\d]/g, "")}`;

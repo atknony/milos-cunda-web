@@ -19,31 +19,31 @@ import { useTranslations } from "../i18n/utils";
 /* ─── Constants ─── */
 export const SITE_URL = "https://cundamilos.com";
 const HOTEL_NAME = "Cunda Milos";
-const PHONE = "+905XXXXXXXXX";
-const WHATSAPP = "+905XXXXXXXXX";
+const PHONE = "+905306566892";
+const WHATSAPP = "+905306566892";
 
-const COORDINATES = { latitude: 39.3363, longitude: 26.6579 };
+const COORDINATES = { latitude: 39.336237, longitude: 26.657681 };
 
 const ADDRESS: Record<Lang, Record<string, string>> = {
   tr: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal, 23009. Sokak No:7",
     addressLocality: "Ayvalık",
     addressRegion: "Balıkesir",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
   en: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal, 23009. Sokak No:7",
     addressLocality: "Ayvalık",
     addressRegion: "Balıkesir",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
   el: {
-    streetAddress: "Sahil Mahallesi, Namık Kemal Caddesi No:XX",
+    streetAddress: "Namık Kemal, 23009. Sokak No:7",
     addressLocality: "Αϊβαλί",
     addressRegion: "Μπαλίκεσιρ",
-    postalCode: "10400",
+    postalCode: "10405",
     addressCountry: "TR",
   },
 };
@@ -82,7 +82,7 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     description: t("meta.description"),
     url: `${SITE_URL}/${lang}/`,
     telephone: PHONE,
-    email: "info@cundamilos.com",
+    email: "miloscunda@gmail.com",
     image: [
       `${SITE_URL}/images/og/hotel-exterior.jpg`,
       `${SITE_URL}/images/og/hotel-interior.jpg`,
@@ -128,10 +128,7 @@ export function generateHotelSchema(lang: Lang): JsonLd {
         description: "WhatsApp",
       },
     ],
-    sameAs: [
-      "https://www.instagram.com/cundamilos",
-      "https://www.facebook.com/cundamilos",
-    ],
+    sameAs: ["https://www.instagram.com/cunda_milos"],
     areaServed: {
       "@type": "Place",
       name: "Cunda Island (Alibey Island)",

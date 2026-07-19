@@ -36,9 +36,9 @@ const t = useTranslations(lang);
 const whatsappUrl = getWhatsAppUrl(lang);
 const phoneUrl = getPhoneUrl();
 
-const COORDINATES = { lat: 39.3275, lng: 26.6927 };
+const COORDINATES = { lat: 39.336237, lng: 26.657681 };
 const mapsUrl = `https://www.google.com/maps?q=${COORDINATES.lat},${COORDINATES.lng}`;
-const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3095.0!2d${COORDINATES.lng}!3d${COORDINATES.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDE5JzM5LjAiTiAyNsKwNDEnMzMuNyJF!5e0!3m2!1str!2str!4v1`;
+const embedUrl = `https://maps.google.com/maps?q=${COORDINATES.lat},${COORDINATES.lng}&z=17&output=embed`;
 
 /* ─── SEO ─── */
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
@@ -157,7 +157,8 @@ const breadcrumbs = [
               <div>
                 <span class="spec-label">{t("contact.address")}</span>
                 <address class="not-italic text-sm text-stone-700 leading-relaxed mt-1">
-                  Sahil Mahallesi, Namık Kemal Caddesi No:XX<br />
+                  Namık Kemal, 23009. Sokak No:7<br />
+                  10405 Ayvalık/Balıkesir<br />
                   {t("footer.tagline")}
                 </address>
               </div>
@@ -175,7 +176,7 @@ const breadcrumbs = [
                 <span class="spec-label">{t("contact.phone")}</span>
                 <a href={phoneUrl}
                    class="block text-sm text-stone-700 hover:text-stone-900 transition-colors duration-200 mt-1">
-                  +90 5XX XXX XXXX
+                  +90 530 656 68 92
                 </a>
               </div>
             </div>
@@ -210,9 +211,9 @@ const breadcrumbs = [
               </div>
               <div>
                 <span class="spec-label">{t("contact.email")}</span>
-                <a href="mailto:info@cundamilos.com"
+                <a href="mailto:miloscunda@gmail.com"
                    class="block text-sm text-stone-700 hover:text-stone-900 transition-colors duration-200 mt-1">
-                  info@cundamilos.com
+                  miloscunda@gmail.com
                 </a>
               </div>
             </div>
@@ -242,7 +243,7 @@ const breadcrumbs = [
             </h3>
             <div class="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/cundamilos"
+                href="https://www.instagram.com/cunda_milos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="w-10 h-10 flex items-center justify-center rounded-full
@@ -256,21 +257,6 @@ const breadcrumbs = [
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </a>
-              <a
-                href="https://www.facebook.com/cundamilos"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-10 h-10 flex items-center justify-center rounded-full
-                       border border-stone-200 text-stone-400
-                       hover:text-stone-800 hover:border-stone-400
-                       transition-all duration-200"
-                aria-label="Facebook"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
               <a
