@@ -100,7 +100,7 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     checkinTime: "14:00",
     checkoutTime: "11:00",
     starRating: { "@type": "Rating", ratingValue: "4" },
-    numberOfRooms: 8,
+    numberOfRooms: 6,
     petsAllowed: false,
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Free WiFi", value: true },

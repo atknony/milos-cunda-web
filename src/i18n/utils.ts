@@ -76,6 +76,7 @@ const routeSlugs: Record<string, Record<Lang, string>> = {
   guide:      { tr: "guide",      en: "guide",      el: "guide" },
   gallery:    { tr: "gallery",    en: "gallery",    el: "gallery" },
   contact:    { tr: "contact",    en: "contact",    el: "contact" },
+  privacy:    { tr: "privacy",    en: "privacy",    el: "privacy" },
 };
 
 /**

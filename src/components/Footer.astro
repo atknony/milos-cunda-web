@@ -159,7 +159,7 @@ const currentYear = new Date().getFullYear();
         &copy; {currentYear} Cunda Milos. {t("footer.rights")}
       </p>
       <div class="flex items-center gap-5">
-        <a href={`/${lang}/`} class="text-stone-600 hover:text-stone-400 text-xs tracking-wide transition-colors duration-200">
+        <a href={getLocalizedPath(lang, "privacy")} class="text-stone-600 hover:text-stone-400 text-xs tracking-wide transition-colors duration-200">
           {t("footer.privacy")}
         </a>
         <span class="text-stone-700 text-[0.5rem] select-none">&middot;</span>

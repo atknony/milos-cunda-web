@@ -1,0 +1,275 @@
+---
+/**
+ * Cunda Milos — Privacy Policy
+ * Route: /[lang]/privacy/
+ *
+ * Static legal page. Long-form legal copy lives here per-language rather than
+ * in the flat ui.ts dictionary — it is only used on this page.
+ */
+
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+import { languages, type Lang } from "../../i18n/ui";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+export const getStaticPaths = (() => {
+  return (Object.keys(languages) as Lang[]).map((lang) => ({
+    params: { lang },
+  }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+interface Section {
+  heading: string;
+  paragraphs: string[];
+}
+
+interface PolicyContent {
+  title: string;
+  updated: string;
+  intro: string;
+  sections: Section[];
+}
+
+const CONTACT_LINE = "Cunda Milos — Namık Kemal, 23009. Sokak No:7, 10405 Ayvalık/Balıkesir, Türkiye · miloscunda@gmail.com · +90 530 656 68 92";
+
+const policy: Record<Lang, PolicyContent> = {
+  tr: {
+    title: "Gizlilik Politikası",
+    updated: "Son güncelleme: 19 Temmuz 2026",
+    intro:
+      "Cunda Milos olarak misafirlerimizin ve web sitemizi ziyaret edenlerin kişisel verilerinin gizliliğine önem veriyoruz. Bu politika, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Avrupa Birliği Genel Veri Koruma Tüzüğü (GDPR) kapsamında hangi verileri neden topladığımızı ve nasıl koruduğumuzu açıklar.",
+    sections: [
+      {
+        heading: "Veri Sorumlusu",
+        paragraphs: [
+          `Kişisel verilerinizin sorumlusu: ${CONTACT_LINE}.`,
+        ],
+      },
+      {
+        heading: "Topladığımız Veriler",
+        paragraphs: [
+          "İletişim verileri: Bize telefon, e-posta veya WhatsApp üzerinden ulaştığınızda adınız, telefon numaranız, e-posta adresiniz ve mesajınızın içeriği tarafımıza iletilir. Web sitemizde iletişim formu bulunmaz; iletişim doğrudan bu kanallar üzerinden gerçekleşir.",
+          "Rezervasyon verileri: Doğrudan veya Airbnb, Booking.com, Hotels.com gibi platformlar aracılığıyla rezervasyon yaptığınızda; adınız, iletişim bilgileriniz, konaklama tarihleriniz ve rezervasyon detaylarınız, konaklamanızı yönetmek amacıyla dahili rezervasyon sistemimizde işlenir.",
+          "Teknik veriler: Web sitemizin barındırma sağlayıcısı, güvenlik ve hata ayıklama amacıyla IP adresi ve tarayıcı bilgisi içeren standart sunucu kayıtları tutabilir. Sitemizde reklam veya pazarlama amaçlı izleme teknolojisi kullanılmamaktadır.",
+        ],
+      },
+      {
+        heading: "İşleme Amaçları ve Hukuki Dayanak",
+        paragraphs: [
+          "Verilerinizi yalnızca rezervasyonunuzu oluşturmak ve yönetmek (sözleşmenin ifası), sorularınızı yanıtlamak (meşru menfaat) ve konaklama işletmelerine ilişkin yasal bildirim yükümlülüklerimizi yerine getirmek (hukuki yükümlülük) amacıyla işleriz. Verileriniz pazarlama amacıyla kullanılmaz ve üçüncü kişilere satılmaz.",
+        ],
+      },
+      {
+        heading: "Rezervasyon Platformları ve Takvim (iCal) Senkronizasyonu",
+        paragraphs: [
+          "Müsaitlik durumumuzu güncel tutmak için rezervasyon platformlarıyla iCal takvim senkronizasyonu kullanırız. Platformlardan aldığımız takvim verileri rezervasyon sistemimize aktarılır. Dışarıya paylaştığımız takvim akışları ise yalnızca odaların dolu olduğu tarihleri içerir; misafir adı veya iletişim bilgisi gibi hiçbir kişisel veri bu akışlarda yer almaz.",
+        ],
+      },
+      {
+        heading: "Çerezler ve Üçüncü Taraf İçerikler",
+        paragraphs: [
+          "Sitemiz, reklam veya analiz amaçlı çerez kullanmaz. İletişim sayfamızdaki harita, Google Maps tarafından sağlanır; harita yüklendiğinde Google kendi çerez ve gizlilik politikalarını uygulayabilir. WhatsApp bağlantılarımıza tıkladığınızda Meta'nın (WhatsApp) gizlilik politikası geçerlidir.",
+        ],
+      },
+      {
+        heading: "Veri Saklama ve Güvenlik",
+        paragraphs: [
+          "Rezervasyon kayıtları, yasal saklama süreleri boyunca muhafaza edilir ve süre sonunda silinir veya anonimleştirilir. Verileriniz, erişimi kimlik doğrulamayla sınırlandırılmış güvenli sistemlerde saklanır. Web sitemiz ve rezervasyon altyapımız güvenilir bulut hizmet sağlayıcıları üzerinde barındırılmaktadır.",
+        ],
+      },
+      {
+        heading: "Haklarınız",
+        paragraphs: [
+          "KVKK ve GDPR kapsamında; verilerinize erişme, düzeltilmesini veya silinmesini talep etme, işlemeye itiraz etme ve verilerinizin taşınmasını isteme hakkına sahipsiniz. Taleplerinizi miloscunda@gmail.com adresine iletebilirsiniz. Ayrıca Kişisel Verileri Koruma Kurumu'na (KVKK) veya ilgili denetleyici makama şikayette bulunma hakkınız saklıdır.",
+        ],
+      },
+      {
+        heading: "Değişiklikler",
+        paragraphs: [
+          "Bu politikayı zaman zaman güncelleyebiliriz. Güncel sürüm her zaman bu sayfada yayınlanır.",
+        ],
+      },
+    ],
+  },
+  en: {
+    title: "Privacy Policy",
+    updated: "Last updated: 19 July 2026",
+    intro:
+      "At Cunda Milos, we value the privacy of our guests and website visitors. This policy explains what personal data we collect, why, and how we protect it, in accordance with the EU General Data Protection Regulation (GDPR) and the Turkish Personal Data Protection Law (KVKK, Law No. 6698).",
+    sections: [
+      {
+        heading: "Data Controller",
+        paragraphs: [
+          `The controller of your personal data is: ${CONTACT_LINE}.`,
+        ],
+      },
+      {
+        heading: "Data We Collect",
+        paragraphs: [
+          "Contact data: When you reach us by phone, email, or WhatsApp, we receive your name, phone number, email address, and the content of your message. Our website has no contact forms — communication happens directly through these channels.",
+          "Reservation data: When you book directly or through platforms such as Airbnb, Booking.com, or Hotels.com, your name, contact details, stay dates, and booking details are processed in our internal reservation system in order to manage your stay.",
+          "Technical data: Our website's hosting provider may keep standard server logs (including IP address and browser information) for security and troubleshooting. We do not use advertising or marketing tracking technologies on this site.",
+        ],
+      },
+      {
+        heading: "Purposes and Legal Basis",
+        paragraphs: [
+          "We process your data only to create and manage your reservation (performance of a contract), to respond to your enquiries (legitimate interest), and to fulfil the legal reporting obligations that apply to accommodation providers (legal obligation). Your data is never used for marketing and never sold to third parties.",
+        ],
+      },
+      {
+        heading: "Booking Platforms and Calendar (iCal) Synchronization",
+        paragraphs: [
+          "To keep our availability up to date, we synchronize calendars with booking platforms via iCal. Calendar data received from those platforms is imported into our reservation system. The calendar feeds we publish contain only the dates on which rooms are unavailable — no personal data such as guest names or contact details is ever included in these feeds.",
+        ],
+      },
+      {
+        heading: "Cookies and Third-Party Content",
+        paragraphs: [
+          "Our site does not use advertising or analytics cookies. The map on our contact page is provided by Google Maps; when the map loads, Google may apply its own cookie and privacy policies. When you click our WhatsApp links, Meta's (WhatsApp) privacy policy applies.",
+        ],
+      },
+      {
+        heading: "Data Retention and Security",
+        paragraphs: [
+          "Reservation records are kept for the legally required retention periods and then deleted or anonymized. Your data is stored in secure systems with access restricted by authentication. Our website and reservation infrastructure are hosted with reputable cloud service providers.",
+        ],
+      },
+      {
+        heading: "Your Rights",
+        paragraphs: [
+          "Under the GDPR and KVKK, you have the right to access your data, request its correction or deletion, object to processing, and request data portability. You can send requests to miloscunda@gmail.com. You also have the right to lodge a complaint with the Turkish Personal Data Protection Authority or your local supervisory authority.",
+        ],
+      },
+      {
+        heading: "Changes",
+        paragraphs: [
+          "We may update this policy from time to time. The current version is always published on this page.",
+        ],
+      },
+    ],
+  },
+  el: {
+    title: "Πολιτική Απορρήτου",
+    updated: "Τελευταία ενημέρωση: 19 Ιουλίου 2026",
+    intro:
+      "Στο Cunda Milos σεβόμαστε το απόρρητο των επισκεπτών μας και των χρηστών της ιστοσελίδας μας. Η παρούσα πολιτική εξηγεί ποια προσωπικά δεδομένα συλλέγουμε, για ποιον λόγο και πώς τα προστατεύουμε, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων της ΕΕ (GDPR) και τον τουρκικό νόμο περί προστασίας προσωπικών δεδομένων (KVKK, Ν. 6698).",
+    sections: [
+      {
+        heading: "Υπεύθυνος Επεξεργασίας",
+        paragraphs: [
+          `Υπεύθυνος επεξεργασίας των προσωπικών σας δεδομένων είναι: ${CONTACT_LINE}.`,
+        ],
+      },
+      {
+        heading: "Δεδομένα που Συλλέγουμε",
+        paragraphs: [
+          "Στοιχεία επικοινωνίας: Όταν επικοινωνείτε μαζί μας τηλεφωνικά, μέσω email ή WhatsApp, λαμβάνουμε το όνομά σας, τον αριθμό τηλεφώνου σας, τη διεύθυνση email σας και το περιεχόμενο του μηνύματός σας. Η ιστοσελίδα μας δεν διαθέτει φόρμες επικοινωνίας — η επικοινωνία γίνεται απευθείας μέσω αυτών των καναλιών.",
+          "Δεδομένα κρατήσεων: Όταν κάνετε κράτηση απευθείας ή μέσω πλατφορμών όπως Airbnb, Booking.com ή Hotels.com, το όνομά σας, τα στοιχεία επικοινωνίας, οι ημερομηνίες διαμονής και οι λεπτομέρειες της κράτησης υποβάλλονται σε επεξεργασία στο εσωτερικό μας σύστημα κρατήσεων για τη διαχείριση της διαμονής σας.",
+          "Τεχνικά δεδομένα: Ο πάροχος φιλοξενίας της ιστοσελίδας μας ενδέχεται να τηρεί τυπικά αρχεία καταγραφής διακομιστή (συμπεριλαμβανομένης διεύθυνσης IP και πληροφοριών προγράμματος περιήγησης) για λόγους ασφαλείας. Δεν χρησιμοποιούμε τεχνολογίες διαφημιστικής παρακολούθησης στην ιστοσελίδα.",
+        ],
+      },
+      {
+        heading: "Σκοποί και Νομική Βάση",
+        paragraphs: [
+          "Επεξεργαζόμαστε τα δεδομένα σας αποκλειστικά για τη δημιουργία και διαχείριση της κράτησής σας (εκτέλεση σύμβασης), για την απάντηση στα ερωτήματά σας (έννομο συμφέρον) και για την εκπλήρωση των νόμιμων υποχρεώσεων που ισχύουν για τα καταλύματα (νομική υποχρέωση). Τα δεδομένα σας δεν χρησιμοποιούνται ποτέ για σκοπούς μάρκετινγκ και δεν πωλούνται σε τρίτους.",
+        ],
+      },
+      {
+        heading: "Πλατφόρμες Κρατήσεων και Συγχρονισμός Ημερολογίου (iCal)",
+        paragraphs: [
+          "Για να διατηρούμε ενημερωμένη τη διαθεσιμότητά μας, συγχρονίζουμε ημερολόγια με τις πλατφόρμες κρατήσεων μέσω iCal. Τα ημερολογιακά δεδομένα που λαμβάνουμε εισάγονται στο σύστημα κρατήσεών μας. Οι ροές ημερολογίου που δημοσιεύουμε περιέχουν μόνο τις ημερομηνίες κατά τις οποίες τα δωμάτια δεν είναι διαθέσιμα — κανένα προσωπικό δεδομένο, όπως ονόματα ή στοιχεία επικοινωνίας επισκεπτών, δεν περιλαμβάνεται ποτέ σε αυτές.",
+        ],
+      },
+      {
+        heading: "Cookies και Περιεχόμενο Τρίτων",
+        paragraphs: [
+          "Η ιστοσελίδα μας δεν χρησιμοποιεί cookies διαφήμισης ή στατιστικών. Ο χάρτης στη σελίδα επικοινωνίας παρέχεται από το Google Maps· κατά τη φόρτωσή του, η Google ενδέχεται να εφαρμόζει τις δικές της πολιτικές cookies και απορρήτου. Όταν χρησιμοποιείτε τους συνδέσμους WhatsApp, ισχύει η πολιτική απορρήτου της Meta (WhatsApp).",
+        ],
+      },
+      {
+        heading: "Διατήρηση και Ασφάλεια Δεδομένων",
+        paragraphs: [
+          "Τα αρχεία κρατήσεων διατηρούνται για τα νόμιμα προβλεπόμενα διαστήματα και στη συνέχεια διαγράφονται ή ανωνυμοποιούνται. Τα δεδομένα σας αποθηκεύονται σε ασφαλή συστήματα με πρόσβαση περιορισμένη μέσω ταυτοποίησης. Η ιστοσελίδα και η υποδομή κρατήσεών μας φιλοξενούνται σε αξιόπιστους παρόχους υπηρεσιών cloud.",
+        ],
+      },
+      {
+        heading: "Τα Δικαιώματά σας",
+        paragraphs: [
+          "Βάσει του GDPR και του KVKK, έχετε δικαίωμα πρόσβασης στα δεδομένα σας, διόρθωσης ή διαγραφής τους, εναντίωσης στην επεξεργασία και φορητότητας των δεδομένων. Μπορείτε να στείλετε τα αιτήματά σας στο miloscunda@gmail.com. Έχετε επίσης δικαίωμα υποβολής καταγγελίας στην τουρκική Αρχή Προστασίας Προσωπικών Δεδομένων ή στην αρμόδια εποπτική αρχή της χώρας σας.",
+        ],
+      },
+      {
+        heading: "Αλλαγές",
+        paragraphs: [
+          "Ενδέχεται να ενημερώνουμε αυτήν την πολιτική κατά καιρούς. Η ισχύουσα έκδοση δημοσιεύεται πάντα σε αυτήν τη σελίδα.",
+        ],
+      },
+    ],
+  },
+};
+
+const content = policy[lang];
+
+/* ─── SEO ─── */
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
+const breadcrumbs = [
+  { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
+  { name: content.title, url: `${siteUrl}${getLocalizedPath(lang, "privacy")}` },
+];
+---
+
+<MainLayout
+  title={`${content.title} | Cunda Milos`}
+  description={content.intro}
+  breadcrumbs={breadcrumbs}
+>
+  <Header slot="header" />
+
+  <!-- ─── Page Header ─── -->
+  <section class="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-stone-50">
+    <div class="container-narrow text-center">
+      <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
+      <h1 class="text-display text-stone-900 mb-4">
+        {content.title}
+      </h1>
+      <p class="text-stone-400 text-xs tracking-[0.2em] uppercase">
+        {content.updated}
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Policy Body ─── -->
+  <section class="section-padding bg-stone-50 pt-0">
+    <div class="container-narrow max-w-3xl">
+      <p class="text-stone-600 text-base leading-[1.85] mb-12">
+        {content.intro}
+      </p>
+
+      {content.sections.map((section) => (
+        <div class="mb-10">
+          <h2 class="font-serif text-xl lg:text-2xl text-stone-900 mb-4">
+            {section.heading}
+          </h2>
+          {section.paragraphs.map((p) => (
+            <p class="text-stone-600 text-sm lg:text-base leading-[1.85] mb-4">
+              {p}
+            </p>
+          ))}
+        </div>
+      ))}
+
+      <p class="text-stone-500 text-sm leading-relaxed border-t border-stone-200 pt-8 mt-12">
+        {t("footer.contact")}: miloscunda@gmail.com · +90 530 656 68 92
+      </p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</MainLayout>

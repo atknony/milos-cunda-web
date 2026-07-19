@@ -162,9 +162,9 @@ export const ui = {
     el: "Δωμάτια & Σουίτες",
   },
   "rooms.subtitle": {
-    tr: "Her biri Cunda'nın ruhunu yansıtan, özenle tasarlanmış sekiz oda",
-    en: "Eight carefully designed rooms, each reflecting the spirit of Cunda",
-    el: "Οκτώ προσεκτικά σχεδιασμένα δωμάτια, καθένα αντανακλά το πνεύμα της Κούνδα",
+    tr: "Her biri Cunda'nın ruhunu yansıtan, özenle tasarlanmış altı oda",
+    en: "Six carefully designed rooms, each reflecting the spirit of Cunda",
+    el: "Έξι προσεκτικά σχεδιασμένα δωμάτια, καθένα αντανακλά το πνεύμα της Κούνδα",
   },
 
   // ─── Room Detail Page ───
@@ -492,19 +492,29 @@ export const ui = {
     el: "Αιγαιοπελαγίτικο Πρωινό",
   },
   "experience.breakfast.text": {
-    tr: "Her sabah avlumuzda, yerel zeytin yağı, taze peynirler, köy yumurtası, kekik balı ve mevsim meyveleriyle hazırlanan geleneksel bir Ege kahvaltısı servis edilir. Ekmekler günlük pişirilir, reçeller el yapımıdır.",
-    en: "Each morning in our courtyard, a traditional Aegean breakfast is served with local olive oil, fresh cheeses, farm eggs, thyme honey, and seasonal fruits. Breads are baked daily, jams are homemade.",
-    el: "Κάθε πρωί στην αυλή μας, σερβίρεται ένα παραδοσιακό αιγαιοπελαγίτικο πρωινό με τοπικό ελαιόλαδο, φρέσκα τυριά, αυγά φάρμας, μέλι θυμαριού και εποχιακά φρούτα.",
+    tr: "Her sabah avlumuzda; yerel zeytinyağı, taze peynirler, köy yumurtası, kekik balı ve mevsim meyveleriyle hazırlanan geleneksel bir Ege kahvaltısı servis edilir.",
+    en: "Each morning in our courtyard, a traditional Aegean breakfast is served, prepared with local olive oil, fresh cheeses, village eggs, thyme honey, and seasonal fruits.",
+    el: "Κάθε πρωί στην αυλή μας σερβίρεται ένα παραδοσιακό αιγαιοπελαγίτικο πρωινό, φτιαγμένο με τοπικό ελαιόλαδο, φρέσκα τυριά, χωριάτικα αυγά, θυμαρίσιο μέλι και φρούτα εποχής.",
   },
-  "experience.courtyard.title": {
-    tr: "Taş Avlu",
-    en: "The Stone Courtyard",
-    el: "Η Πέτρινη Αυλή",
+  "experience.garden.title": {
+    tr: "Milos Bahçe",
+    en: "The Milos Garden",
+    el: "Ο Κήπος Milos",
   },
-  "experience.courtyard.text": {
-    tr: "Otelimizin kalbi olan avlu, yüzyıllık taş duvarlar ve begonvil çiçekleriyle çevrilmiştir. Sabah kahvaltınızı güneşin altında, akşam aperatifinizi yıldızların altında yapacağınız huzurlu bir vahadır.",
-    en: "The heart of our hotel, the courtyard is enclosed by centuries-old stone walls and cascading bougainvillea. A serene oasis where you'll enjoy morning breakfast under the sun and evening aperitifs under the stars.",
-    el: "Η καρδιά του ξενοδοχείου μας, η αυλή περιβάλλεται από αιωνόβιους πέτρινους τοίχους και μπουκαμβίλιες. Μια γαλήνια όαση.",
+  "experience.garden.text": {
+    tr: "Otelimizin ferah ve geniş bahçesinde Ayvalık'ın temiz havasını içinize çekebilir, deniz manzarasına karşı kahvenizi yudumlayabilirsiniz. Ayrıca bahçemizde düzenlenen Yunan gecelerine de davetlisiniz.",
+    en: "In our hotel's spacious, airy garden you can breathe in Ayvalık's fresh air and sip your coffee against a backdrop of the sea. You are also warmly invited to the Greek nights held in the garden.",
+    el: "Στον ευρύχωρο και δροσερό κήπο του ξενοδοχείου μας μπορείτε να αναπνεύσετε τον καθαρό αέρα του Αϊβαλί και να απολαύσετε τον καφέ σας με θέα τη θάλασσα. Είστε επίσης καλεσμένοι στις ελληνικές βραδιές που διοργανώνονται στον κήπο μας.",
+  },
+  "experience.architecture.title": {
+    tr: "Rum Mimarisi",
+    en: "Greek Architecture",
+    el: "Ελληνική Αρχιτεκτονική",
+  },
+  "experience.architecture.text": {
+    tr: "Mübadeleden önce bölgede yaşayan Rumlar tarafından 1907'de inşa edilen taş evimiz, tarihi eser statüsündedir. Otelimizde konaklayarak tarihin dokusunu hissedebilir, uzun yıllar boyunca bu duvarlar arasında yaşanmış hikâyelere kendi deneyiminizi ekleyebilirsiniz.",
+    en: "Built in 1907 by the Greek community that lived here before the population exchange, our stone house holds protected historic-monument status. Staying with us, you can feel the texture of history and add your own story to the many that have unfolded within these walls over the years.",
+    el: "Χτισμένο το 1907 από τους Ρωμιούς που ζούσαν στην περιοχή πριν από την ανταλλαγή των πληθυσμών, το πέτρινο σπίτι μας είναι χαρακτηρισμένο ιστορικό διατηρητέο μνημείο. Μένοντας κοντά μας, μπορείτε να νιώσετε την υφή της ιστορίας και να προσθέσετε τη δική σας εμπειρία στις ιστορίες που έχουν ζήσει αυτοί οι τοίχοι.",
   },
   "experience.service.title": {
     tr: "Kişiye Özel Hizmet",
@@ -512,19 +522,9 @@ export const ui = {
     el: "Εξατομικευμένη Εξυπηρέτηση",
   },
   "experience.service.text": {
-    tr: "Sadece sekiz odamız olması, her misafire özel ilgi göstermemizi sağlar. Restoran rezervasyonlarından tekne turlarına, zeytin hasadı deneyiminden yerel rehberliğe — seyahatinizi size özel kılıyoruz.",
-    en: "With only eight rooms, we give every guest personal attention. From restaurant reservations to boat tours, olive harvest experiences to local guided walks — we tailor your journey to you.",
-    el: "Με μόνο οκτώ δωμάτια, προσφέρουμε σε κάθε επισκέπτη προσωπική προσοχή. Από κρατήσεις εστιατορίων έως βόλτες με βάρκα.",
-  },
-  "experience.sunset.title": {
-    tr: "Gün Batımı Terası",
-    en: "Sunset Terrace",
-    el: "Βεράντα Ηλιοβασιλέματος",
-  },
-  "experience.sunset.text": {
-    tr: "Çatı terasımız, Ege üzerinde batan güneşin Midilli Adası'nın siluetini boyamasını izlemek için tasarlanmıştır. Yerel şaraplar ve mevsimsel mezelerin eşliğinde günü uğurlamak, Milos deneyiminin en özel anlarından biridir.",
-    en: "Our rooftop terrace is designed for watching the sun paint Lesbos Island's silhouette as it sets over the Aegean. Accompanied by local wines and seasonal mezes, bidding farewell to the day is one of the most treasured moments of the Milos experience.",
-    el: "Η ταράτσα μας είναι σχεδιασμένη για να παρακολουθείτε τον ήλιο να ζωγραφίζει τη σιλουέτα της Λέσβου καθώς δύει πάνω από το Αιγαίο.",
+    tr: "Sadece altı odamız olması, her misafire özel ilgi göstermemizi sağlar. Restoran rezervasyonlarından tekne turlarına, zeytin hasadı deneyiminden yerel rehberliğe — seyahatinizi size özel kılıyoruz.",
+    en: "With only six rooms, we give every guest personal attention. From restaurant reservations to boat tours, olive harvest experiences to local guided walks — we tailor your journey to you.",
+    el: "Με μόνο έξι δωμάτια, προσφέρουμε σε κάθε επισκέπτη προσωπική φροντίδα. Από κρατήσεις εστιατορίων και βόλτες με σκάφος έως εμπειρίες συγκομιδής ελιάς και περιπάτους με ντόπιο ξεναγό — κάνουμε το ταξίδι σας μοναδικά δικό σας.",
   },
 
   // ─── Gallery Page ───
