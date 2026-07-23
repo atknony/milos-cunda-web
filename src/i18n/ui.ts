@@ -511,9 +511,9 @@ export const ui = {
     el: "Σχετικά με εμάς | Cunda Milos — Μπουτίκ Ξενοδοχείο στην Κούνδα",
   },
   "about.metaDescription": {
-    tr: "Cunda Milos'un hikâyesi: Ayvalık Cunda Adası'nda 1907 tarihli, tarihi eser statüsündeki Rum taş evinde altı odalı, aile işletmesi bir butik otel. Rezervasyonlar yalnızca doğrudan alınır.",
-    en: "The story of Cunda Milos: a family-run, six-room boutique hotel in a protected 1907 Greek stone house on Cunda Island, Ayvalık. Reservations are taken directly only.",
-    el: "Η ιστορία του Cunda Milos: ένα οικογενειακό μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στην Κούνδα του Αϊβαλί. Κρατήσεις μόνο απευθείας.",
+    tr: "Cunda Milos'un hikâyesi: Ayvalık Cunda Adası'nda 1907 tarihli, tarihi eser statüsündeki Rum taş evinde altı odalı, aile işletmesi bir butik otel.",
+    en: "The story of Cunda Milos: a family-run, six-room boutique hotel in a protected 1907 Greek stone house on Cunda Island, Ayvalık.",
+    el: "Η ιστορία του Cunda Milos: ένα οικογενειακό μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στην Κούνδα του Αϊβαλί.",
   },
   "about.title": {
     tr: "Cunda Milos Hakkında",
