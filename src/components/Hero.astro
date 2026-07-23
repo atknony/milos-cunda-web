@@ -80,9 +80,14 @@ const roomsPath = getLocalizedPath(lang, "rooms");
         aria-hidden="true"
       ></div>
 
-      <!-- Tagline -->
-      <h1 class="hero-stagger-2 text-display text-stone-50 mb-5 lg:mb-6" data-speakable-name>
-        {t("hero.tagline")}
+      <!-- H1: brand + location eyebrow, then display tagline -->
+      <h1 class="hero-stagger-2 mb-5 lg:mb-6">
+        <span class="block text-stone-300/90 text-[0.7rem] sm:text-[0.75rem] tracking-[0.3em] uppercase font-sans font-medium mb-4">
+          {t("hero.brandLine")}
+        </span>
+        <span class="block text-display text-stone-50" data-speakable-name>
+          {t("hero.tagline")}
+        </span>
       </h1>
 
       <!-- Subtitle -->

@@ -24,6 +24,18 @@ const WHATSAPP = "+905306566892";
 
 const COORDINATES = { latitude: 39.336233, longitude: 26.6576815 };
 
+/**
+ * Official off-site profiles for entity reconciliation (knowledge graph).
+ * The Google Business Profile CID link doubles as hasMap below.
+ * Add future profiles here as they are created (e.g. TripAdvisor, Facebook).
+ */
+const SAME_AS = [
+  "https://www.instagram.com/cunda_milos",
+  "https://maps.google.com/?cid=12231583961060775956",
+  // "https://www.tripadvisor.com/…", // when the TripAdvisor listing exists
+  // "https://www.facebook.com/…",    // when the Facebook page exists
+];
+
 const ADDRESS: Record<Lang, Record<string, string>> = {
   tr: {
     streetAddress: "Namık Kemal, 23009. Sokak No:7",
@@ -93,15 +105,13 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     telephone: PHONE,
     email: "miloscunda@gmail.com",
     image: [
-      `${SITE_URL}/images/og/hotel-exterior.jpg`,
-      `${SITE_URL}/images/og/hotel-interior.jpg`,
-      `${SITE_URL}/images/og/hotel-terrace.jpg`,
+      `${SITE_URL}/images/gallery/exterior-facade.jpg`,
+      `${SITE_URL}/images/gallery/exterior-courtyard.jpg`,
+      `${SITE_URL}/images/gallery/exterior-terrace.jpg`,
     ],
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/images/logo.svg`,
-      width: 200,
-      height: 60,
+      url: `${SITE_URL}/favicon.svg`,
     },
     priceRange: "€€",
     currenciesAccepted: "TRY, EUR, USD",
@@ -138,7 +148,26 @@ export function generateHotelSchema(lang: Lang): JsonLd {
         description: "WhatsApp",
       },
     ],
-    sameAs: ["https://www.instagram.com/cunda_milos"],
+    sameAs: SAME_AS,
+    // Machine-readable "book direct via WhatsApp" — there is deliberately no
+    // OTA channel; this tells search/answer engines how a booking happens.
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://wa.me/905306566892",
+        actionPlatform: [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform",
+        ],
+        inLanguage: ["tr", "en", "el"],
+      },
+      result: { "@type": "LodgingReservation", name: "Direct reservation" },
+    },
+    subjectOf: {
+      "@type": "AboutPage",
+      url: `${SITE_URL}/${lang}/about`,
+    },
     areaServed: {
       "@type": "Place",
       name: "Cunda Island (Alibey Island)",
@@ -296,7 +325,7 @@ export function generateArticleSchema(lang: Lang, article: ArticleSchemaInput): 
       "@type": "Organization",
       name: HOTEL_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/images/logo.svg`,
+      logo: `${SITE_URL}/favicon.svg`,
     },
     publisher: { "@id": `${SITE_URL}/#hotel` },
     mainEntityOfPage: { "@id": articleUrl },
@@ -434,6 +463,27 @@ export interface ItemListEntry {
   url: string;
   image?: string;
   position: number;
+}
+
+/* ══════════════════════════════════════════════
+   9. ABOUT PAGE
+   Grounds the brand entity: the page whose main
+   subject is the hotel itself (see Hotel.subjectOf).
+   ══════════════════════════════════════════════ */
+
+export function generateAboutPageSchema(lang: Lang, title: string, description: string): JsonLd {
+  const pageUrl = `${SITE_URL}/${lang}/about`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${pageUrl}#about`,
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: lang === "tr" ? "tr-TR" : lang === "el" ? "el-GR" : "en-US",
+    mainEntity: { "@id": `${SITE_URL}/#hotel` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+  };
 }
 
 export function generateItemListSchema(

@@ -16,7 +16,7 @@ export default defineConfig({
   /* ─── Root → default locale (real HTTP redirect via Vercel routing, not a
          prerendered meta-refresh page, which rendered as a white screen) ─── */
   redirects: {
-    "/": { status: 302, destination: "/tr/" },
+    "/": { status: 301, destination: "/tr/" },
   },
 
   /* ─── i18n Prefix Routing ─── */

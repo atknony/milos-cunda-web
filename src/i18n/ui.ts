@@ -44,6 +44,11 @@ export const ui = {
     en: "Contact",
     el: "Επικοινωνία",
   },
+  "nav.about": {
+    tr: "Hakkımızda",
+    en: "About",
+    el: "Σχετικά με εμάς",
+  },
 
   // ─── Hero / Home ───
   "hero.tagline": {
@@ -55,6 +60,13 @@ export const ui = {
     tr: "Ayvalık Cunda Adası'nda taş ev butik otel",
     en: "A stone house boutique hotel on Cunda Island, Ayvalık",
     el: "Πέτρινο μπουτίκ ξενοδοχείο στην Κούνδα, Αϊβαλί",
+  },
+  // Brand eyebrow inside the homepage H1 — puts "Cunda Milos" + category +
+  // location into the page's single most important heading.
+  "hero.brandLine": {
+    tr: "Cunda Milos — Butik Otel · Cunda Adası, Ayvalık",
+    en: "Cunda Milos — Boutique Hotel · Cunda Island, Ayvalık",
+    el: "Cunda Milos — Μπουτίκ Ξενοδοχείο · Κούνδα, Αϊβαλί",
   },
 
   // ─── Homepage Intro (SEO/GEO: crawlable statement of what & where we are) ───
@@ -490,6 +502,60 @@ export const ui = {
     tr: "Haritada Göster",
     en: "View on Map",
     el: "Δείτε στον Χάρτη",
+  },
+
+  // ─── About Page ───
+  "about.metaTitle": {
+    tr: "Hakkımızda | Cunda Milos — Cunda Adası Butik Otel, Ayvalık",
+    en: "About Us | Cunda Milos — Boutique Hotel on Cunda Island, Ayvalık",
+    el: "Σχετικά με εμάς | Cunda Milos — Μπουτίκ Ξενοδοχείο στην Κούνδα",
+  },
+  "about.metaDescription": {
+    tr: "Cunda Milos'un hikâyesi: Ayvalık Cunda Adası'nda 1907 tarihli, tarihi eser statüsündeki Rum taş evinde altı odalı, aile işletmesi bir butik otel. Rezervasyonlar yalnızca doğrudan alınır.",
+    en: "The story of Cunda Milos: a family-run, six-room boutique hotel in a protected 1907 Greek stone house on Cunda Island, Ayvalık. Reservations are taken directly only.",
+    el: "Η ιστορία του Cunda Milos: ένα οικογενειακό μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στην Κούνδα του Αϊβαλί. Κρατήσεις μόνο απευθείας.",
+  },
+  "about.title": {
+    tr: "Cunda Milos Hakkında",
+    en: "About Cunda Milos",
+    el: "Σχετικά με το Cunda Milos",
+  },
+  "about.subtitle": {
+    tr: "1907'den bugüne — Cunda'nın taşına ve hikâyesine sahip çıkıyoruz",
+    en: "Since 1907 — caring for a stone house and the stories it holds",
+    el: "Από το 1907 — φροντίζουμε ένα πέτρινο σπίτι και τις ιστορίες του",
+  },
+  "about.story.title": {
+    tr: "1907 Tarihli Bir Rum Evi",
+    en: "A Greek Stone House from 1907",
+    el: "Ένα Ρωμαίικο Πέτρινο Σπίτι του 1907",
+  },
+  "about.story.text": {
+    tr: "Cunda Milos, mübadeleden önce bölgede yaşayan Rumlar tarafından 1907'de inşa edilmiş, tarihi eser statüsündeki bir taş evde konumlanır. Restorasyonda orijinal taş işçiliği, ahşap detaylar ve evin özgün planı korunmuş; modern konfor bu dokunun içine özenle yerleştirilmiştir. Ayvalık'ın Cunda (Alibey) Adası'nda, çarşıya, değirmene ve denize yürüme mesafesindeyiz.",
+    en: "Cunda Milos occupies a protected stone house built in 1907 by the Greek community that lived here before the population exchange. The restoration preserved the original stonework, timber details, and floor plan, weaving modern comfort into that historic fabric. We are on Cunda (Alibey) Island in Ayvalık, a short walk from the market square, the windmill, and the sea.",
+    el: "Το Cunda Milos στεγάζεται σε ένα διατηρητέο πέτρινο σπίτι, χτισμένο το 1907 από τους Ρωμιούς που ζούσαν εδώ πριν από την ανταλλαγή των πληθυσμών. Η αναστήλωση διατήρησε την αυθεντική πέτρα, τα ξύλινα στοιχεία και την αρχική κάτοψη, εντάσσοντας διακριτικά τις σύγχρονες ανέσεις. Βρισκόμαστε στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα.",
+  },
+  "about.hosts.title": {
+    tr: "Altı Oda, Aile Sıcaklığı",
+    en: "Six Rooms, Family-Run",
+    el: "Έξι Δωμάτια, Οικογενειακή Φιλοξενία",
+  },
+  "about.hosts.text": {
+    tr: "Cunda Milos altı odalı, aile işletmesi bir butik oteldir. Az sayıda odamız olması her misafirimize gerçek anlamda zaman ayırmamızı sağlar: kahvaltı sofrasından restoran önerilerine, tekne turlarından zeytin hasadına kadar konaklamanızın her detayıyla bizzat ilgileniriz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
+    en: "Cunda Milos is a family-run boutique hotel with six rooms. Keeping the house small lets us give every guest genuine time and attention — from the breakfast table to restaurant tips, boat trips, and the olive harvest, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
+    el: "Το Cunda Milos είναι ένα οικογενειακό μπουτίκ ξενοδοχείο με έξι δωμάτια. Το μικρό μέγεθος μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από το τραπέζι του πρωινού μέχρι προτάσεις για εστιατόρια, βόλτες με σκάφος και τη συγκομιδή της ελιάς. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
+  },
+  // Canonical "book direct" statement — reused verbatim on About, Contact,
+  // homepage FAQ, and llms.txt so answer engines see one consistent phrasing.
+  "direct.title": {
+    tr: "Neden Doğrudan Rezervasyon?",
+    en: "Why Book Direct?",
+    el: "Γιατί Απευθείας Κράτηση;",
+  },
+  "direct.text": {
+    tr: "Cunda Milos rezervasyonları yalnızca doğrudan — WhatsApp veya telefonla — alır. Çevrim içi rezervasyon platformlarında bilinçli olarak yer almıyoruz: altı odamızla her konaklamayı misafirimizle birlikte planlamayı, komisyonsuz en iyi fiyatımızı sunmayı ve sorularınızı siz gelmeden önce bizzat yanıtlamayı tercih ediyoruz.",
+    en: "Cunda Milos takes reservations only directly — by WhatsApp or phone. We are deliberately not listed on online booking platforms: with six rooms, we prefer to plan every stay personally with our guests, offer our best price with no commission, and answer your questions ourselves before you arrive.",
+    el: "Το Cunda Milos δέχεται κρατήσεις μόνο απευθείας — μέσω WhatsApp ή τηλεφώνου. Συνειδητά δεν είμαστε σε διαδικτυακές πλατφόρμες κρατήσεων: με έξι δωμάτια, προτιμούμε να σχεδιάζουμε κάθε διαμονή προσωπικά με τους επισκέπτες μας, να προσφέρουμε την καλύτερη τιμή μας χωρίς προμήθεια και να απαντάμε οι ίδιοι στις ερωτήσεις σας πριν φτάσετε.",
   },
 
   // ─── Experience Page ───

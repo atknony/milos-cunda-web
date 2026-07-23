@@ -23,6 +23,8 @@ import {
   getWhatsAppUrl,
   getPhoneUrl,
 } from "../../i18n/utils";
+import { contactFaq } from "../../i18n/faq";
+import { generateFAQSchema } from "../../lib/schema";
 
 export const getStaticPaths = (() => {
   return (Object.keys(languages) as Lang[]).map((lang) => ({
@@ -50,12 +52,16 @@ const breadcrumbs = [
   { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
   { name: t("contact.title"), url: `${siteUrl}${getLocalizedPath(lang, "contact")}` },
 ];
+
+const faqs = contactFaq[lang];
+const faqSchema = generateFAQSchema(faqs);
 ---
 
 <MainLayout
   title={`${t("contact.title")} | Cunda Milos`}
   description={t("contact.subtitle")}
   breadcrumbs={breadcrumbs}
+  additionalSchemas={faqSchema ? [faqSchema] : []}
 >
   <Header slot="header" />
 
@@ -323,6 +329,54 @@ const breadcrumbs = [
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       3. WHY BOOK DIRECT + FAQ
+       ═══════════════════════════════════════ -->
+  <section class="section-padding bg-stone-50 pt-0">
+    <div class="container-narrow max-w-3xl">
+
+      <!-- Why book direct (canonical quotable statement) -->
+      <div class="reveal mb-14">
+        <div class="line-accent mb-5" aria-hidden="true"></div>
+        <h2 class="font-serif text-2xl lg:text-3xl text-stone-900 mb-5">
+          {t("direct.title")}
+        </h2>
+        <p class="text-editorial text-stone-600 leading-[1.85]">
+          {t("direct.text")}
+        </p>
+      </div>
+
+      <!-- FAQ (visible, mirrors FAQPage JSON-LD) -->
+      <div class="reveal flex items-center gap-3 mb-8">
+        <div class="line-accent" aria-hidden="true"></div>
+        <h2 class="text-[0.65rem] tracking-[0.25em] uppercase text-stone-400 font-medium">
+          {t("guide.faq.title")}
+        </h2>
+      </div>
+      <div class="reveal flex flex-col gap-4">
+        {faqs.map((item) => (
+          <details class="faq-item group">
+            <summary class="faq-summary">
+              <span class="faq-question">{item.question}</span>
+              <svg
+                width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"
+                class="faq-chevron shrink-0"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>

@@ -14,6 +14,8 @@ import Footer from "../../components/Footer.astro";
 
 import { languages, type Lang } from "../../i18n/ui";
 import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+import { homeFaq } from "../../i18n/faq";
+import { generateFAQSchema } from "../../lib/schema";
 
 export const getStaticPaths = (() => {
   return (Object.keys(languages) as Lang[]).map((lang) => ({
@@ -35,9 +37,12 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos
 const breadcrumbs = [
   { name: "Cunda Milos", url: `${siteUrl}/${lang}/` },
 ];
+
+const faqs = homeFaq[lang];
+const faqSchema = generateFAQSchema(faqs);
 ---
 
-<MainLayout breadcrumbs={breadcrumbs}>
+<MainLayout breadcrumbs={breadcrumbs} additionalSchemas={faqSchema ? [faqSchema] : []}>
 
   <Header slot="header" transparent />
 
@@ -145,6 +150,39 @@ const breadcrumbs = [
           <!-- Decorative corner -->
           <div class="absolute top-4 right-4 w-16 h-16 border-t border-r border-stone-50/30" aria-hidden="true"></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ (visible, mirrors FAQPage JSON-LD) ─── -->
+  <section class="section-padding bg-stone-50">
+    <div class="container-narrow max-w-3xl">
+      <div class="reveal flex items-center gap-3 mb-8">
+        <div class="line-accent" aria-hidden="true"></div>
+        <h2 class="text-[0.65rem] tracking-[0.25em] uppercase text-stone-400 font-medium">
+          {t("guide.faq.title")}
+        </h2>
+      </div>
+      <div class="reveal flex flex-col gap-4">
+        {faqs.map((item) => (
+          <details class="faq-item group">
+            <summary class="faq-summary">
+              <span class="faq-question">{item.question}</span>
+              <svg
+                width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round"
+                class="faq-chevron shrink-0"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
