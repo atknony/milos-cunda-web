@@ -42,11 +42,6 @@
     { "icon": "shirt", "label": { "tr": "Bornoz & Terlik", "en": "Robes & Slippers", "el": "Μπουρνούζια & Παντόφλες" } },
     { "icon": "lock", "label": { "tr": "Oda Kasası", "en": "In-Room Safe", "el": "Χρηματοκιβώτιο" } }
   ],
-  "priceHint": {
-    "amount": 220,
-    "currency": "EUR",
-    "period": "night"
-  },
   "featuredImage": {
     "src": "/images/rooms/zeytin/featured.jpg",
     "alt": {

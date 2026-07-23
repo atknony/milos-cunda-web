@@ -42,11 +42,6 @@
     { "icon": "sunrise", "label": { "tr": "Özel Balkon", "en": "Private Balcony", "el": "Ιδιωτικό Μπαλκόνι" } },
     { "icon": "lock", "label": { "tr": "Oda Kasası", "en": "In-Room Safe", "el": "Χρηματοκιβώτιο" } }
   ],
-  "priceHint": {
-    "amount": 320,
-    "currency": "EUR",
-    "period": "night"
-  },
   "featuredImage": {
     "src": "/images/rooms/ege/featured.jpg",
     "alt": {
