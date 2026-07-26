@@ -1,20 +1,15 @@
 {
   "slug": "ege",
-  "sortOrder": 2,
+  "sortOrder": 1,
   "title": {
     "tr": "Ege Suit",
     "en": "Aegean Suite",
     "el": "Σουίτα Αιγαίο"
   },
-  "tagline": {
-    "tr": "Mavinin sonsuz tonları",
-    "en": "Infinite shades of blue",
-    "el": "Άπειρες αποχρώσεις του μπλε"
-  },
   "description": {
-    "tr": "Denize sıfır konumuyla öne çıkan Ege Suit, panoramik Ege manzarasıyla misafirlerine unutulmaz bir konaklama sunuyor. Geleneksel taş işçiliği ve modern dokunuşlar bir arada.",
-    "en": "The Aegean Suite stands out with its waterfront location, offering guests an unforgettable stay with panoramic Aegean views. Traditional stonework meets modern touches.",
-    "el": "Η Σουίτα Αιγαίο ξεχωρίζει με την παραθαλάσσια τοποθεσία της, προσφέροντας στους επισκέπτες μια αξέχαστη διαμονή με πανοραμική θέα στο Αιγαίο."
+    "tr": "Taş mimari dokunun konforla buluştuğu Ege Suit, Tarihi Taş Değirmen manzarasıyla misafirlerine unutulmaz bir konaklama sunuyor. Tarih ve konfor bir arada.",
+    "en": "The Aegean Suite, where the texture of stone architecture meets comfort, offers guests an unforgettable stay with a view of the Historic Stone Mill. History and comfort, side by side.",
+    "el": "Η Σουίτα Αιγαίο, όπου η πέτρινη αρχιτεκτονική συναντά την άνεση, προσφέρει στους επισκέπτες μια αξέχαστη διαμονή με θέα στον Ιστορικό Πέτρινο Μύλο. Ιστορία και άνεση μαζί."
   },
   "capacity": {
     "adults": 2,
@@ -30,52 +25,66 @@
     "el": "Κρεβάτι King Size"
   },
   "view": {
-    "tr": "Tam Deniz Manzarası",
-    "en": "Full Sea View",
-    "el": "Πλήρης Θέα στη Θάλασσα"
+    "tr": "Değirmen Manzarası",
+    "en": "Mill View",
+    "el": "Θέα στον Μύλο"
   },
   "amenities": [
     { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
-    { "icon": "wifi", "label": { "tr": "Ücretsiz Wi-Fi", "en": "Free Wi-Fi", "el": "Δωρεάν Wi-Fi" } },
-    { "icon": "coffee", "label": { "tr": "Nespresso Makinesi", "en": "Nespresso Machine", "el": "Μηχανή Nespresso" } },
-    { "icon": "bath", "label": { "tr": "Jakuzi Küvet", "en": "Jacuzzi Bathtub", "el": "Μπανιέρα Τζακούζι" } },
-    { "icon": "sunrise", "label": { "tr": "Özel Balkon", "en": "Private Balcony", "el": "Ιδιωτικό Μπαλκόνι" } },
-    { "icon": "lock", "label": { "tr": "Oda Kasası", "en": "In-Room Safe", "el": "Χρηματοκιβώτιο" } }
+    { "icon": "wifi", "label": { "tr": "Ücretsiz Wi-Fi", "en": "Free Wi-Fi", "el": "Δωρεάν Wi-Fi" } }
   ],
   "featuredImage": {
     "src": "/images/rooms/ege/featured.jpg",
     "alt": {
-      "tr": "Ege Suit — panoramik deniz manzarası ve taş duvarlar, Cunda Milos butik otel Ayvalık",
-      "en": "Aegean Suite — panoramic sea view and stone walls at Cunda Milos boutique hotel, Ayvalık",
-      "el": "Σουίτα Αιγαίο — πανοραμική θέα στη θάλασσα και πέτρινοι τοίχοι, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+      "tr": "Ege Suit — taş duvarlar ve tarihi taş değirmen manzarası, Cunda Milos butik otel Ayvalık",
+      "en": "Aegean Suite — stone walls and historic stone mill view at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Σουίτα Αιγαίο — πέτρινοι τοίχοι και θέα στον ιστορικό πέτρινο μύλο, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
     },
     "width": 1600,
-    "height": 1067
+    "height": 1200
   },
   "gallery": [
     {
       "src": "/images/rooms/ege/bedroom.jpg",
       "alt": { "tr": "Yatak odası", "en": "Bedroom", "el": "Υπνοδωμάτιο" },
       "width": 1600,
-      "height": 1067
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/ege/bedroom2.jpg",
+      "alt": { "tr": "Yatak odası — taş duvar detayı", "en": "Bedroom — stone wall detail", "el": "Υπνοδωμάτιο — λεπτομέρεια πέτρινου τοίχου" },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/ege/bedroom3.jpg",
+      "alt": { "tr": "Yatak odası — genel görünüm", "en": "Bedroom — overall view", "el": "Υπνοδωμάτιο — γενική άποψη" },
+      "width": 1600,
+      "height": 1200
     },
     {
       "src": "/images/rooms/ege/bathroom.jpg",
-      "alt": { "tr": "Banyo — jakuzi küvet", "en": "Bathroom — jacuzzi tub", "el": "Μπάνιο — τζακούζι" },
+      "alt": { "tr": "Banyo", "en": "Bathroom", "el": "Μπάνιο" },
       "width": 1600,
-      "height": 1067
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/ege/bathroom2.jpg",
+      "alt": { "tr": "Banyo — detay", "en": "Bathroom — detail", "el": "Μπάνιο — λεπτομέρεια" },
+      "width": 1600,
+      "height": 1200
     },
     {
       "src": "/images/rooms/ege/balcony.jpg",
-      "alt": { "tr": "Özel balkon — deniz manzarası", "en": "Private balcony — sea view", "el": "Ιδιωτικό μπαλκόνι — θέα στη θάλασσα" },
+      "alt": { "tr": "Balkon — değirmen manzarası", "en": "Balcony — mill view", "el": "Μπαλκόνι — θέα στον μύλο" },
       "width": 1600,
-      "height": 1067
+      "height": 1200
     },
     {
       "src": "/images/rooms/ege/detail.jpg",
       "alt": { "tr": "Oda detayı", "en": "Room detail", "el": "Λεπτομέρεια δωματίου" },
       "width": 1600,
-      "height": 1067
+      "height": 1200
     }
   ],
   "isPublished": true
