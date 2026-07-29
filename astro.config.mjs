@@ -17,6 +17,11 @@ export default defineConfig({
          prerendered meta-refresh page, which rendered as a white screen) ─── */
   redirects: {
     "/": { status: 301, destination: "/tr/" },
+    // Zeytin Suite unpublished 2026-07 (single-room lineup) — 301 the crawled
+    // URLs to the rooms list instead of 404. Remove if the room returns.
+    "/tr/rooms/zeytin": { status: 301, destination: "/tr/rooms/" },
+    "/en/rooms/zeytin": { status: 301, destination: "/en/rooms/" },
+    "/el/rooms/zeytin": { status: 301, destination: "/el/rooms/" },
   },
 
   /* ─── i18n Prefix Routing ─── */
