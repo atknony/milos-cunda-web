@@ -241,7 +241,8 @@
     }
   }
 
-  .reveal.is-visible {
+  /* Must match the html.js-prefixed base rule's specificity to win */
+  html.js .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
