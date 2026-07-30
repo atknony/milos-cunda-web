@@ -35,20 +35,13 @@ const t = useTranslations(lang);
  */
 const galleryImages = [
   { src: "/images/gallery/exterior-facade.jpg", alt: { tr: "Cunda Milos — 1907 tarihli Rum taş evi cephesi, Cunda Adası Ayvalık", en: "Cunda Milos — facade of the 1907 Greek stone house, Cunda Island, Ayvalık", el: "Cunda Milos — πρόσοψη του ρωμαίικου πέτρινου σπιτιού του 1907, Κούνδα, Αϊβαλί" }, category: "exterior" },
-  { src: "/images/gallery/room-zeytin-01.jpg", alt: { tr: "Zeytin Suit yatak odası", en: "Olive Suite bedroom", el: "Υπνοδωμάτιο Σουίτα Ελιά" }, category: "rooms" },
-  { src: "/images/gallery/dining-breakfast.jpg", alt: { tr: "Ege kahvaltısı", en: "Aegean breakfast spread", el: "Αιγαιοπελαγίτικο πρωινό" }, category: "dining" },
-  { src: "/images/gallery/island-harbor.jpg", alt: { tr: "Cunda limanı", en: "Cunda harbor", el: "Λιμάνι Κούνδα" }, category: "island" },
-  { src: "/images/gallery/room-ege-01.jpg", alt: { tr: "Ege Suit balkon", en: "Aegean Suite balcony", el: "Μπαλκόνι Σουίτα Αιγαίο" }, category: "rooms" },
-  { src: "/images/gallery/exterior-courtyard.jpg", alt: { tr: "Cunda taş ev otelin avlusu", en: "Stone courtyard of our Cunda stone house hotel", el: "Πέτρινη αυλή του ξενοδοχείου μας στην Κούνδα" }, category: "exterior" },
-  { src: "/images/gallery/island-streets.jpg", alt: { tr: "Cunda sokakları", en: "Cunda streets", el: "Δρόμοι Κούνδα" }, category: "island" },
-  { src: "/images/gallery/dining-table.jpg", alt: { tr: "Akşam yemeği", en: "Dinner setting", el: "Δείπνο" }, category: "dining" },
-  { src: "/images/gallery/room-zeytin-02.jpg", alt: { tr: "Zeytin Suit banyo", en: "Olive Suite bathroom", el: "Μπάνιο Σουίτα Ελιά" }, category: "rooms" },
-  { src: "/images/gallery/exterior-terrace.jpg", alt: { tr: "Gün batımı terası", en: "Sunset terrace", el: "Βεράντα ηλιοβασιλέματος" }, category: "exterior" },
-  { src: "/images/gallery/island-church.jpg", alt: { tr: "Taksiyarhis Kilisesi", en: "Taksiyarhis Church", el: "Ναός Ταξιαρχών" }, category: "island" },
-  { src: "/images/gallery/dining-olive-oil.jpg", alt: { tr: "Zeytinyağı tadımı", en: "Olive oil tasting", el: "Δοκιμή ελαιολάδου" }, category: "dining" },
-  { src: "/images/gallery/room-ege-02.jpg", alt: { tr: "Ege Suit detay", en: "Aegean Suite detail", el: "Λεπτομέρεια Σουίτα Αιγαίο" }, category: "rooms" },
-  { src: "/images/gallery/exterior-entrance.jpg", alt: { tr: "Cunda Milos butik otel girişi", en: "Cunda Milos boutique hotel entrance", el: "Είσοδος του μπουτίκ ξενοδοχείου Cunda Milos" }, category: "exterior" },
-  { src: "/images/gallery/island-olive-groves.jpg", alt: { tr: "Zeytin bahçeleri", en: "Olive groves", el: "Ελαιώνες" }, category: "island" },
+  { src: "/images/rooms/ege/featured.jpg", alt: { tr: "Ege Suit yatak odası", en: "Aegean Suite bedroom", el: "Υπνοδωμάτιο Σουίτα Αιγαίο" }, category: "rooms" },
+  { src: "/images/experience/breakfast.jpg", alt: { tr: "Kahvaltı terası — taş duvarlı avlu", en: "Breakfast terrace by the stone wall", el: "Βεράντα πρωινού δίπλα στον πέτρινο τοίχο" }, category: "dining" },
+  { src: "/images/experience/courtyard.jpg", alt: { tr: "Milos Bahçe — bahçe ve avlu", en: "The Milos Garden and courtyard", el: "Ο κήπος και η αυλή του Milos" }, category: "exterior" },
+  { src: "/images/rooms/ege/bedroom2.jpg", alt: { tr: "Ege Suit — taş duvar detayı", en: "Aegean Suite — stone wall detail", el: "Σουίτα Αιγαίο — λεπτομέρεια πέτρινου τοίχου" }, category: "rooms" },
+  { src: "/images/rooms/ege/bathroom.jpg", alt: { tr: "Ege Suit banyo", en: "Aegean Suite bathroom", el: "Μπάνιο Σουίτα Αιγαίο" }, category: "rooms" },
+  { src: "/images/rooms/ege/balcony.jpg", alt: { tr: "Ege Suit balkon — değirmen manzarası", en: "Aegean Suite balcony — mill view", el: "Μπαλκόνι Σουίτα Αιγαίο — θέα στον μύλο" }, category: "rooms" },
+  { src: "/images/rooms/ege/detail.jpg", alt: { tr: "Ege Suit detay", en: "Aegean Suite detail", el: "Λεπτομέρεια Σουίτα Αιγαίο" }, category: "rooms" },
 ];
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
@@ -86,7 +79,6 @@ const breadcrumbs = [
         <button class="cat-tab" data-filter="rooms">{t("gallery.cat.rooms")}</button>
         <button class="cat-tab" data-filter="exterior">{t("gallery.cat.exterior")}</button>
         <button class="cat-tab" data-filter="dining">{t("gallery.cat.dining")}</button>
-        <button class="cat-tab" data-filter="island">{t("gallery.cat.island")}</button>
       </div>
     </div>
   </section>

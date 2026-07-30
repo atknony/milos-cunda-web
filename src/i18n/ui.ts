@@ -191,9 +191,9 @@ export const ui = {
     el: "Δωμάτια & Σουίτες — Ξενοδοχείο στην Κούνδα, Αϊβαλί | Cunda Milos",
   },
   "rooms.subtitle": {
-    tr: "Her biri Cunda'nın ruhunu yansıtan, özenle tasarlanmış altı oda",
-    en: "Six carefully designed rooms, each reflecting the spirit of Cunda",
-    el: "Έξι προσεκτικά σχεδιασμένα δωμάτια, καθένα αντανακλά το πνεύμα της Κούνδα",
+    tr: "Cunda'nın ruhunu yansıtan, özenle tasarlanmış odalarımız",
+    en: "Carefully designed rooms reflecting the spirit of Cunda",
+    el: "Προσεκτικά σχεδιασμένα δωμάτια που αντανακλούν το πνεύμα της Κούνδα",
   },
 
   // ─── Room Detail Page ───
@@ -502,6 +502,11 @@ export const ui = {
     tr: "Haritada Göster",
     en: "View on Map",
     el: "Δείτε στον Χάρτη",
+  },
+  "contact.mapLoad": {
+    tr: "Haritayı Yükle",
+    en: "Load Map",
+    el: "Φόρτωση Χάρτη",
   },
 
   // ─── About Page ───

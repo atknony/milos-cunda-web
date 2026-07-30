@@ -101,18 +101,28 @@ const faqSchema = generateFAQSchema(faqs);
             </p>
           </div>
 
-          <!-- Map Embed -->
+          <!-- Map Embed — click-to-load facade: the Google Maps iframe blocks
+               the main thread for seconds, so it is only injected on demand -->
           <div class="reveal map-frame">
-            <iframe
-              src={embedUrl}
-              width="100%"
-              height="100%"
-              style="border:0; position: absolute; inset: 0;"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title={t("contact.mapLabel")}
-            ></iframe>
+            <button
+              type="button"
+              data-map-facade
+              data-embed-src={embedUrl}
+              data-embed-title={t("contact.mapLabel")}
+              class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-3
+                     cursor-pointer bg-stone-200 hover:bg-stone-300/60 transition-colors duration-200"
+            >
+              <span class="w-11 h-11 flex items-center justify-center rounded-full border border-stone-400 text-stone-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[0.7rem] font-medium tracking-[0.18em] uppercase text-stone-600">
+                {t("contact.mapLoad")}
+              </span>
+            </button>
           </div>
 
           <!-- "View on Google Maps" link -->
@@ -256,7 +266,7 @@ const faqSchema = generateFAQSchema(faqs);
                 href="https://www.instagram.com/cunda_milos"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-10 h-10 flex items-center justify-center rounded-full
+                class="w-11 h-11 flex items-center justify-center rounded-full
                        border border-stone-200 text-stone-400
                        hover:text-stone-800 hover:border-stone-400
                        transition-all duration-200"
@@ -273,7 +283,7 @@ const faqSchema = generateFAQSchema(faqs);
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-10 h-10 flex items-center justify-center rounded-full
+                class="w-11 h-11 flex items-center justify-center rounded-full
                        border border-stone-200 text-stone-400
                        hover:text-stone-800 hover:border-stone-400
                        transition-all duration-200"
@@ -383,3 +393,24 @@ const faqSchema = generateFAQSchema(faqs);
 
   <Footer slot="footer" />
 </MainLayout>
+
+<!-- Map facade: swap the placeholder button for the real iframe on demand -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const facade = document.querySelector<HTMLButtonElement>("[data-map-facade]");
+    if (!facade) return;
+    facade.addEventListener(
+      "click",
+      () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = facade.dataset.embedSrc ?? "";
+        iframe.title = facade.dataset.embedTitle ?? "Map";
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+        iframe.style.cssText = "border:0; position:absolute; inset:0; width:100%; height:100%;";
+        facade.replaceWith(iframe);
+      },
+      { once: true }
+    );
+  });
+</script>

@@ -106,8 +106,8 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     email: "miloscunda@gmail.com",
     image: [
       `${SITE_URL}/images/gallery/exterior-facade.jpg`,
-      `${SITE_URL}/images/gallery/exterior-courtyard.jpg`,
-      `${SITE_URL}/images/gallery/exterior-terrace.jpg`,
+      `${SITE_URL}/images/experience/courtyard.jpg`,
+      `${SITE_URL}/images/rooms/ege/featured.jpg`,
     ],
     logo: {
       "@type": "ImageObject",

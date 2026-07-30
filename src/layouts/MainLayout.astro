@@ -91,6 +91,10 @@ const dir = "ltr"; // All three languages (tr, en, el) are LTR
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Reveal animations are gated on html.js so content stays visible
+         without JS (see .reveal in global.css). Must run before first paint. -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
+
     <!-- ─── Primary Meta ─── -->
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
@@ -203,7 +207,7 @@ const dir = "ltr"; // All three languages (tr, en, el) are LTR
               }
             });
           },
-          { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
+          { threshold: 0.05, rootMargin: "150px 0px 150px 0px" }
         );
 
         document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));

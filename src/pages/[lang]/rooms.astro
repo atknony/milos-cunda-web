@@ -79,7 +79,12 @@ const roomListSchema = generateItemListSchema(
   <!-- ─── Room Grid ─── -->
   <section class="section-padding bg-stone-50 pt-4">
     <div class="container-narrow">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14 lg:gap-x-10 lg:gap-y-20">
+      <div
+        class:list={[
+          "grid grid-cols-1 gap-x-8 gap-y-14 lg:gap-x-10 lg:gap-y-20",
+          rooms.length > 1 ? "md:grid-cols-2" : "max-w-xl mx-auto",
+        ]}
+      >
         {rooms.map((room, i) => (
           <RoomCard
             lang={lang}
