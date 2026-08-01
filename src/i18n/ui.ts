@@ -61,14 +61,6 @@ export const ui = {
     en: "A stone house boutique hotel on Cunda Island, Ayvalık",
     el: "Πέτρινο μπουτίκ ξενοδοχείο στην Κούνδα, Αϊβαλί",
   },
-  // Brand eyebrow inside the homepage H1 — puts "Cunda Milos" + category +
-  // location into the page's single most important heading.
-  "hero.brandLine": {
-    tr: "Cunda Milos — Butik Otel · Cunda Adası, Ayvalık",
-    en: "Cunda Milos — Boutique Hotel · Cunda Island, Ayvalık",
-    el: "Cunda Milos — Μπουτίκ Ξενοδοχείο · Κούνδα, Αϊβαλί",
-  },
-
   // ─── Homepage Intro (SEO/GEO: crawlable statement of what & where we are) ───
   "home.intro.title": {
     tr: "Cunda'da Tarihi Bir Taş Ev Otel",
@@ -352,10 +344,10 @@ export const ui = {
     en: "Scroll to discover",
     el: "Κάντε κύλιση για να ανακαλύψετε",
   },
-  "hero.videoLabel": {
-    tr: "Cunda Milos havadan görünüm",
-    en: "Aerial view of Cunda Milos",
-    el: "Αεροφωτογραφία του Cunda Milos",
+  "hero.imageAlt": {
+    tr: "Cunda Adası'ndaki tarihi taş değirmen, gün batımında Aşıklar Tepesi'nde — Cunda Milos butik otel, Ayvalık",
+    en: "The historic stone windmill on Lovers' Hill, Cunda Island at golden hour — Cunda Milos boutique hotel, Ayvalık",
+    el: "Ο ιστορικός πέτρινος ανεμόμυλος στον Λόφο των Ερωτευμένων, Κούνδα, στο χρυσό φως — μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί",
   },
 
   // ─── Guide Listing ───
@@ -541,14 +533,14 @@ export const ui = {
     el: "Το Cunda Milos στεγάζεται σε ένα διατηρητέο πέτρινο σπίτι, χτισμένο το 1907 από τους Ρωμιούς που ζούσαν εδώ πριν από την ανταλλαγή των πληθυσμών. Η αναστήλωση διατήρησε την αυθεντική πέτρα, τα ξύλινα στοιχεία και την αρχική κάτοψη, εντάσσοντας διακριτικά τις σύγχρονες ανέσεις. Βρισκόμαστε στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα.",
   },
   "about.hosts.title": {
-    tr: "Altı Oda, Aile Sıcaklığı",
-    en: "Six Rooms, Family-Run",
-    el: "Έξι Δωμάτια, Οικογενειακή Φιλοξενία",
+    tr: "Aile İşletmesi Bir Ev",
+    en: "A Family-Run House",
+    el: "Ένα Οικογενειακό Σπίτι",
   },
   "about.hosts.text": {
-    tr: "Cunda Milos altı odalı, aile işletmesi bir butik oteldir. Az sayıda odamız olması her misafirimize gerçek anlamda zaman ayırmamızı sağlar: kahvaltı sofrasından restoran önerilerine, tekne turlarından zeytin hasadına kadar konaklamanızın her detayıyla bizzat ilgileniriz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
-    en: "Cunda Milos is a family-run boutique hotel with six rooms. Keeping the house small lets us give every guest genuine time and attention — from the breakfast table to restaurant tips, boat trips, and the olive harvest, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
-    el: "Το Cunda Milos είναι ένα οικογενειακό μπουτίκ ξενοδοχείο με έξι δωμάτια. Το μικρό μέγεθος μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από το τραπέζι του πρωινού μέχρι προτάσεις για εστιατόρια, βόλτες με σκάφος και τη συγκομιδή της ελιάς. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
+    tr: "Cunda Milos, aile işletmesi bir butik oteldir. Evi küçük tutmamız her misafirimize gerçek anlamda zaman ayırmamızı sağlar: restoran önerilerinden tekne turlarına, zeytin hasadından yerel rehberliğe kadar konaklamanızın her detayıyla bizzat ilgileniriz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
+    en: "Cunda Milos is a family-run boutique hotel. Keeping the house small lets us give every guest genuine time and attention — from restaurant tips to boat trips, the olive harvest to local guided walks, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
+    el: "Το Cunda Milos είναι ένα οικογενειακό μπουτίκ ξενοδοχείο. Το μικρό μέγεθος μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από προτάσεις για εστιατόρια και βόλτες με σκάφος μέχρι τη συγκομιδή της ελιάς και περιπάτους με ντόπιο ξεναγό. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
   },
   // Canonical "book direct" statement — reused verbatim on About, Contact,
   // homepage FAQ, and llms.txt so answer engines see one consistent phrasing.
@@ -580,9 +572,15 @@ export const ui = {
     el: "Αιγαιοπελαγίτικο Πρωινό",
   },
   "experience.breakfast.text": {
-    tr: "Her sabah avlumuzda; yerel zeytinyağı, taze peynirler, köy yumurtası, kekik balı ve mevsim meyveleriyle hazırlanan geleneksel bir Ege kahvaltısı servis edilir.",
-    en: "Each morning in our courtyard, a traditional Aegean breakfast is served, prepared with local olive oil, fresh cheeses, village eggs, thyme honey, and seasonal fruits.",
-    el: "Κάθε πρωί στην αυλή μας σερβίρεται ένα παραδοσιακό αιγαιοπελαγίτικο πρωινό, φτιαγμένο με τοπικό ελαιόλαδο, φρέσκα τυριά, χωριάτικα αυγά, θυμαρίσιο μέλι και φρούτα εποχής.",
+    tr: "Her sabah avlumuzda; yerel zeytinyağı, taze peynirler, köy yumurtası, kekik balı ve mevsim meyveleriyle hazırlanan geleneksel bir Ege kahvaltısı servis edilir. Mutfağımız şu anda tadilatta olduğu için kahvaltı servisine geçici olarak ara verilmiştir; güncel durumu rezervasyonunuzdan önce bize sorabilirsiniz.",
+    en: "Each morning in our courtyard, a traditional Aegean breakfast is served, prepared with local olive oil, fresh cheeses, village eggs, thyme honey, and seasonal fruits. Our kitchen is currently under renovation, so breakfast service is temporarily paused — please check with us for the latest before you book.",
+    el: "Κάθε πρωί στην αυλή μας σερβίρεται ένα παραδοσιακό αιγαιοπελαγίτικο πρωινό, φτιαγμένο με τοπικό ελαιόλαδο, φρέσκα τυριά, χωριάτικα αυγά, θυμαρίσιο μέλι και φρούτα εποχής. Η κουζίνα μας βρίσκεται αυτή τη στιγμή υπό ανακαίνιση, οπότε το πρωινό δεν σερβίρεται προσωρινά — επικοινωνήστε μαζί μας για την τρέχουσα κατάσταση πριν κάνετε κράτηση.",
+  },
+  // Renovation badge rendered above the breakfast block (About page).
+  "experience.breakfast.notice": {
+    tr: "Mutfak Tadilatta",
+    en: "Kitchen Under Renovation",
+    el: "Η Κουζίνα Υπό Ανακαίνιση",
   },
   "experience.garden.title": {
     tr: "Milos Bahçe",
@@ -604,17 +602,6 @@ export const ui = {
     en: "Built in 1907 by the Greek community that lived here before the population exchange, our stone house holds protected historic-monument status. Staying with us, you can feel the texture of history and add your own story to the many that have unfolded within these walls over the years.",
     el: "Χτισμένο το 1907 από τους Ρωμιούς που ζούσαν στην περιοχή πριν από την ανταλλαγή των πληθυσμών, το πέτρινο σπίτι μας είναι χαρακτηρισμένο ιστορικό διατηρητέο μνημείο. Μένοντας κοντά μας, μπορείτε να νιώσετε την υφή της ιστορίας και να προσθέσετε τη δική σας εμπειρία στις ιστορίες που έχουν ζήσει αυτοί οι τοίχοι.",
   },
-  "experience.service.title": {
-    tr: "Kişiye Özel Hizmet",
-    en: "Personalized Service",
-    el: "Εξατομικευμένη Εξυπηρέτηση",
-  },
-  "experience.service.text": {
-    tr: "Sadece altı odamız olması, her misafire özel ilgi göstermemizi sağlar. Restoran rezervasyonlarından tekne turlarına, zeytin hasadı deneyiminden yerel rehberliğe — seyahatinizi size özel kılıyoruz.",
-    en: "With only six rooms, we give every guest personal attention. From restaurant reservations to boat tours, olive harvest experiences to local guided walks — we tailor your journey to you.",
-    el: "Με μόνο έξι δωμάτια, προσφέρουμε σε κάθε επισκέπτη προσωπική φροντίδα. Από κρατήσεις εστιατορίων και βόλτες με σκάφος έως εμπειρίες συγκομιδής ελιάς και περιπάτους με ντόπιο ξεναγό — κάνουμε το ταξίδι σας μοναδικά δικό σας.",
-  },
-
   // ─── Gallery Page ───
   "gallery.title": {
     tr: "Galeri",

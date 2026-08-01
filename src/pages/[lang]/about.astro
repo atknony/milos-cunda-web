@@ -28,19 +28,46 @@ const t = useTranslations(lang);
 const whatsappUrl = getWhatsAppUrl(lang);
 const phoneUrl = getPhoneUrl();
 
-/* ─── Feature blocks data (mirrors experience.astro layout) ─── */
+/**
+ * Feature blocks.
+ *
+ * The former standalone "Experience" page was merged into this page
+ * (2026-08); its blocks continue the same alternating layout and the
+ * numbering runs unbroken across both groups. `heading` on a block
+ * renders a section header immediately before it.
+ */
 const blocks = [
   {
     titleKey: "about.story.title" as const,
     textKey: "about.story.text" as const,
     image: "/images/gallery/exterior-facade.jpg",
-    alt: { tr: "Cunda Milos — 1907 tarihli Rum taş evi cephesi", en: "Cunda Milos — facade of the 1907 Greek stone house", el: "Cunda Milos — πρόσοψη του πέτρινου σπιτιού του 1907" },
+    alt: { tr: "Cunda Milos — 1907 tarihli Rum taş evi cephesi, Cunda Adası Ayvalık", en: "Cunda Milos — facade of the 1907 Greek stone house, Cunda Island, Ayvalık", el: "Cunda Milos — πρόσοψη του πέτρινου σπιτιού του 1907, Κούνδα, Αϊβαλί" },
   },
   {
     titleKey: "about.hosts.title" as const,
     textKey: "about.hosts.text" as const,
-    image: "/images/rooms/ege/bedroom2.jpg",
-    alt: { tr: "Cunda Milos'ta taş duvarlı konuk odası", en: "Stone-walled guest room at Cunda Milos", el: "Δωμάτιο με πέτρινους τοίχους στο Cunda Milos" },
+    image: "/images/gallery/garden.jpg",
+    alt: { tr: "Cunda Milos'un bahçesi — begonvil ve taş duvarın ardındaki ev", en: "The garden at Cunda Milos — bougainvillea and the house behind the stone wall", el: "Ο κήπος του Cunda Milos — βουκαμβίλια και το σπίτι πίσω από τον πέτρινο τοίχο" },
+  },
+  {
+    heading: true,
+    titleKey: "experience.breakfast.title" as const,
+    textKey: "experience.breakfast.text" as const,
+    noticeKey: "experience.breakfast.notice" as const,
+    image: "/images/experience/breakfast.jpg",
+    alt: { tr: "Kahvaltı terası — taş duvarın önündeki masalar", en: "Breakfast terrace — tables set against the stone wall", el: "Βεράντα πρωινού — τραπέζια μπροστά στον πέτρινο τοίχο" },
+  },
+  {
+    titleKey: "experience.garden.title" as const,
+    textKey: "experience.garden.text" as const,
+    image: "/images/experience/courtyard.jpg",
+    alt: { tr: "Milos Bahçe — çam ağaçları ve begonvillerle çevrili bahçe", en: "The Milos Garden — framed by pines and bougainvillea", el: "Ο Κήπος Milos — πλαισιωμένος από πεύκα και βουκαμβίλιες" },
+  },
+  {
+    titleKey: "experience.architecture.title" as const,
+    textKey: "experience.architecture.text" as const,
+    image: "/images/rooms/numara-1/bedroom.jpg",
+    alt: { tr: "1907 tarihli evin korunmuş taş duvarları ve ahşap tavanı", en: "Preserved stone walls and timber ceiling of the 1907 house", el: "Διατηρημένοι πέτρινοι τοίχοι και ξύλινη οροφή του σπιτιού του 1907" },
   },
 ];
 
@@ -52,6 +79,10 @@ const breadcrumbs = [
 ];
 
 const aboutSchema = generateAboutPageSchema(lang, t("about.title"), t("about.metaDescription"));
+
+/* Blocks from here on sit under the "Milos Deneyimi" h2, so their titles
+   drop a level to h3 to keep the heading outline unbroken. */
+const expStart = blocks.findIndex((b) => b.heading);
 ---
 
 <MainLayout
@@ -90,35 +121,60 @@ const aboutSchema = generateAboutPageSchema(lang, t("about.title"), t("about.met
       {blocks.map((block, i) => {
         const isReversed = i % 2 === 1;
         const num = String(i + 1).padStart(2, "0");
+        const Title = i >= expStart ? "h3" : "h2";
         return (
-          <div
-            class:list={["exp-block reveal", isReversed && "exp-block-reverse"]}
-            style={`transition-delay: ${i * 0.08}s`}
-          >
-            <div class="aspect-[4/3] lg:aspect-auto overflow-hidden">
-              <img
-                src={block.image}
-                alt={block.alt[lang]}
-                width="900"
-                height="675"
-                loading={i === 0 ? "eager" : "lazy"}
-                decoding="async"
-                class="img-cover img-warm"
-              />
-            </div>
-            <div class="relative p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
-              <span class="exp-number" aria-hidden="true">{num}</span>
-              <div class="relative z-10">
-                <div class="line-accent mb-5" aria-hidden="true"></div>
-                <h2 class="font-serif text-2xl lg:text-3xl text-stone-900 mb-5">
-                  {t(block.titleKey)}
+          <>
+            {block.heading && (
+              <div class="reveal text-center max-w-xl mx-auto pt-6 lg:pt-10">
+                <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
+                <h2 class="font-serif text-3xl lg:text-4xl text-stone-900 mb-4">
+                  {t("section.experience.title")}
                 </h2>
-                <p class="text-stone-600 text-base lg:text-lg leading-[1.85] max-w-md">
-                  {t(block.textKey)}
+                <p class="text-stone-500 text-base sm:text-lg leading-relaxed">
+                  {t("experience.subtitle")}
                 </p>
               </div>
+            )}
+            <div
+              class:list={["exp-block reveal", isReversed && "exp-block-reverse"]}
+              style={`transition-delay: ${i * 0.08}s`}
+            >
+              <div class="aspect-[4/3] lg:aspect-auto overflow-hidden">
+                <img
+                  src={block.image}
+                  alt={block.alt[lang]}
+                  width="900"
+                  height="675"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  class="img-cover img-warm"
+                />
+              </div>
+              <div class="relative p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
+                <span class="exp-number" aria-hidden="true">{num}</span>
+                <div class="relative z-10">
+                  <div class="line-accent mb-5" aria-hidden="true"></div>
+                  <Title class="font-serif text-2xl lg:text-3xl text-stone-900 mb-5">
+                    {t(block.titleKey)}
+                  </Title>
+                  {block.noticeKey && (
+                    <p class="notice-tag mb-5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                           stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                           class="shrink-0" aria-hidden="true">
+                        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <path d="M12 9v4" /><path d="M12 17h.01" />
+                      </svg>
+                      {t(block.noticeKey)}
+                    </p>
+                  )}
+                  <p class="text-stone-600 text-base lg:text-lg leading-[1.85] max-w-md">
+                    {t(block.textKey)}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </>
         );
       })}
     </div>

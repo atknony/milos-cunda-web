@@ -1,0 +1,124 @@
+{
+  "slug": "numara-6",
+  "sortOrder": 6,
+  "title": {
+    "tr": "Numara 6",
+    "en": "Room No. 6",
+    "el": "Δωμάτιο Νο. 6"
+  },
+  "description": {
+    "tr": "Müstakil girişi olan Numara 6, eğimli ahşap kirişli tavanı ve çift kişilik yatağının yanındaki tek kişilik yatağıyla üç misafir ağırlıyor. Aşıklar Tepesi ve tarihi taş değirmen manzarasına bakan oda, kendi kapısından doğrudan bahçeye açılıyor.",
+    "en": "With its own private entrance, No. 6 sleeps three beneath a sloping beamed ceiling, with a single bed alongside the double. It looks out towards Lovers' Hill and the historic stone windmill, and opens straight onto the garden through its own door.",
+    "el": "Με δική του ανεξάρτητη είσοδο, το Νο. 6 φιλοξενεί τρία άτομα κάτω από μια κεκλιμένη οροφή με ξύλινα δοκάρια, με ένα μονό κρεβάτι δίπλα στο διπλό. Βλέπει προς τον Λόφο των Ερωτευμένων και τον ιστορικό πέτρινο ανεμόμυλο, και βγαίνει κατευθείαν στον κήπο από τη δική του πόρτα."
+  },
+  "capacity": {
+    "adults": 3,
+    "children": 0
+  },
+  "size": {
+    "value": 18,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Çift Kişilik Yatak + Tek Kişilik Yatak",
+    "en": "Double Bed + Single Bed",
+    "el": "Διπλό Κρεβάτι + Μονό Κρεβάτι"
+  },
+  "view": {
+    "tr": "Aşıklar Tepesi ve Tarihi Değirmen Manzarası",
+    "en": "Lovers' Hill & Historic Windmill View",
+    "el": "Θέα στον Λόφο των Ερωτευμένων και τον Ιστορικό Ανεμόμυλο"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } },
+    { "icon": "door", "label": { "tr": "Müstakil Giriş", "en": "Private Entrance", "el": "Ανεξάρτητη Είσοδος" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-6/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 6 — ahşap kirişli eğimli tavan altında çift ve tek kişilik yatak, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 6 — double and single beds beneath a sloping beamed ceiling at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 6 — διπλό και μονό κρεβάτι κάτω από κεκλιμένη οροφή με δοκάρια, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-6/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 6 — üç kişilik oda, çift kişilik yatak ve yanında tek kişilik yatak",
+        "en": "Room No. 6 — triple room with a double bed and a single bed alongside",
+        "el": "Δωμάτιο Νο. 6 — τρίκλινο δωμάτιο με διπλό κρεβάτι και μονό κρεβάτι δίπλα"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 6 — tuğla duvar detayı ve ahşap kirişli çatı",
+        "en": "Room No. 6 — brick wall detail and timber roof beams",
+        "el": "Δωμάτιο Νο. 6 — λεπτομέρεια τούβλινου τοίχου και ξύλινα δοκάρια στέγης"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/interior.jpg",
+      "alt": {
+        "tr": "Numara 6 — televizyon, mini buzdolabı ve askı dolap köşesi",
+        "en": "Room No. 6 — TV, mini fridge and wardrobe corner",
+        "el": "Δωμάτιο Νο. 6 — τηλεόραση, μίνι ψυγείο και γωνιά ντουλάπας"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/bathroom.jpg",
+      "alt": {
+        "tr": "Numara 6 — duşakabinli banyo ve aynalı lavabo",
+        "en": "Room No. 6 — bathroom with shower cabin and mirrored basin",
+        "el": "Δωμάτιο Νο. 6 — μπάνιο με καμπίνα ντους και νιπτήρα με καθρέφτη"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/bathroom2.jpg",
+      "alt": {
+        "tr": "Numara 6 — banyo, desenli zemin karoları",
+        "en": "Room No. 6 — bathroom with patterned floor tiles",
+        "el": "Δωμάτιο Νο. 6 — μπάνιο με διακοσμητικά πλακάκια δαπέδου"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/exterior.jpg",
+      "alt": {
+        "tr": "Numara 6 — odanın bulunduğu müstakil bölüm ve bahçe, gün batımında",
+        "en": "Room No. 6 — the annexe housing the room and its garden at sunset",
+        "el": "Δωμάτιο Νο. 6 — το ανεξάρτητο κτίσμα του δωματίου και ο κήπος του στο ηλιοβασίλεμα"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-6/entrance.jpg",
+      "alt": {
+        "tr": "Numara 6 — bahçeye açılan müstakil giriş kapısı",
+        "en": "Room No. 6 — private entrance door opening onto the garden",
+        "el": "Δωμάτιο Νο. 6 — ανεξάρτητη πόρτα εισόδου που ανοίγει στον κήπο"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}

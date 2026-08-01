@@ -72,7 +72,6 @@ export function useTranslations(lang: Lang) {
  */
 const routeSlugs: Record<string, Record<Lang, string>> = {
   rooms:      { tr: "rooms",      en: "rooms",      el: "rooms" },
-  experience: { tr: "experience", en: "experience", el: "experience" },
   guide:      { tr: "guide",      en: "guide",      el: "guide" },
   gallery:    { tr: "gallery",    en: "gallery",    el: "gallery" },
   contact:    { tr: "contact",    en: "contact",    el: "contact" },

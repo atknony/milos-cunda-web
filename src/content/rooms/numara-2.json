@@ -1,0 +1,98 @@
+{
+  "slug": "numara-2",
+  "sortOrder": 2,
+  "title": {
+    "tr": "Numara 2",
+    "en": "Room No. 2",
+    "el": "Δωμάτιο Νο. 2"
+  },
+  "description": {
+    "tr": "Taş ve tuğla duvarların yan yana durduğu Numara 2, yatağı çevreleyen ince perdeleri ve ahşap başlığıyla sıcak, korunaklı bir köşe. Banyosundaki duşakabin, evin orijinal taş duvarının önüne yerleştirilmiş.",
+    "en": "In No. 2, stone and brick sit side by side; light curtains around the bed and a timber headboard make a warm, sheltered corner. In the bathroom, the shower cabin is set against the house's original stone wall.",
+    "el": "Στο Νο. 2, η πέτρα και το τούβλο στέκονται δίπλα δίπλα· οι ελαφριές κουρτίνες γύρω από το κρεβάτι και το ξύλινο κεφαλάρι δημιουργούν μια ζεστή, προστατευμένη γωνιά. Στο μπάνιο, η καμπίνα ντους είναι τοποθετημένη μπροστά στον αυθεντικό πέτρινο τοίχο του σπιτιού."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 0
+  },
+  "size": {
+    "value": 11,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Çift Kişilik Yatak",
+    "en": "Double Bed",
+    "el": "Διπλό Κρεβάτι"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-2/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 2 — taş ve tuğla duvarlar, ahşap başlıklı çift kişilik yatak, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 2 — stone and brick walls with a timber-headboard double bed at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 2 — πέτρινοι και τούβλινοι τοίχοι με διπλό κρεβάτι και ξύλινο κεφαλάρι, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-2/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 2 — perdelerle çevrili çift kişilik yatak ve tuğla duvar",
+        "en": "Room No. 2 — double bed framed by curtains against the brick wall",
+        "el": "Δωμάτιο Νο. 2 — διπλό κρεβάτι πλαισιωμένο από κουρτίνες μπροστά στον τούβλινο τοίχο"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-2/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 2 — ahşap kirişli tavan ve taş duvar detayı",
+        "en": "Room No. 2 — beamed ceiling and stone wall detail",
+        "el": "Δωμάτιο Νο. 2 — οροφή με δοκάρια και λεπτομέρεια πέτρινου τοίχου"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-2/bedroom3.jpg",
+      "alt": {
+        "tr": "Numara 2 — pencereden gün ışığı alan yatak odası genel görünümü",
+        "en": "Room No. 2 — bedroom in daylight from the window, overall view",
+        "el": "Δωμάτιο Νο. 2 — γενική άποψη του υπνοδωματίου στο φως του παραθύρου"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-2/interior.jpg",
+      "alt": {
+        "tr": "Numara 2 — televizyon, askı dolap ve mini buzdolabı köşesi",
+        "en": "Room No. 2 — TV, open wardrobe and mini fridge corner",
+        "el": "Δωμάτιο Νο. 2 — τηλεόραση, ανοιχτή ντουλάπα και γωνιά με μίνι ψυγείο"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-2/bathroom.jpg",
+      "alt": {
+        "tr": "Numara 2 — taş duvarın önünde duşakabinli banyo",
+        "en": "Room No. 2 — bathroom with a shower cabin against the stone wall",
+        "el": "Δωμάτιο Νο. 2 — μπάνιο με καμπίνα ντους μπροστά στον πέτρινο τοίχο"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}

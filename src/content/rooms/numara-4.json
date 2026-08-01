@@ -1,0 +1,89 @@
+{
+  "slug": "numara-4",
+  "sortOrder": 4,
+  "title": {
+    "tr": "Numara 4",
+    "en": "Room No. 4",
+    "el": "Δωμάτιο Νο. 4"
+  },
+  "description": {
+    "tr": "İki penceresinden gün boyu ışık alan Numara 4, beyaz duvarları ve taş detaylarıyla ferah bir oda. Odayı özel kılan ise geniş banyosu: katın diğer odalarına göre belirgin biçimde daha ferah bir ıslak hacim.",
+    "en": "Lit through two shuttered windows, No. 4 is an airy room of white walls and stone detail. What sets it apart is its large bathroom — noticeably more spacious than the others on the floor.",
+    "el": "Φωτισμένο από δύο παράθυρα με παντζούρια, το Νο. 4 είναι ένα ευάερο δωμάτιο με λευκούς τοίχους και πέτρινες λεπτομέρειες. Αυτό που το ξεχωρίζει είναι το μεγάλο του μπάνιο — αισθητά πιο ευρύχωρο από τα υπόλοιπα του ορόφου."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 0
+  },
+  "size": {
+    "value": 14,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Çift Kişilik Yatak",
+    "en": "Double Bed",
+    "el": "Διπλό Κρεβάτι"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } },
+    { "icon": "bath", "label": { "tr": "Geniş Banyo", "en": "Large Bathroom", "el": "Μεγάλο Μπάνιο" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-4/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 4 — iki pencereli aydınlık yatak odası ve taş duvar detayı, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 4 — bright bedroom with two windows and stone wall detail at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 4 — φωτεινό υπνοδωμάτιο με δύο παράθυρα και λεπτομέρεια πέτρινου τοίχου, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-4/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 4 — çift pencereli, beyaz duvarlı yatak odası",
+        "en": "Room No. 4 — white-walled bedroom with twin windows",
+        "el": "Δωμάτιο Νο. 4 — υπνοδωμάτιο με λευκούς τοίχους και δύο παράθυρα"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-4/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 4 — ahşap başlıklı yatak ve ahşap panjurlu pencereler",
+        "en": "Room No. 4 — timber-headboard bed and shuttered windows",
+        "el": "Δωμάτιο Νο. 4 — κρεβάτι με ξύλινο κεφαλάρι και παράθυρα με παντζούρια"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-4/bedroom3.jpg",
+      "alt": {
+        "tr": "Numara 4 — taş duvar, televizyon ve askı dolap köşesi",
+        "en": "Room No. 4 — stone wall, TV and wardrobe corner",
+        "el": "Δωμάτιο Νο. 4 — πέτρινος τοίχος, τηλεόραση και γωνιά ντουλάπας"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-4/bathroom.jpg",
+      "alt": {
+        "tr": "Numara 4 — desenli karolu geniş banyo ve duşakabin",
+        "en": "Room No. 4 — large bathroom with patterned tiles and shower cabin",
+        "el": "Δωμάτιο Νο. 4 — μεγάλο μπάνιο με διακοσμητικά πλακάκια και καμπίνα ντους"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}

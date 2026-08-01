@@ -3,13 +3,14 @@
  * Cunda Milos — Hero Section
  *
  * Full-viewport cinematic hero with:
- * - Autoplay muted background video (drone footage)
+ * - Static background photograph (the historic stone windmill on Lovers' Hill)
  * - Warm gradient overlay + grain texture
- * - Staggered entrance: accent line → tagline → subtitle → CTAs → scroll hint
+ * - Staggered entrance: accent line → tagline → CTAs → scroll hint
  * - Left-aligned editorial layout (desktop) / centered (mobile)
  * - Location tag in the corner for boutique hotel feel
  *
  * Zero client JS. Pure CSS animations with animation-delay staggering.
+ * The H1 is deliberately the tagline alone — no eyebrow, no subtitle.
  */
 
 import { getLangFromUrl, useTranslations, getLocalizedPath, getWhatsAppUrl } from "../i18n/utils";
@@ -21,28 +22,24 @@ const whatsappUrl = getWhatsAppUrl(lang);
 const roomsPath = getLocalizedPath(lang, "rooms");
 ---
 
-<section
-  class="relative w-full h-svh min-h-[600px] max-h-[1200px] flex items-end overflow-hidden"
-  aria-label={t("hero.videoLabel")}
->
-  <!-- ─── Background Video ─── -->
-  <video
+<section class="relative w-full h-svh min-h-[600px] max-h-[1200px] flex items-end overflow-hidden">
+  <!-- ─── Background Image (LCP element — eager + high priority) ─── -->
+  <img
+    src="/images/hero.jpg"
+    alt={t("hero.imageAlt")}
+    width="2400"
+    height="1350"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
     class="absolute inset-0 w-full h-full object-cover img-warm"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    poster="/images/hero-poster.jpg"
-  >
-    <source src="/videos/hero-placeholder.mp4" type="video/mp4" />
-  </video>
+  />
 
   <!-- ─── Overlay Stack ─── -->
   <!-- 1. Base warm tint -->
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(180deg, rgba(23,20,18,0.15) 0%, rgba(23,20,18,0.25) 40%, rgba(23,20,18,0.65) 100%);"
+    style="background: linear-gradient(180deg, rgba(23,20,18,0.15) 0%, rgba(23,20,18,0.3) 35%, rgba(23,20,18,0.52) 62%, rgba(23,20,18,0.72) 100%);"
     aria-hidden="true"
   ></div>
 
@@ -59,7 +56,7 @@ const roomsPath = getLocalizedPath(lang, "rooms");
   <!-- ─── Location Badge (top-right corner) ─── -->
   <div
     class="absolute top-28 lg:top-32 right-[var(--spacing-gutter)]
-           hidden md:flex items-center gap-2 hero-stagger-5"
+           hidden md:flex items-center gap-2 hero-stagger-4"
   >
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-stone-300/80">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -80,23 +77,13 @@ const roomsPath = getLocalizedPath(lang, "rooms");
         aria-hidden="true"
       ></div>
 
-      <!-- H1: brand + location eyebrow, then display tagline -->
-      <h1 class="hero-stagger-2 mb-5 lg:mb-6">
-        <span class="block text-stone-300/90 text-[0.7rem] sm:text-[0.75rem] tracking-[0.3em] uppercase font-sans font-medium mb-4">
-          {t("hero.brandLine")}
-        </span>
-        <span class="block text-display text-stone-50" data-speakable-name>
-          {t("hero.tagline")}
-        </span>
+      <!-- H1: display tagline only -->
+      <h1 class="hero-stagger-2 text-display text-stone-50 mb-10 lg:mb-14" data-speakable-name>
+        {t("hero.tagline")}
       </h1>
 
-      <!-- Subtitle -->
-      <p class="hero-stagger-3 text-lg sm:text-xl text-stone-200/90 font-light max-w-md lg:max-w-lg leading-relaxed mb-10 lg:mb-14" data-speakable-desc>
-        {t("hero.subtitle")}
-      </p>
-
       <!-- CTAs -->
-      <div class="hero-stagger-4 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-5 sm:gap-7">
+      <div class="hero-stagger-3 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-5 sm:gap-7">
 
         <!-- Primary CTA: Explore Rooms -->
         <a href={roomsPath} class="btn-primary">
@@ -129,7 +116,7 @@ const roomsPath = getLocalizedPath(lang, "rooms");
 
   <!-- ─── Scroll Indicator ─── -->
   <div
-    class="hero-stagger-5 absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+    class="hero-stagger-4 absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
     aria-hidden="true"
   >
     <span class="text-stone-300/60 text-[0.55rem] sm:text-[0.6rem] tracking-[0.35em] uppercase font-medium">

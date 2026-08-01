@@ -29,19 +29,27 @@ const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
 
 /**
- * Gallery images.
- * In production, these would come from a CMS or content collection.
+ * Gallery images — all photographed at the hotel and on Cunda Island.
  * Category: rooms | exterior | dining | island
  */
 const galleryImages = [
   { src: "/images/gallery/exterior-facade.jpg", alt: { tr: "Cunda Milos — 1907 tarihli Rum taş evi cephesi, Cunda Adası Ayvalık", en: "Cunda Milos — facade of the 1907 Greek stone house, Cunda Island, Ayvalık", el: "Cunda Milos — πρόσοψη του ρωμαίικου πέτρινου σπιτιού του 1907, Κούνδα, Αϊβαλί" }, category: "exterior" },
-  { src: "/images/rooms/ege/featured.jpg", alt: { tr: "Ege Suit yatak odası", en: "Aegean Suite bedroom", el: "Υπνοδωμάτιο Σουίτα Αιγαίο" }, category: "rooms" },
-  { src: "/images/experience/breakfast.jpg", alt: { tr: "Kahvaltı terası — taş duvarlı avlu", en: "Breakfast terrace by the stone wall", el: "Βεράντα πρωινού δίπλα στον πέτρινο τοίχο" }, category: "dining" },
-  { src: "/images/experience/courtyard.jpg", alt: { tr: "Milos Bahçe — bahçe ve avlu", en: "The Milos Garden and courtyard", el: "Ο κήπος και η αυλή του Milos" }, category: "exterior" },
-  { src: "/images/rooms/ege/bedroom2.jpg", alt: { tr: "Ege Suit — taş duvar detayı", en: "Aegean Suite — stone wall detail", el: "Σουίτα Αιγαίο — λεπτομέρεια πέτρινου τοίχου" }, category: "rooms" },
-  { src: "/images/rooms/ege/bathroom.jpg", alt: { tr: "Ege Suit banyo", en: "Aegean Suite bathroom", el: "Μπάνιο Σουίτα Αιγαίο" }, category: "rooms" },
-  { src: "/images/rooms/ege/balcony.jpg", alt: { tr: "Ege Suit balkon — değirmen manzarası", en: "Aegean Suite balcony — mill view", el: "Μπαλκόνι Σουίτα Αιγαίο — θέα στον μύλο" }, category: "rooms" },
-  { src: "/images/rooms/ege/detail.jpg", alt: { tr: "Ege Suit detay", en: "Aegean Suite detail", el: "Λεπτομέρεια Σουίτα Αιγαίο" }, category: "rooms" },
+  { src: "/images/rooms/numara-1/bedroom.jpg", alt: { tr: "Numara 1 — taş duvarlı yatak odası ve beyaz ahşap tavan", en: "Room No. 1 — stone-walled bedroom with a white timber ceiling", el: "Δωμάτιο Νο. 1 — υπνοδωμάτιο με πέτρινους τοίχους και λευκή ξύλινη οροφή" }, category: "rooms" },
+  { src: "/images/gallery/windmill.jpg", alt: { tr: "Cunda'nın tarihi taş değirmeni, Aşıklar Tepesi'nde gün batımında", en: "Cunda's historic stone windmill on Lovers' Hill at golden hour", el: "Ο ιστορικός πέτρινος ανεμόμυλος της Κούνδα στον Λόφο των Ερωτευμένων" }, category: "island" },
+  { src: "/images/experience/breakfast.jpg", alt: { tr: "Kahvaltı terası — taş duvarın önüne kurulmuş masalar", en: "Breakfast terrace — tables set against the stone wall", el: "Βεράντα πρωινού — τραπέζια μπροστά στον πέτρινο τοίχο" }, category: "dining" },
+  { src: "/images/rooms/numara-2/bedroom.jpg", alt: { tr: "Numara 2 — taş ve tuğla duvarlar arasında çift kişilik yatak", en: "Room No. 2 — double bed between stone and brick walls", el: "Δωμάτιο Νο. 2 — διπλό κρεβάτι ανάμεσα σε πέτρινους και τούβλινους τοίχους" }, category: "rooms" },
+  { src: "/images/gallery/ruined-church.jpg", alt: { tr: "Cunda'daki yıkık Rum kilisesi ve arkasında Ayvalık körfezi", en: "The ruined Greek church on Cunda with the Ayvalık bay behind", el: "Η ερειπωμένη ρωμαίικη εκκλησία στην Κούνδα με τον κόλπο του Αϊβαλί πίσω" }, category: "island" },
+  { src: "/images/experience/courtyard.jpg", alt: { tr: "Milos Bahçe — çam ağaçları ve begonvillerle çevrili bahçe", en: "The Milos Garden — framed by pines and bougainvillea", el: "Ο Κήπος Milos — πλαισιωμένος από πεύκα και βουκαμβίλιες" }, category: "exterior" },
+  { src: "/images/rooms/numara-6/bedroom.jpg", alt: { tr: "Numara 6 — ahşap kirişli eğimli tavan altında üç kişilik oda", en: "Room No. 6 — triple room beneath a sloping beamed ceiling", el: "Δωμάτιο Νο. 6 — τρίκλινο δωμάτιο κάτω από κεκλιμένη οροφή με δοκάρια" }, category: "rooms" },
+  { src: "/images/gallery/ruined-church-nave.jpg", alt: { tr: "Yıkık kilisenin iç mekânı — kemerler ve açık gökyüzü", en: "Inside the ruined church — arches open to the sky", el: "Στο εσωτερικό της ερειπωμένης εκκλησίας — αψίδες ανοιχτές στον ουρανό" }, category: "island" },
+  { src: "/images/gallery/garden.jpg", alt: { tr: "Otelin bahçesi — begonvil ve ferforje korkulukların ardındaki taş ev", en: "The hotel garden — the stone house behind bougainvillea and wrought-iron railings", el: "Ο κήπος του ξενοδοχείου — το πέτρινο σπίτι πίσω από βουκαμβίλιες και σιδερένια κάγκελα" }, category: "exterior" },
+  { src: "/images/rooms/numara-4/bedroom.jpg", alt: { tr: "Numara 4 — iki pencereden ışık alan aydınlık yatak odası", en: "Room No. 4 — bright bedroom lit through two windows", el: "Δωμάτιο Νο. 4 — φωτεινό υπνοδωμάτιο με δύο παράθυρα" }, category: "rooms" },
+  { src: "/images/gallery/windmill-detail.jpg", alt: { tr: "Taş değirmenin yakın görünümü — ahşap kanatlar ve moloz taş gövde", en: "The stone windmill up close — timber sails and rubble-stone tower", el: "Ο πέτρινος ανεμόμυλος από κοντά — ξύλινα φτερά και πέτρινος πύργος" }, category: "island" },
+  { src: "/images/rooms/numara-6/exterior.jpg", alt: { tr: "Otelin müstakil girişli bölümü ve bahçesi, gün batımında", en: "The hotel annexe with its private entrance and garden at sunset", el: "Το ανεξάρτητο κτίσμα του ξενοδοχείου με τη δική του είσοδο και κήπο" }, category: "exterior" },
+  { src: "/images/gallery/ruined-church-arches.jpg", alt: { tr: "Yıkık kilisenin kemerli duvarları ve taş sütunları", en: "The arched walls and stone piers of the ruined church", el: "Οι αψιδωτοί τοίχοι και οι πέτρινοι πεσσοί της ερειπωμένης εκκλησίας" }, category: "island" },
+  { src: "/images/rooms/numara-3/bedroom.jpg", alt: { tr: "Numara 3 — boydan boya taş duvar ve yüksek pencere", en: "Room No. 3 — a full stone wall and tall window", el: "Δωμάτιο Νο. 3 — ολόπετρος τοίχος και ψηλό παράθυρο" }, category: "rooms" },
+  { src: "/images/gallery/windmill-hill.jpg", alt: { tr: "Aşıklar Tepesi'nden değirmen ve cam teraslı seyir noktası", en: "The windmill and its glass-walled viewing terrace on Lovers' Hill", el: "Ο ανεμόμυλος και η γυάλινη βεράντα θέασης στον Λόφο των Ερωτευμένων" }, category: "island" },
+  { src: "/images/rooms/numara-5/bedroom.jpg", alt: { tr: "Numara 5 — taş duvarlı tek kişilik oda", en: "Room No. 5 — single room with a stone wall", el: "Δωμάτιο Νο. 5 — μονόκλινο δωμάτιο με πέτρινο τοίχο" }, category: "rooms" },
 ];
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://cundamilos.com";
@@ -79,6 +87,7 @@ const breadcrumbs = [
         <button class="cat-tab" data-filter="rooms">{t("gallery.cat.rooms")}</button>
         <button class="cat-tab" data-filter="exterior">{t("gallery.cat.exterior")}</button>
         <button class="cat-tab" data-filter="dining">{t("gallery.cat.dining")}</button>
+        <button class="cat-tab" data-filter="island">{t("gallery.cat.island")}</button>
       </div>
     </div>
   </section>

@@ -33,7 +33,7 @@ export const GET: APIRoute = async () => {
     "- GPS: 39.336233, 26.6576815",
     "- Phone & WhatsApp: +90 530 656 68 92",
     "- Email: miloscunda@gmail.com",
-    "- Check-in from 14:00, check-out by 11:00; traditional Aegean breakfast included",
+    "- Check-in from 14:00, check-out by 11:00; traditional Aegean breakfast included, but breakfast service is temporarily paused while the kitchen is under renovation — guests should confirm the current status when booking",
     "- Languages spoken: Turkish, English, Greek",
     "- Reservations are taken ONLY directly, via WhatsApp or phone. The hotel is deliberately not listed on online travel agencies (Booking.com, Airbnb, etc.) — direct contact gets the best price and live availability.",
     "- Official channels: this website (cundamilos.com), the \"Cunda Milos Otel\" Google Maps listing (https://maps.google.com/?cid=12231583961060775956), and Instagram @cunda_milos (https://www.instagram.com/cunda_milos). Not affiliated with similarly named accommodations on the island.",
@@ -42,13 +42,17 @@ export const GET: APIRoute = async () => {
     "## Pages",
     "",
     `- [Home](${SITE_URL}/en/): overview of the hotel (also /tr/ Turkish — default — and /el/ Greek)`,
-    `- [About](${SITE_URL}/en/about): the story of the 1907 house and the direct-booking philosophy`,
+    `- [About](${SITE_URL}/en/about): the story of the 1907 house, the Milos experience (breakfast, garden, architecture), and the direct-booking philosophy`,
     `- [Rooms](${SITE_URL}/en/rooms): all rooms and suites`,
-    ...rooms.map(
-      (r) =>
-        `- [Room: ${r.data.title.en}](${SITE_URL}/en/rooms/${r.data.slug}): ${r.data.tagline?.en ?? ""}`.trimEnd(),
-    ),
-    `- [Experience](${SITE_URL}/en/experience): breakfast, garden, architecture, personal service`,
+    ...rooms.map((r) => {
+      const specs = [
+        `sleeps ${r.data.capacity.adults}`,
+        `${r.data.size.value} m²`,
+        r.data.bedType.en.toLowerCase(),
+        r.data.view?.en,
+      ].filter(Boolean);
+      return `- [Room: ${r.data.title.en}](${SITE_URL}/en/rooms/${r.data.slug}): ${specs.join(", ")}`;
+    }),
     `- [Gallery](${SITE_URL}/en/gallery): photos of the house and the island`,
     `- [Contact](${SITE_URL}/en/contact): directions, map, reservation channels`,
     "",

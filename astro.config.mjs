@@ -17,11 +17,18 @@ export default defineConfig({
          prerendered meta-refresh page, which rendered as a white screen) ─── */
   redirects: {
     "/": { status: 301, destination: "/tr/" },
-    // Zeytin Suite unpublished 2026-07 (single-room lineup) — 301 the crawled
-    // URLs to the rooms list instead of 404. Remove if the room returns.
+    // Rooms retired 2026-07/08 (Zeytin, then Ege when the lineup became
+    // Numara 1–6) — 301 the crawled URLs to the rooms list instead of 404.
     "/tr/rooms/zeytin": { status: 301, destination: "/tr/rooms/" },
     "/en/rooms/zeytin": { status: 301, destination: "/en/rooms/" },
     "/el/rooms/zeytin": { status: 301, destination: "/el/rooms/" },
+    "/tr/rooms/ege": { status: 301, destination: "/tr/rooms/" },
+    "/en/rooms/ege": { status: 301, destination: "/en/rooms/" },
+    "/el/rooms/ege": { status: 301, destination: "/el/rooms/" },
+    // The standalone Experience page was merged into About (2026-08).
+    "/tr/experience": { status: 301, destination: "/tr/about/" },
+    "/en/experience": { status: 301, destination: "/en/about/" },
+    "/el/experience": { status: 301, destination: "/el/about/" },
   },
 
   /* ─── i18n Prefix Routing ─── */

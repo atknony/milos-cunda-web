@@ -37,7 +37,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Kahvaltı dahil mi, giriş-çıkış saatleri nedir?",
       answer:
-        "Evet — her sabah avlumuzda yerel ürünlerle hazırlanan geleneksel Ege kahvaltısı konaklamaya dahildir. Giriş (check-in) 14:00'ten itibaren, çıkış (check-out) en geç 11:00'dir.",
+        "Her sabah avlumuzda yerel ürünlerle hazırlanan geleneksel Ege kahvaltısı konaklamaya dahildir; ancak mutfağımız şu anda tadilatta olduğu için kahvaltı servisine geçici olarak ara verilmiştir — güncel durumu rezervasyonunuzdan önce bize sorabilirsiniz. Giriş (check-in) 14:00'ten itibaren, çıkış (check-out) en geç 11:00'dir.",
     },
     {
       question: "Cunda Milos nasıl bir otel?",
@@ -64,7 +64,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Is breakfast included, and what are check-in/check-out times?",
       answer:
-        "Yes — a traditional Aegean breakfast prepared with local produce is served every morning in our courtyard and is included in your stay. Check-in is from 2:00 PM; check-out is by 11:00 AM.",
+        "A traditional Aegean breakfast prepared with local produce is served every morning in our courtyard and is included in your stay. Our kitchen is currently under renovation, however, so breakfast service is temporarily paused — please check with us for the latest before you book. Check-in is from 2:00 PM; check-out is by 11:00 AM.",
     },
     {
       question: "What kind of hotel is Cunda Milos?",
@@ -91,7 +91,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Περιλαμβάνεται πρωινό; Ποιες είναι οι ώρες check-in/check-out;",
       answer:
-        "Ναι — κάθε πρωί σερβίρεται στην αυλή μας παραδοσιακό αιγαιοπελαγίτικο πρωινό με τοπικά προϊόντα, και περιλαμβάνεται στη διαμονή. Το check-in ξεκινά στις 14:00 και το check-out είναι έως τις 11:00.",
+        "Κάθε πρωί σερβίρεται στην αυλή μας παραδοσιακό αιγαιοπελαγίτικο πρωινό με τοπικά προϊόντα, το οποίο περιλαμβάνεται στη διαμονή. Η κουζίνα μας βρίσκεται όμως αυτή τη στιγμή υπό ανακαίνιση, οπότε το πρωινό δεν σερβίρεται προσωρινά — επικοινωνήστε μαζί μας για την τρέχουσα κατάσταση πριν κάνετε κράτηση. Το check-in ξεκινά στις 14:00 και το check-out είναι έως τις 11:00.",
     },
     {
       question: "Τι είδους ξενοδοχείο είναι το Cunda Milos;",

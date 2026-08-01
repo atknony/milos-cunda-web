@@ -1,0 +1,88 @@
+{
+  "slug": "numara-5",
+  "sortOrder": 5,
+  "title": {
+    "tr": "Numara 5",
+    "en": "Room No. 5",
+    "el": "Δωμάτιο Νο. 5"
+  },
+  "description": {
+    "tr": "Tek kişilik konaklamalar için tasarlanan Numara 5, taş duvarı ve küçük penceresiyle sade, sessiz bir oda. Kompakt ölçüsüne rağmen televizyon, mini buzdolabı ve duşakabinli kendi banyosuyla tam donanımlı.",
+    "en": "Designed for solo travellers, No. 5 is a simple, quiet room with a stone wall and a small window. Compact in size but fully equipped, with a TV, mini fridge and its own shower-cabin bathroom.",
+    "el": "Σχεδιασμένο για μοναχικούς ταξιδιώτες, το Νο. 5 είναι ένα λιτό, ήσυχο δωμάτιο με πέτρινο τοίχο και μικρό παράθυρο. Μικρό σε μέγεθος αλλά πλήρως εξοπλισμένο, με τηλεόραση, μίνι ψυγείο και δικό του μπάνιο με καμπίνα ντους."
+  },
+  "capacity": {
+    "adults": 1,
+    "children": 0
+  },
+  "size": {
+    "value": 9,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Tek Kişilik Yatak",
+    "en": "Single Bed",
+    "el": "Μονό Κρεβάτι"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-5/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 5 — taş duvarlı tek kişilik oda, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 5 — single room with a stone wall at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 5 — μονόκλινο δωμάτιο με πέτρινο τοίχο, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-5/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 5 — taş duvar önünde tek kişilik yatak ve okuma lambaları",
+        "en": "Room No. 5 — single bed and reading lights against the stone wall",
+        "el": "Δωμάτιο Νο. 5 — μονό κρεβάτι και φωτιστικά ανάγνωσης μπροστά στον πέτρινο τοίχο"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-5/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 5 — kapıdan odaya bakış, taş duvar ve ahşap başlık",
+        "en": "Room No. 5 — view from the door towards the stone wall and timber headboard",
+        "el": "Δωμάτιο Νο. 5 — άποψη από την πόρτα προς τον πέτρινο τοίχο και το ξύλινο κεφαλάρι"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-5/bedroom3.jpg",
+      "alt": {
+        "tr": "Numara 5 — televizyon, mini buzdolabı ve pencere köşesi",
+        "en": "Room No. 5 — TV, mini fridge and window corner",
+        "el": "Δωμάτιο Νο. 5 — τηλεόραση, μίνι ψυγείο και γωνιά παραθύρου"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-5/bathroom.jpg",
+      "alt": {
+        "tr": "Numara 5 — duşakabinli kompakt banyo",
+        "en": "Room No. 5 — compact bathroom with a shower cabin",
+        "el": "Δωμάτιο Νο. 5 — μικρό μπάνιο με καμπίνα ντους"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}

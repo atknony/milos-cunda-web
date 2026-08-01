@@ -193,7 +193,7 @@ const pageDesc = d.seo?.description?.[lang] ?? description.slice(0, 155);
           <span class="text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 font-medium">
             {t("room.size")}
           </span>
-          <span class="text-sm text-stone-800">{d.size.value} {d.size.unit}</span>
+          <span class="text-sm text-stone-800">{d.size.value} {d.size.unit === "sqft" ? "ft²" : "m²"}</span>
         </div>
         <!-- Bed -->
         <div class="px-4 py-5 flex flex-col items-center gap-1.5

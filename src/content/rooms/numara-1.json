@@ -1,0 +1,78 @@
+{
+  "slug": "numara-1",
+  "sortOrder": 1,
+  "title": {
+    "tr": "Numara 1",
+    "en": "Room No. 1",
+    "el": "Δωμάτιο Νο. 1"
+  },
+  "description": {
+    "tr": "Otelin en geniş odalarından biri olan Numara 1, açıkta bırakılmış taş duvarları ve ahşap tavanıyla evin 1907'deki dokusunu koruyor. Makyaj masası, gardırop ve pencereden süzülen gün ışığıyla uzun konaklamalar için ferah bir alan sunuyor.",
+    "en": "One of the largest rooms in the house, No. 1 keeps the 1907 fabric of the building in its exposed stone walls and timber ceiling. A dressing table, wardrobe, and daylight from the window make it a generous space for longer stays.",
+    "el": "Ένα από τα πιο ευρύχωρα δωμάτια του σπιτιού, το Νο. 1 διατηρεί την υφή του 1907 στους εκτεθειμένους πέτρινους τοίχους και το ξύλινο ταβάνι του. Με έπιπλο τουαλέτας, ντουλάπα και άπλετο φυσικό φως, προσφέρει έναν γενναιόδωρο χώρο για μεγαλύτερες διαμονές."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 0
+  },
+  "size": {
+    "value": 28,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Çift Kişilik Yatak",
+    "en": "Double Bed",
+    "el": "Διπλό Κρεβάτι"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-1/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 1 — taş duvarlı yatak odası, çift kişilik yatak ve beyaz ahşap tavan, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 1 — stone-walled bedroom with a double bed and white timber ceiling at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 1 — υπνοδωμάτιο με πέτρινους τοίχους, διπλό κρεβάτι και λευκή ξύλινη οροφή, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-1/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 1 — çift kişilik yatak, taş duvarlar ve pencereden gelen gün ışığı",
+        "en": "Room No. 1 — double bed, stone walls and daylight from the window",
+        "el": "Δωμάτιο Νο. 1 — διπλό κρεβάτι, πέτρινοι τοίχοι και φως από το παράθυρο"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-1/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 1 — televizyon, gardırop ve makyaj masasıyla oda genel görünümü",
+        "en": "Room No. 1 — overall view with TV, wardrobe and dressing table",
+        "el": "Δωμάτιο Νο. 1 — γενική άποψη με τηλεόραση, ντουλάπα και τουαλέτα"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-1/bedroom3.jpg",
+      "alt": {
+        "tr": "Numara 1 — ahşap zemin, taş duvar detayı ve çalışma köşesi",
+        "en": "Room No. 1 — timber floor, stone wall detail and dressing corner",
+        "el": "Δωμάτιο Νο. 1 — ξύλινο δάπεδο, λεπτομέρεια πέτρινου τοίχου και γωνιά τουαλέτας"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}

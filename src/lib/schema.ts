@@ -107,7 +107,8 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     image: [
       `${SITE_URL}/images/gallery/exterior-facade.jpg`,
       `${SITE_URL}/images/experience/courtyard.jpg`,
-      `${SITE_URL}/images/rooms/ege/featured.jpg`,
+      `${SITE_URL}/images/rooms/numara-1/bedroom.jpg`,
+      `${SITE_URL}/images/gallery/windmill.jpg`,
     ],
     logo: {
       "@type": "ImageObject",

@@ -1,0 +1,78 @@
+{
+  "slug": "numara-3",
+  "sortOrder": 3,
+  "title": {
+    "tr": "Numara 3",
+    "en": "Room No. 3",
+    "el": "Δωμάτιο Νο. 3"
+  },
+  "description": {
+    "tr": "Numara 3, bir duvarı boydan boya taş, diğerleri beyaz badanalı sakin bir oda. Yüksek penceresi sabah ışığını içeri alıyor; beyaz ahşap dolapları ve desenli karolarla döşenmiş banyosu odanın dinginliğini tamamlıyor.",
+    "en": "No. 3 is a calm room with one wall left in full stone and the others whitewashed. A tall window draws in the morning light, while white timber cupboards and a patterned-tile bathroom complete its quiet character.",
+    "el": "Το Νο. 3 είναι ένα ήσυχο δωμάτιο με τον έναν τοίχο εξ ολοκλήρου πέτρινο και τους υπόλοιπους ασβεστωμένους. Το ψηλό παράθυρο φέρνει μέσα το πρωινό φως, ενώ οι λευκές ξύλινες ντουλάπες και το μπάνιο με τα διακοσμητικά πλακάκια ολοκληρώνουν τον γαλήνιο χαρακτήρα του."
+  },
+  "capacity": {
+    "adults": 2,
+    "children": 0
+  },
+  "size": {
+    "value": 18,
+    "unit": "m2"
+  },
+  "bedType": {
+    "tr": "Çift Kişilik Yatak",
+    "en": "Double Bed",
+    "el": "Διπλό Κρεβάτι"
+  },
+  "amenities": [
+    { "icon": "tv", "label": { "tr": "Televizyon", "en": "TV", "el": "Τηλεόραση" } },
+    { "icon": "wind", "label": { "tr": "Klima", "en": "Air Conditioning", "el": "Κλιματισμός" } },
+    { "icon": "shirt", "label": { "tr": "Askı Dolap", "en": "Wardrobe", "el": "Ντουλάπα" } },
+    { "icon": "shower", "label": { "tr": "Duşakabin", "en": "Shower Cabin", "el": "Καμπίνα Ντους" } },
+    { "icon": "wifi", "label": { "tr": "İnternet", "en": "Internet", "el": "Ίντερνετ" } },
+    { "icon": "fridge", "label": { "tr": "Mini Buzdolabı", "en": "Mini Fridge", "el": "Μίνι Ψυγείο" } }
+  ],
+  "featuredImage": {
+    "src": "/images/rooms/numara-3/bedroom.jpg",
+    "alt": {
+      "tr": "Numara 3 — boydan boya taş duvar, yüksek pencere ve çift kişilik yatak, Cunda Milos butik otel Ayvalık",
+      "en": "Room No. 3 — full stone wall, tall window and double bed at Cunda Milos boutique hotel, Ayvalık",
+      "el": "Δωμάτιο Νο. 3 — ολόπετρος τοίχος, ψηλό παράθυρο και διπλό κρεβάτι, μπουτίκ ξενοδοχείο Cunda Milos, Αϊβαλί"
+    },
+    "width": 1600,
+    "height": 1200
+  },
+  "gallery": [
+    {
+      "src": "/images/rooms/numara-3/bedroom.jpg",
+      "alt": {
+        "tr": "Numara 3 — taş duvar, pencere ve beyaz ahşap dolaplar",
+        "en": "Room No. 3 — stone wall, window and white timber cupboards",
+        "el": "Δωμάτιο Νο. 3 — πέτρινος τοίχος, παράθυρο και λευκές ξύλινες ντουλάπες"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-3/bedroom2.jpg",
+      "alt": {
+        "tr": "Numara 3 — televizyon, mini buzdolabı ve banyo kapısına bakan görünüm",
+        "en": "Room No. 3 — view towards the TV, mini fridge and bathroom door",
+        "el": "Δωμάτιο Νο. 3 — άποψη προς την τηλεόραση, το μίνι ψυγείο και την πόρτα του μπάνιου"
+      },
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/images/rooms/numara-3/bathroom.jpg",
+      "alt": {
+        "tr": "Numara 3 — desenli karolu duşakabinli banyo",
+        "en": "Room No. 3 — bathroom with a patterned-tile shower cabin",
+        "el": "Δωμάτιο Νο. 3 — μπάνιο με καμπίνα ντους και διακοσμητικά πλακάκια"
+      },
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "isPublished": true
+}
