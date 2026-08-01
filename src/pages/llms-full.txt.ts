@@ -22,7 +22,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     "# Cunda Milos — full content",
     "",
-    "> Cunda Milos is a six-room boutique hotel in a protected Greek stone house on Cunda (Alibey) Island, Ayvalık, Türkiye — construction began in the late 1800s and was completed in 1907. Reservations are taken only directly — by WhatsApp or phone (+90 530 656 68 92); the hotel is deliberately not listed on online booking platforms. Official channels: cundamilos.com, the \"Cunda Milos Otel\" Google Maps listing, and Instagram @cunda_milos.",
+    "> Cunda Milos is a six-room boutique hotel in a protected Greek stone house on Cunda (Alibey) Island, Ayvalık, Türkiye — construction began in the late 1800s and was completed in 1907. Reservations are taken only directly — by WhatsApp or phone (+90 530 656 68 92); the hotel is deliberately not listed on online booking platforms. Official channels: cundamilos.com, the \"Cunda Milos Otel\" Google Maps listing, and Instagram @cunda_milosotel.",
     "",
     "## Rooms",
     "",

@@ -30,7 +30,7 @@ const COORDINATES = { latitude: 39.336233, longitude: 26.6576815 };
  * Add future profiles here as they are created (e.g. TripAdvisor, Facebook).
  */
 const SAME_AS = [
-  "https://www.instagram.com/cunda_milos",
+  "https://www.instagram.com/cunda_milosotel",
   "https://maps.google.com/?cid=12231583961060775956",
   // "https://www.tripadvisor.com/…", // when the TripAdvisor listing exists
   // "https://www.facebook.com/…",    // when the Facebook page exists
@@ -112,7 +112,9 @@ export function generateHotelSchema(lang: Lang): JsonLd {
     ],
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/favicon.svg`,
+      url: `${SITE_URL}/images/logo.png`,
+      width: 500,
+      height: 500,
     },
     priceRange: "€€",
     currenciesAccepted: "TRY, EUR, USD",
@@ -326,7 +328,7 @@ export function generateArticleSchema(lang: Lang, article: ArticleSchemaInput): 
       "@type": "Organization",
       name: HOTEL_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/favicon.svg`,
+      logo: `${SITE_URL}/images/logo.png`,
     },
     publisher: { "@id": `${SITE_URL}/#hotel` },
     mainEntityOfPage: { "@id": articleUrl },

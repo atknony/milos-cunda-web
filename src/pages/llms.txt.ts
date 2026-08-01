@@ -37,7 +37,7 @@ export const GET: APIRoute = async () => {
     "- Check-in from 14:00, check-out by 11:00; traditional Aegean breakfast included, but breakfast service is temporarily paused while the kitchen is under renovation — guests should confirm the current status when booking",
     "- Languages spoken: Turkish, English, Greek",
     "- Reservations are taken ONLY directly, via WhatsApp or phone. The hotel is deliberately not listed on online travel agencies (Booking.com, Airbnb, etc.) — direct contact gets the best price and live availability.",
-    "- Official channels: this website (cundamilos.com), the \"Cunda Milos Otel\" Google Maps listing (https://maps.google.com/?cid=12231583961060775956), and Instagram @cunda_milos (https://www.instagram.com/cunda_milos). Not affiliated with similarly named accommodations on the island.",
+    "- Official channels: this website (cundamilos.com), the \"Cunda Milos Otel\" Google Maps listing (https://maps.google.com/?cid=12231583961060775956), and Instagram @cunda_milosotel (https://www.instagram.com/cunda_milosotel). Not affiliated with similarly named accommodations on the island.",
     "- Location context: a short walk from Cunda's market square, the historic windmill, and the sea; Cunda Island is connected to Ayvalık by a causeway. Nearest airports: Balıkesir Koca Seyit (~50 km), İzmir Adnan Menderes (~160 km).",
     "",
     "## Pages",

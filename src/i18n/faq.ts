@@ -32,7 +32,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Cunda Milos hangi resmi kanallarda yer alıyor?",
       answer:
-        "Resmi kanallarımız cundamilos.com web sitesi, Google Haritalar'daki \"Cunda Milos Otel\" işletme kaydı ve @cunda_milos Instagram hesabıdır. Adadaki benzer isimli başka konaklama tesisleriyle bağlantımız yoktur.",
+        "Resmi kanallarımız cundamilos.com web sitesi, Google Haritalar'daki \"Cunda Milos Otel\" işletme kaydı ve @cunda_milosotel Instagram hesabıdır. Adadaki benzer isimli başka konaklama tesisleriyle bağlantımız yoktur.",
     },
     {
       question: "Kahvaltı dahil mi, giriş-çıkış saatleri nedir?",
@@ -59,7 +59,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "What are the official channels of Cunda Milos?",
       answer:
-        "Our official channels are the website cundamilos.com, the \"Cunda Milos Otel\" listing on Google Maps, and the Instagram account @cunda_milos. We are not affiliated with other, similarly named accommodations on the island.",
+        "Our official channels are the website cundamilos.com, the \"Cunda Milos Otel\" listing on Google Maps, and the Instagram account @cunda_milosotel. We are not affiliated with other, similarly named accommodations on the island.",
     },
     {
       question: "Is breakfast included, and what are check-in/check-out times?",
@@ -86,7 +86,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Ποια είναι τα επίσημα κανάλια του Cunda Milos;",
       answer:
-        "Τα επίσημα κανάλια μας είναι ο ιστότοπος cundamilos.com, η καταχώριση \"Cunda Milos Otel\" στους Χάρτες Google και ο λογαριασμός Instagram @cunda_milos. Δεν έχουμε σχέση με άλλα καταλύματα του νησιού με παρόμοιο όνομα.",
+        "Τα επίσημα κανάλια μας είναι ο ιστότοπος cundamilos.com, η καταχώριση \"Cunda Milos Otel\" στους Χάρτες Google και ο λογαριασμός Instagram @cunda_milosotel. Δεν έχουμε σχέση με άλλα καταλύματα του νησιού με παρόμοιο όνομα.",
     },
     {
       question: "Περιλαμβάνεται πρωινό; Ποιες είναι οι ώρες check-in/check-out;",
