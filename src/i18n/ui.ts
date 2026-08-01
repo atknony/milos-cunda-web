@@ -68,9 +68,9 @@ export const ui = {
     el: "Ένα Ιστορικό Πέτρινο Ξενοδοχείο στην Κούνδα",
   },
   "home.intro.text": {
-    tr: "Cunda Milos, Ayvalık'ın Cunda Adası'nda, 1907 yılında inşa edilmiş ve tarihi eser statüsündeki bir Rum evinde konumlanan altı odalı bir butik oteldir. Taş ev mimarisini modern konforla buluşturan otelimiz; çarşıya, değirmene ve denize yürüme mesafesindedir. İster butik otel ister pansiyon sıcaklığında bir konaklama arıyor olun, sizi Ege'nin en özel adasında ağırlamaktan mutluluk duyarız.",
-    en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house built in 1907 on Cunda Island, Ayvalık. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a small guesthouse, we look forward to welcoming you.",
-    el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας μικρής πανσιόν, σας περιμένουμε.",
+    tr: "Cunda Milos, Ayvalık'ın Cunda Adası'nda, inşasına 1800'lerin sonunda başlanıp 1907'de tamamlanan, tarihi eser statüsündeki bir Rum evinde konumlanan altı odalı bir butik oteldir. Taş ev mimarisini modern konforla buluşturan otelimiz; çarşıya, değirmene ve denize yürüme mesafesindedir. İster butik otel ister pansiyon sıcaklığında bir konaklama arıyor olun, sizi Ege'nin en özel adasında ağırlamaktan mutluluk duyarız.",
+    en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house on Cunda Island, Ayvalık, begun in the late 1800s and completed in 1907. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a small guesthouse, we look forward to welcoming you.",
+    el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, που άρχισε να χτίζεται στα τέλη του 19ου αιώνα και ολοκληρώθηκε το 1907. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας μικρής πανσιόν, σας περιμένουμε.",
   },
 
   // ─── CTAs ───
@@ -523,24 +523,14 @@ export const ui = {
     el: "Από το 1907 — φροντίζουμε ένα πέτρινο σπίτι και τις ιστορίες του",
   },
   "about.story.title": {
-    tr: "1907 Tarihli Bir Rum Evi",
-    en: "A Greek Stone House from 1907",
-    el: "Ένα Ρωμαίικο Πέτρινο Σπίτι του 1907",
+    tr: "1800'lerden 1907'ye Bir Rum Evi",
+    en: "A Greek Stone House, from the 1800s to 1907",
+    el: "Ένα Ρωμαίικο Πέτρινο Σπίτι, από τον 19ο Αιώνα ως το 1907",
   },
   "about.story.text": {
-    tr: "Cunda Milos, mübadeleden önce bölgede yaşayan Rumlar tarafından 1907'de inşa edilmiş, tarihi eser statüsündeki bir taş evde konumlanır. Restorasyonda orijinal taş işçiliği, ahşap detaylar ve evin özgün planı korunmuş; modern konfor bu dokunun içine özenle yerleştirilmiştir. Ayvalık'ın Cunda (Alibey) Adası'nda, çarşıya, değirmene ve denize yürüme mesafesindeyiz.",
-    en: "Cunda Milos occupies a protected stone house built in 1907 by the Greek community that lived here before the population exchange. The restoration preserved the original stonework, timber details, and floor plan, weaving modern comfort into that historic fabric. We are on Cunda (Alibey) Island in Ayvalık, a short walk from the market square, the windmill, and the sea.",
-    el: "Το Cunda Milos στεγάζεται σε ένα διατηρητέο πέτρινο σπίτι, χτισμένο το 1907 από τους Ρωμιούς που ζούσαν εδώ πριν από την ανταλλαγή των πληθυσμών. Η αναστήλωση διατήρησε την αυθεντική πέτρα, τα ξύλινα στοιχεία και την αρχική κάτοψη, εντάσσοντας διακριτικά τις σύγχρονες ανέσεις. Βρισκόμαστε στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα.",
-  },
-  "about.hosts.title": {
-    tr: "Konukseverlik Anlayışımız",
-    en: "Our Approach to Hospitality",
-    el: "Η Αντίληψή μας για τη Φιλοξενία",
-  },
-  "about.hosts.text": {
-    tr: "Sınırlı sayıda odamız olması, her misafirimize gerçek anlamda zaman ayırabilmemizi sağlıyor: restoran önerilerinden tekne turlarına, zeytin hasadından yerel rehberliğe kadar konaklamanızın her detayıyla bizzat ilgileniyoruz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
-    en: "With a deliberately small number of rooms, we can give every guest genuine time and attention — from restaurant recommendations to boat trips, the olive harvest to local guided walks, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
-    el: "Ο σκόπιμα περιορισμένος αριθμός δωματίων μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από προτάσεις για εστιατόρια και βόλτες με σκάφος μέχρι τη συγκομιδή της ελιάς και περιπάτους με ντόπιο ξεναγό. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
+    tr: "Cunda Milos, mübadeleden önce bölgede yaşayan Rumlar tarafından inşasına 1800'lerin sonunda başlanan ve 1907'de tamamlanan, tarihi eser statüsündeki bir taş evde konumlanır. Restorasyonda orijinal taş işçiliği, ahşap detaylar ve evin özgün planı korunmuş; modern konfor bu dokunun içine özenle yerleştirilmiştir. Ayvalık'ın Cunda (Alibey) Adası'nda, çarşıya, değirmene ve denize yürüme mesafesindeyiz.",
+    en: "Cunda Milos occupies a protected stone house raised by the Greek community that lived here before the population exchange: construction began in the late 1800s and was completed in 1907. The restoration preserved the original stonework, timber details, and floor plan, weaving modern comfort into that historic fabric. We are on Cunda (Alibey) Island in Ayvalık, a short walk from the market square, the windmill, and the sea.",
+    el: "Το Cunda Milos στεγάζεται σε ένα διατηρητέο πέτρινο σπίτι, που έχτισαν οι Ρωμιοί οι οποίοι ζούσαν εδώ πριν από την ανταλλαγή των πληθυσμών: η κατασκευή του ξεκίνησε στα τέλη του 19ου αιώνα και ολοκληρώθηκε το 1907. Η αναστήλωση διατήρησε την αυθεντική πέτρα, τα ξύλινα στοιχεία και την αρχική κάτοψη, εντάσσοντας διακριτικά τις σύγχρονες ανέσεις. Βρισκόμαστε στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα.",
   },
   // Canonical "book direct" statement — reused verbatim on About, Contact,
   // homepage FAQ, and llms.txt so answer engines see one consistent phrasing.
@@ -598,9 +588,9 @@ export const ui = {
     el: "Ελληνική Αρχιτεκτονική",
   },
   "experience.architecture.text": {
-    tr: "Mübadeleden önce bölgede yaşayan Rumlar tarafından 1907'de inşa edilen taş evimiz, tarihi eser statüsündedir. Otelimizde konaklayarak tarihin dokusunu hissedebilir, uzun yıllar boyunca bu duvarlar arasında yaşanmış hikâyelere kendi deneyiminizi ekleyebilirsiniz.",
-    en: "Built in 1907 by the Greek community that lived here before the population exchange, our stone house holds protected historic-monument status. Staying with us, you can feel the texture of history and add your own story to the many that have unfolded within these walls over the years.",
-    el: "Χτισμένο το 1907 από τους Ρωμιούς που ζούσαν στην περιοχή πριν από την ανταλλαγή των πληθυσμών, το πέτρινο σπίτι μας είναι χαρακτηρισμένο ιστορικό διατηρητέο μνημείο. Μένοντας κοντά μας, μπορείτε να νιώσετε την υφή της ιστορίας και να προσθέσετε τη δική σας εμπειρία στις ιστορίες που έχουν ζήσει αυτοί οι τοίχοι.",
+    tr: "Mübadeleden önce bölgede yaşayan Rumlar tarafından inşasına 1800'lerin sonunda başlanan ve 1907'de tamamlanan taş evimiz, tarihi eser statüsündedir. Otelimizde konaklayarak tarihin dokusunu hissedebilir, uzun yıllar boyunca bu duvarlar arasında yaşanmış hikâyelere kendi deneyiminizi ekleyebilirsiniz.",
+    en: "Raised by the Greek community that lived here before the population exchange — begun in the late 1800s and completed in 1907 — our stone house holds protected historic-monument status. Staying with us, you can feel the texture of history and add your own story to the many that have unfolded within these walls over the years.",
+    el: "Χτισμένο από τους Ρωμιούς που ζούσαν στην περιοχή πριν από την ανταλλαγή των πληθυσμών — η κατασκευή του ξεκίνησε στα τέλη του 19ου αιώνα και ολοκληρώθηκε το 1907 — το πέτρινο σπίτι μας είναι χαρακτηρισμένο ιστορικό διατηρητέο μνημείο. Μένοντας κοντά μας, μπορείτε να νιώσετε την υφή της ιστορίας και να προσθέσετε τη δική σας εμπειρία στις ιστορίες που έχουν ζήσει αυτοί οι τοίχοι.",
   },
   // ─── Gallery Page ───
   "gallery.title": {

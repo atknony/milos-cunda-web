@@ -23,12 +23,13 @@ export const GET: APIRoute = async () => {
   const lines = [
     "# Cunda Milos",
     "",
-    "> Cunda Milos is a family-run, six-room boutique hotel in a protected Greek stone house built in 1907 on Cunda (Alibey) Island, Ayvalık, Türkiye. It pairs historic stone architecture with modern comfort and is known for its traditional Aegean breakfast, sea-view garden, and personal service.",
+    "> Cunda Milos is a six-room boutique hotel in a protected Greek stone house on Cunda (Alibey) Island, Ayvalık, Türkiye — construction began in the late 1800s and was completed in 1907. It pairs historic stone architecture with modern comfort and is known for its traditional Aegean breakfast, sea-view garden, and personal service.",
     "",
     "## Key facts",
     "",
     "- Official name: Cunda Milos (also written \"Cunda Milos Otel\"; sometimes searched as \"Milos Cunda\")",
-    "- Type: boutique hotel / guesthouse in a protected 1907 Greek stone house, six rooms",
+    "- Type: boutique hotel / guesthouse in a protected Greek stone house, six rooms",
+    "- The house: construction began in the late 1800s and was completed in 1907; it stands in the conservation area of the old town and was restored faithfully to its original form",
     "- Address: Namık Kemal Mah., 23009. Sokak No:7, 10405 Ayvalık/Balıkesir, Türkiye (Cunda Island)",
     "- GPS: 39.336233, 26.6576815",
     "- Phone & WhatsApp: +90 530 656 68 92",
@@ -42,7 +43,7 @@ export const GET: APIRoute = async () => {
     "## Pages",
     "",
     `- [Home](${SITE_URL}/en/): overview of the hotel (also /tr/ Turkish — default — and /el/ Greek)`,
-    `- [About](${SITE_URL}/en/about): the story of the 1907 house, the Milos experience (breakfast, garden, architecture), and the direct-booking philosophy`,
+    `- [About](${SITE_URL}/en/about): the story of the house, the Milos experience (breakfast, garden, architecture), the direct-booking philosophy, and a long-form article by the journalist Tanju İzbek on the Şakar family who have kept the house for over a century`,
     `- [Rooms](${SITE_URL}/en/rooms): all rooms and suites`,
     ...rooms.map((r) => {
       const specs = [

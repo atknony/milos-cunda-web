@@ -12,9 +12,10 @@
  * the author's own Latin transliteration in the tr/en versions and in Greek
  * script in the el version, each with a plain-language rendering beneath.
  *
- * Note: the article dates the house to the 1800s, while the rest of the site
- * dates the building to 1907. Both are the owner's own statements and are
- * left as written — do not silently reconcile them.
+ * On the date: construction of the house began in the late 1800s and was
+ * completed in 1907 (confirmed by the owner, 2026-08). The article said only
+ * "from the 1800s" and the rest of the site said only "1907"; both halves are
+ * now stated together here and in ui.ts, so keep them in step.
  */
 
 import type { Lang } from "./ui";
@@ -164,7 +165,7 @@ const tr: Story = {
     { kind: "h", text: "Karanfil Sokak'taki Ev" },
     {
       kind: "p",
-      text: "O yüzdendir ki Milos Cunda'nın hikâyesi, büyüleyici yaşanmışlıklarla doludur. Karanfil Sokak'taki, 1800'lü yıllardan kalma bu tarihî ev, eski kentin sit alanı içinde olduğu için aslına uygun biçimde restore edilmiş ve sizlerin kullanımına sunulmuştur. Tarihi koklayabileceğiniz, bir sıcaklığı hissedebileceğiniz bir konuk evine dönüştürülmüştür.",
+      text: "O yüzdendir ki Milos Cunda'nın hikâyesi, büyüleyici yaşanmışlıklarla doludur. Karanfil Sokak'taki bu tarihî evin inşasına 1800'lerin sonunda başlanmış, ev 1907'de tamamlanmıştır. Eski kentin sit alanı içinde olduğu için aslına uygun biçimde restore edilmiş ve sizlerin kullanımına sunulmuştur. Tarihi koklayabileceğiniz, bir sıcaklığı hissedebileceğiniz bir konuk evine dönüştürülmüştür.",
     },
     {
       kind: "figure",
@@ -337,7 +338,7 @@ const en: Story = {
     { kind: "h", text: "The House on Karanfil Sokak" },
     {
       kind: "p",
-      text: "That is why the story of Milos Cunda is full of enchanting lived experience. This historic house on Karanfil Sokak, dating from the 1800s, stands within the conservation area of the old town and has therefore been restored faithfully to its original form and opened for your use. It has been turned into a guest house where you can breathe in history and feel a certain warmth.",
+      text: "That is why the story of Milos Cunda is full of enchanting lived experience. Construction of this historic house on Karanfil Sokak began in the late 1800s and was completed in 1907. Standing within the conservation area of the old town, it has been restored faithfully to its original form and opened for your use — turned into a guest house where you can breathe in history and feel a certain warmth.",
     },
     {
       kind: "figure",
@@ -510,7 +511,7 @@ const el: Story = {
     { kind: "h", text: "Το Σπίτι στην Οδό Karanfil" },
     {
       kind: "p",
-      text: "Γι' αυτό και η ιστορία του Milos Cunda είναι γεμάτη μαγευτικά βιώματα. Αυτό το ιστορικό σπίτι στην οδό Karanfil, από τον 19ο αιώνα, βρίσκεται εντός της ζώνης προστασίας της παλιάς πόλης και γι' αυτό αναστηλώθηκε πιστά στην αρχική του μορφή και παραδόθηκε στη χρήση σας. Μετατράπηκε σε έναν ξενώνα όπου μπορείτε να μυρίσετε την ιστορία και να νιώσετε μια ζεστασιά.",
+      text: "Γι' αυτό και η ιστορία του Milos Cunda είναι γεμάτη μαγευτικά βιώματα. Η κατασκευή αυτού του ιστορικού σπιτιού στην οδό Karanfil ξεκίνησε στα τέλη του 19ου αιώνα και ολοκληρώθηκε το 1907. Βρισκόμενο εντός της ζώνης προστασίας της παλιάς πόλης, αναστηλώθηκε πιστά στην αρχική του μορφή και παραδόθηκε στη χρήση σας — μετατράπηκε σε έναν ξενώνα όπου μπορείτε να μυρίσετε την ιστορία και να νιώσετε μια ζεστασιά.",
     },
     {
       kind: "figure",

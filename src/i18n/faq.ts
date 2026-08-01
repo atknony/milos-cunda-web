@@ -42,7 +42,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Cunda Milos nasıl bir otel?",
       answer:
-        "Cunda Milos, 1907'de inşa edilmiş, tarihi eser statüsündeki bir Rum taş evinde hizmet veren altı odalı, aile işletmesi bir butik oteldir. Taş mimariyi modern konforla buluşturur; deniz manzaralı bahçesi ve kişiye özel hizmetiyle bilinir.",
+        "Cunda Milos, inşasına 1800'lerin sonunda başlanıp 1907'de tamamlanan, tarihi eser statüsündeki bir Rum taş evinde hizmet veren altı odalı bir butik oteldir. Taş mimariyi modern konforla buluşturur; deniz manzaralı bahçesi ve kişiye özel hizmetiyle bilinir.",
     },
   ],
   en: [
@@ -69,7 +69,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "What kind of hotel is Cunda Milos?",
       answer:
-        "Cunda Milos is a family-run, six-room boutique hotel in a protected Greek stone house built in 1907. It pairs historic stone architecture with modern comfort and is known for its sea-view garden and personal service.",
+        "Cunda Milos is a six-room boutique hotel in a protected Greek stone house whose construction began in the late 1800s and was completed in 1907. It pairs historic stone architecture with modern comfort and is known for its sea-view garden and personal service.",
     },
   ],
   el: [
@@ -96,7 +96,7 @@ export const homeFaq: Record<Lang, FAQItem[]> = {
     {
       question: "Τι είδους ξενοδοχείο είναι το Cunda Milos;",
       answer:
-        "Το Cunda Milos είναι ένα οικογενειακό μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907. Συνδυάζει την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις και ξεχωρίζει για τον κήπο με θέα στη θάλασσα και την προσωπική εξυπηρέτηση.",
+        "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι, του οποίου η κατασκευή ξεκίνησε στα τέλη του 1800 και ολοκληρώθηκε το 1907. Συνδυάζει την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις και ξεχωρίζει για τον κήπο με θέα στη θάλασσα και την προσωπική εξυπηρέτηση.",
     },
   ],
 };
