@@ -69,8 +69,8 @@ export const ui = {
   },
   "home.intro.text": {
     tr: "Cunda Milos, Ayvalık'ın Cunda Adası'nda, 1907 yılında inşa edilmiş ve tarihi eser statüsündeki bir Rum evinde konumlanan altı odalı bir butik oteldir. Taş ev mimarisini modern konforla buluşturan otelimiz; çarşıya, değirmene ve denize yürüme mesafesindedir. İster butik otel ister pansiyon sıcaklığında bir konaklama arıyor olun, sizi Ege'nin en özel adasında ağırlamaktan mutluluk duyarız.",
-    en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house built in 1907 on Cunda Island, Ayvalık. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a family-run guesthouse, we look forward to welcoming you.",
-    el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας οικογενειακής πανσιόν, σας περιμένουμε.",
+    en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house built in 1907 on Cunda Island, Ayvalık. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a small guesthouse, we look forward to welcoming you.",
+    el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας μικρής πανσιόν, σας περιμένουμε.",
   },
 
   // ─── CTAs ───
@@ -508,9 +508,9 @@ export const ui = {
     el: "Σχετικά με εμάς | Cunda Milos — Μπουτίκ Ξενοδοχείο στην Κούνδα",
   },
   "about.metaDescription": {
-    tr: "Cunda Milos'un hikâyesi: Ayvalık Cunda Adası'nda 1907 tarihli, tarihi eser statüsündeki Rum taş evinde altı odalı, aile işletmesi bir butik otel.",
-    en: "The story of Cunda Milos: a family-run, six-room boutique hotel in a protected 1907 Greek stone house on Cunda Island, Ayvalık.",
-    el: "Η ιστορία του Cunda Milos: ένα οικογενειακό μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι του 1907 στην Κούνδα του Αϊβαλί.",
+    tr: "Cunda Milos'un hikâyesi: Ayvalık Cunda Adası'nda, tarihi eser statüsündeki bir Rum taş evinde altı odalı butik otel.",
+    en: "The story of Cunda Milos: a six-room boutique hotel in a protected Greek stone house on Cunda Island, Ayvalık.",
+    el: "Η ιστορία του Cunda Milos: ένα μπουτίκ ξενοδοχείο έξι δωματίων σε διατηρητέο ρωμαίικο πέτρινο σπίτι στην Κούνδα του Αϊβαλί.",
   },
   "about.title": {
     tr: "Cunda Milos Hakkında",
@@ -533,14 +533,14 @@ export const ui = {
     el: "Το Cunda Milos στεγάζεται σε ένα διατηρητέο πέτρινο σπίτι, χτισμένο το 1907 από τους Ρωμιούς που ζούσαν εδώ πριν από την ανταλλαγή των πληθυσμών. Η αναστήλωση διατήρησε την αυθεντική πέτρα, τα ξύλινα στοιχεία και την αρχική κάτοψη, εντάσσοντας διακριτικά τις σύγχρονες ανέσεις. Βρισκόμαστε στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα.",
   },
   "about.hosts.title": {
-    tr: "Aile İşletmesi Bir Ev",
-    en: "A Family-Run House",
-    el: "Ένα Οικογενειακό Σπίτι",
+    tr: "Konukseverlik Anlayışımız",
+    en: "Our Approach to Hospitality",
+    el: "Η Αντίληψή μας για τη Φιλοξενία",
   },
   "about.hosts.text": {
-    tr: "Cunda Milos, aile işletmesi bir butik oteldir. Evi küçük tutmamız her misafirimize gerçek anlamda zaman ayırmamızı sağlar: restoran önerilerinden tekne turlarına, zeytin hasadından yerel rehberliğe kadar konaklamanızın her detayıyla bizzat ilgileniriz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
-    en: "Cunda Milos is a family-run boutique hotel. Keeping the house small lets us give every guest genuine time and attention — from restaurant tips to boat trips, the olive harvest to local guided walks, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
-    el: "Το Cunda Milos είναι ένα οικογενειακό μπουτίκ ξενοδοχείο. Το μικρό μέγεθος μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από προτάσεις για εστιατόρια και βόλτες με σκάφος μέχρι τη συγκομιδή της ελιάς και περιπάτους με ντόπιο ξεναγό. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
+    tr: "Sınırlı sayıda odamız olması, her misafirimize gerçek anlamda zaman ayırabilmemizi sağlıyor: restoran önerilerinden tekne turlarına, zeytin hasadından yerel rehberliğe kadar konaklamanızın her detayıyla bizzat ilgileniyoruz. Misafirlerimizi Türkçe, İngilizce ve Yunanca ağırlıyoruz.",
+    en: "With a deliberately small number of rooms, we can give every guest genuine time and attention — from restaurant recommendations to boat trips, the olive harvest to local guided walks, we look after the details of your stay ourselves. We welcome guests in Turkish, English, and Greek.",
+    el: "Ο σκόπιμα περιορισμένος αριθμός δωματίων μάς επιτρέπει να αφιερώνουμε πραγματικό χρόνο σε κάθε επισκέπτη — από προτάσεις για εστιατόρια και βόλτες με σκάφος μέχρι τη συγκομιδή της ελιάς και περιπάτους με ντόπιο ξεναγό. Υποδεχόμαστε τους επισκέπτες μας στα τουρκικά, τα αγγλικά και τα ελληνικά.",
   },
   // Canonical "book direct" statement — reused verbatim on About, Contact,
   // homepage FAQ, and llms.txt so answer engines see one consistent phrasing.

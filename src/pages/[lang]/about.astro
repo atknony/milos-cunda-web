@@ -16,6 +16,7 @@ import Footer from "../../components/Footer.astro";
 import { languages, type Lang } from "../../i18n/ui";
 import { useTranslations, getLocalizedPath, getWhatsAppUrl, getPhoneUrl } from "../../i18n/utils";
 import { generateAboutPageSchema } from "../../lib/schema";
+import { story } from "../../i18n/story";
 
 export const getStaticPaths = (() => {
   return (Object.keys(languages) as Lang[]).map((lang) => ({
@@ -83,6 +84,10 @@ const aboutSchema = generateAboutPageSchema(lang, t("about.title"), t("about.met
 /* Blocks from here on sit under the "Milos Deneyimi" h2, so their titles
    drop a level to h3 to keep the heading outline unbroken. */
 const expStart = blocks.findIndex((b) => b.heading);
+
+/* The journalist's long-form piece on the house, rendered below the
+   experience blocks. See src/i18n/story.ts. */
+const article = story[lang];
 ---
 
 <MainLayout
@@ -177,6 +182,98 @@ const expStart = blocks.findIndex((b) => b.heading);
           </>
         );
       })}
+    </div>
+  </section>
+
+  <!-- ─── The House's Story (long-form editorial) ─── -->
+  <section class="bg-stone-100/50 py-20 lg:py-28 overflow-hidden">
+    <div class="container-narrow">
+      <article>
+        <!-- Masthead -->
+        <header class="story-measure reveal text-center mb-14 lg:mb-20">
+          <span class="story-kicker">{article.kicker}</span>
+          <h2 class="story-title">{article.title}</h2>
+          <p class="story-subtitle">{article.subtitle}</p>
+        </header>
+
+        <!-- Standfirst -->
+        <div class="story-measure reveal">
+          <p class="story-lead">{article.lead}</p>
+        </div>
+
+        <!-- Body -->
+        <div class="story-body">
+          {article.blocks.map((block) => {
+            if (block.kind === "figure") {
+              return (
+                <figure class="story-figure reveal">
+                  <img
+                    src={block.image}
+                    alt={block.alt}
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                    class="img-warm"
+                  />
+                  <figcaption>{block.caption}</figcaption>
+                </figure>
+              );
+            }
+            if (block.kind === "pull") {
+              return (
+                <div class="story-measure reveal">
+                  <p class="story-pull">{block.text}</p>
+                </div>
+              );
+            }
+            if (block.kind === "verse") {
+              return (
+                <div class="story-measure">
+                  <blockquote class="story-verse">
+                    <p>
+                      {block.lines.map((line, i) => (
+                        <>
+                          {i > 0 && <br />}
+                          {line}
+                        </>
+                      ))}
+                    </p>
+                    {block.translation && (
+                      <p class="story-verse-translation">{block.translation}</p>
+                    )}
+                  </blockquote>
+                </div>
+              );
+            }
+            if (block.kind === "h") {
+              return (
+                <div class="story-measure">
+                  <h3>{block.text}</h3>
+                </div>
+              );
+            }
+            if (block.kind === "closing") {
+              return (
+                <div class="story-measure">
+                  <p class="story-closing">{block.text}</p>
+                </div>
+              );
+            }
+            return (
+              <div class="story-measure">
+                <p>{block.text}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <!-- Byline -->
+        <footer class="story-measure reveal story-byline">
+          <cite class="story-byline-name not-italic">{article.author}</cite>
+          <span class="story-byline-role">{article.authorRole}</span>
+        </footer>
+      </article>
     </div>
   </section>
 
