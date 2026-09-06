@@ -100,6 +100,38 @@ export const ui = {
     el: "Όλα τα Δωμάτια",
   },
 
+  // ─── Guest Reviews (Google Maps) ───
+  "reviews.title": {
+    tr: "Konuklarımızın Sözleriyle",
+    en: "In Our Guests' Words",
+    el: "Με τα Λόγια των Επισκεπτών μας",
+  },
+  "reviews.summary": {
+    tr: "Google Haritalar'da {rating} · {count} değerlendirme",
+    en: "{rating} on Google Maps · {count} reviews",
+    el: "{rating} στους Χάρτες Google · {count} κριτικές",
+  },
+  "reviews.stars": {
+    tr: "5 üzerinden {rating} yıldız",
+    en: "{rating} out of 5 stars",
+    el: "{rating} στα 5 αστέρια",
+  },
+  "reviews.source": {
+    tr: "Google değerlendirmesi",
+    en: "Google review",
+    el: "Κριτική στο Google",
+  },
+  "reviews.cta": {
+    tr: "Tüm Yorumları Google'da Okuyun",
+    en: "Read All Reviews on Google",
+    el: "Διαβάστε Όλες τις Κριτικές στο Google",
+  },
+  "reviews.translated": {
+    tr: "",
+    en: "Reviews are translated from the original Turkish.",
+    el: "Οι κριτικές είναι μεταφρασμένες από τα τουρκικά πρωτότυπα.",
+  },
+
   // ─── WhatsApp Pre-filled Messages ───
   "whatsapp.message": {
     tr: "Merhaba, Cunda Milos'ta müsaitlik durumunu öğrenmek istiyorum.",

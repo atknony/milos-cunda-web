@@ -1,0 +1,123 @@
+---
+/**
+ * Cunda Milos — Guest Reviews
+ *
+ * A full-bleed, right-to-left marquee of curated Google Maps reviews. Text only
+ * (no guest avatars or photos). The card set is rendered twice — the second
+ * copy is aria-hidden and exists solely so the -50% translation loops
+ * seamlessly. Cards use margin-inline-end rather than a flex `gap` so that
+ * half the track width is an exact whole number of cards + gutters; with `gap`
+ * the loop drifts by half a gutter on every cycle.
+ *
+ * Motion is paused on hover/focus, and under prefers-reduced-motion the
+ * marquee degrades to a normal horizontal scroller (see global.css).
+ */
+
+import type { Lang } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+import { reviews, reviewSummary, monthLabel } from "../i18n/reviews";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const ratingText = reviewSummary.ratingText[lang];
+const starLabel = t("reviews.stars", { rating: ratingText });
+const translatedNote = t("reviews.translated");
+
+/* Two passes over the same list: [0] is read by assistive tech, [1] is the
+   visual-only clone that makes the loop continuous. */
+const passes = [false, true];
+---
+
+<section class="reviews-section" aria-labelledby="reviews-heading">
+  <div class="container-narrow">
+    <div class="reveal text-center max-w-xl mx-auto mb-12 lg:mb-14">
+      <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
+      <h2
+        id="reviews-heading"
+        class="text-2xl sm:text-3xl lg:text-4xl font-serif text-stone-900 mb-4"
+      >
+        {t("reviews.title")}
+      </h2>
+      <p class="reviews-summary">
+        <span class="review-stars" role="img" aria-label={starLabel}>
+          {[...Array(5)].map(() => (
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M10 1.6l2.47 5.28 5.53.75-4.04 3.86 1 5.58L10 14.4l-4.96 2.67 1-5.58L2 7.63l5.53-.75L10 1.6z" />
+            </svg>
+          ))}
+        </span>
+        <span class="reviews-summary-text">
+          {t("reviews.summary", { rating: ratingText, count: reviewSummary.count })}
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="reviews-marquee" data-reviews-marquee>
+    <div class="reviews-track">
+      {passes.map((isClone) =>
+        reviews.map((review) => (
+          <figure class="review-card" aria-hidden={isClone ? "true" : undefined}>
+            <span
+              class="review-stars"
+              role={isClone ? undefined : "img"}
+              aria-label={isClone ? undefined : t("reviews.stars", { rating: String(review.rating) })}
+            >
+              {[...Array(review.rating)].map(() => (
+                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M10 1.6l2.47 5.28 5.53.75-4.04 3.86 1 5.58L10 14.4l-4.96 2.67 1-5.58L2 7.63l5.53-.75L10 1.6z" />
+                </svg>
+              ))}
+            </span>
+
+            <blockquote class="review-quote">
+              <p>{review.quote[lang]}</p>
+            </blockquote>
+
+            <figcaption class="review-meta">
+              <span class="review-name">{review.name}</span>
+              <span class="review-source">
+                {t("reviews.source")} · {monthLabel(lang, review.month)}
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      )}
+    </div>
+  </div>
+
+  <div class="container-narrow">
+    <div class="reveal text-center mt-12 lg:mt-14">
+      <a
+        href={reviewSummary.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2.5 text-[0.7rem] font-medium tracking-[0.2em]
+               uppercase text-stone-600 hover:text-stone-900 transition-colors duration-200 group
+               py-3 -my-3"
+      >
+        {t("reviews.cta")}
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          class="transition-transform duration-300 group-hover:translate-x-1"
+        >
+          <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+      {translatedNote && <p class="reviews-note">{translatedNote}</p>}
+    </div>
+  </div>
+</section>

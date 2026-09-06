@@ -10,6 +10,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Hero from "../../components/Hero.astro";
 import RoomCard from "../../components/RoomCard.astro";
+import Reviews from "../../components/Reviews.astro";
 import Footer from "../../components/Footer.astro";
 
 import { languages, type Lang } from "../../i18n/ui";
@@ -49,7 +50,7 @@ const faqSchema = generateFAQSchema(faqs);
   <Hero />
 
   <!-- ─── Intro: what & where we are (crawlable prose for SEO/GEO) ─── -->
-  <section class="pt-16 lg:pt-24 bg-stone-50">
+  <section class="pt-16 lg:pt-24 pb-16 lg:pb-24 bg-stone-50">
     <div class="container-narrow">
       <div class="reveal text-center max-w-2xl mx-auto">
         <div class="line-accent mx-auto mb-6" aria-hidden="true"></div>
@@ -62,6 +63,9 @@ const faqSchema = generateFAQSchema(faqs);
       </div>
     </div>
   </section>
+
+  <!-- ─── Guest Reviews (curated from Google Maps) ─── -->
+  <Reviews lang={lang} />
 
   <!-- ─── Rooms Preview ─── -->
   <section class="section-padding bg-stone-50">
