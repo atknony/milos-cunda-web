@@ -2,14 +2,8 @@
 
 export type ReservationType = "booking" | "block";
 export type ReservationStatus = "confirmed" | "cancelled";
-export type BookingSource =
-  | "direct"
-  | "phone"
-  | "whatsapp"
-  | "airbnb"
-  | "booking_com"
-  | "hotels_com"
-  | "other";
+/** Senkronizasyon askıya alındı — panel yalnızca elle girilen kaynakları destekler. */
+export type BookingSource = "direct" | "phone" | "whatsapp" | "instagram";
 export type FeedPlatform = "airbnb" | "booking_com" | "hotels_com" | "other";
 
 export interface Room {
@@ -84,10 +78,7 @@ export const SOURCE_LABELS: Record<BookingSource, string> = {
   direct: "Doğrudan",
   phone: "Telefon",
   whatsapp: "WhatsApp",
-  airbnb: "Airbnb",
-  booking_com: "Booking.com",
-  hotels_com: "Hotels.com",
-  other: "Diğer",
+  instagram: "Instagram",
 };
 
 export const PLATFORM_LABELS: Record<FeedPlatform, string> = {

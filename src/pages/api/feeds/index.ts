@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
-import { json, requireSession } from "@/lib/pms/api";
+import { json, requireSession, SYNC_ENABLED } from "@/lib/pms/api";
 import type { FeedPlatform } from "@/lib/supabase/types";
 
 export const prerender = false;
@@ -26,6 +26,7 @@ export const GET: APIRoute = async (context) => {
 export const POST: APIRoute = async (context) => {
   const denied = await requireSession(context);
   if (denied) return denied;
+  if (!SYNC_ENABLED) return json({ error: "Senkronizasyon şu an devre dışı." }, 403);
 
   let body: { room_id?: string; platform?: FeedPlatform; url?: string };
   try {

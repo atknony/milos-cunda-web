@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { BookingSource, Reservation, Room } from "@/lib/supabase/types";
 import { SOURCE_LABELS } from "@/lib/supabase/types";
+import { CHECK_IN_TIME, CHECK_OUT_TIME } from "@/lib/pms/dates";
 
 interface Props {
   rooms: Room[];
@@ -14,7 +15,7 @@ interface Props {
 }
 
 const inputCls =
-  "w-full rounded-md border border-stone-300 px-3 py-2 text-sm focus:border-stone-500 focus:outline-none disabled:bg-stone-100 disabled:text-stone-400";
+  "w-full rounded-lg border border-stone-300 px-3 py-2.5 text-base focus:border-stone-500 focus:outline-none disabled:bg-stone-100 disabled:text-stone-400";
 const labelCls = "mb-1 block text-xs font-medium text-stone-600";
 
 export default function ReservationModal({ rooms, reservation, defaults, onClose, onSaved }: Props) {
@@ -130,15 +131,19 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center sm:p-4"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white p-6 shadow-xl">
+      <div className="max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-2xl bg-white p-5 shadow-xl sm:rounded-xl sm:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-serif text-xl font-bold">
             {isEdit ? (isBlock ? "Blokajı Düzenle" : "Rezervasyonu Düzenle") : "Yeni Kayıt"}
           </h2>
-          <button onClick={onClose} className="text-stone-400 hover:text-stone-600" aria-label="Kapat">
+          <button
+            onClick={onClose}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-stone-400 hover:bg-stone-100 hover:text-stone-600"
+            aria-label="Kapat"
+          >
             ✕
           </button>
         </div>
@@ -159,7 +164,7 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
                   key={t}
                   type="button"
                   onClick={() => set("type", t)}
-                  className={`flex-1 rounded-md border px-3 py-2 text-sm font-medium ${
+                  className={`flex-1 rounded-lg border px-3 py-2.5 text-sm font-medium ${
                     form.type === t
                       ? "border-stone-900 bg-stone-900 text-white"
                       : "border-stone-300 text-stone-600 hover:bg-stone-50"
@@ -192,7 +197,7 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Giriş *</label>
+              <label className={labelCls}>Giriş * · saat {CHECK_IN_TIME}</label>
               <input
                 type="date"
                 value={form.check_in}
@@ -203,7 +208,7 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
               />
             </div>
             <div>
-              <label className={labelCls}>Çıkış * (çıkış günü konaklamaya dahil değildir)</label>
+              <label className={labelCls}>Çıkış * · saat {CHECK_OUT_TIME}</label>
               <input
                 type="date"
                 value={form.check_out}
@@ -214,6 +219,9 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
               />
             </div>
           </div>
+          <p className="-mt-2 text-xs text-stone-400">
+            Çıkış günü konaklamaya dahil değildir — oda o gün {CHECK_OUT_TIME}'da boşalır.
+          </p>
 
           {!isBlock && (
             <>
@@ -332,35 +340,31 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
             </p>
           )}
 
-          <div className="flex items-center justify-between pt-2">
-            {isEdit && !isImported && reservation.status === "confirmed" ? (
+          <div className="flex flex-col gap-3 pt-2">
+            <button
+              type="submit"
+              disabled={busy}
+              className="w-full rounded-lg bg-stone-900 px-4 py-3.5 text-base font-semibold text-white hover:bg-stone-700 disabled:opacity-50"
+            >
+              {busy ? "Kaydediliyor…" : "Kaydet"}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="w-full rounded-lg border border-stone-300 px-4 py-3 text-sm font-medium text-stone-600 hover:bg-stone-50"
+            >
+              Vazgeç
+            </button>
+            {isEdit && !isImported && reservation.status === "confirmed" && (
               <button
                 type="button"
                 onClick={cancelReservation}
                 disabled={busy}
-                className="text-sm text-red-600 hover:underline"
+                className="w-full rounded-lg py-2 text-sm font-medium text-red-600 hover:underline"
               >
                 Kaydı iptal et
               </button>
-            ) : (
-              <span />
             )}
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={onClose}
-                className="rounded-md border border-stone-300 px-4 py-2 text-sm text-stone-600 hover:bg-stone-50"
-              >
-                Vazgeç
-              </button>
-              <button
-                type="submit"
-                disabled={busy}
-                className="rounded-md bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 disabled:opacity-50"
-              >
-                {busy ? "Kaydediliyor…" : "Kaydet"}
-              </button>
-            </div>
           </div>
         </form>
       </div>

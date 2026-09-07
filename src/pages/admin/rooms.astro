@@ -12,8 +12,6 @@ const { data: rooms, error } = await supabase
   .select("*")
   .order("sort_order")
   .order("name");
-
-const origin = import.meta.env.PROD ? Astro.site?.origin ?? Astro.url.origin : Astro.url.origin;
 ---
 
 <AdminLayout title="Odalar" active="rooms">
@@ -22,7 +20,7 @@ const origin = import.meta.env.PROD ? Astro.site?.origin ?? Astro.url.origin : A
     error ? (
       <p class="text-sm text-red-600">Odalar yüklenemedi: {error.message}</p>
     ) : (
-      <RoomManager client:load initialRooms={(rooms ?? []) as Room[]} origin={origin} />
+      <RoomManager client:load initialRooms={(rooms ?? []) as Room[]} />
     )
   }
 </AdminLayout>

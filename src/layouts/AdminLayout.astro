@@ -1,46 +1,56 @@
 ---
 /**
  * PMS panel iskeleti — Türkçe, noindex, site i18n sisteminden bağımsız.
+ * Mobil öncelikli: küçük ekranda alt sekme çubuğu, geniş ekranda üst menü.
  */
 import "@styles/global.css";
 
 interface Props {
   title: string;
   /** Aktif menü öğesi vurgusu için */
-  active?: "dashboard" | "rooms" | "reservations" | "sync";
+  active?: "dashboard" | "rooms" | "reservations";
 }
 
 const { title, active } = Astro.props;
 
 const nav = [
-  { key: "dashboard", href: "/admin", label: "Takvim" },
-  { key: "rooms", href: "/admin/rooms", label: "Odalar" },
-  { key: "reservations", href: "/admin/reservations", label: "Rezervasyonlar" },
-  { key: "sync", href: "/admin/sync", label: "Senkronizasyon" },
+  { key: "dashboard", href: "/admin", label: "Takvim", icon: "calendar" },
+  { key: "reservations", href: "/admin/reservations", label: "Rezervasyonlar", icon: "list" },
+  { key: "rooms", href: "/admin/rooms", label: "Odalar", icon: "bed" },
 ] as const;
+
+const icons: Record<string, string> = {
+  calendar:
+    "M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z",
+  list: "M4 6h16M4 12h16M4 18h10",
+  bed: "M3 18v-6a2 2 0 0 1 2-2h6v5M3 18h18v-3a2 2 0 0 0-2-2h-6M3 18v2M21 18v2M13 15h6a2 2 0 0 1 2 2v1",
+};
 ---
 
 <!doctype html>
 <html lang="tr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content="noindex, nofollow" />
     <title>{title} · Cunda Milos Panel</title>
   </head>
-  <body class="min-h-screen bg-stone-100 text-stone-900 antialiased">
-    <header class="border-b border-stone-200 bg-white">
+  <body class="min-h-screen bg-stone-100 pb-20 text-stone-900 antialiased sm:pb-0">
+    <!-- Üst çubuk: marka + çıkış (her ekran boyutunda) -->
+    <header class="sticky top-0 z-30 border-b border-stone-200 bg-white">
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
         <a href="/admin" class="font-serif text-lg font-bold tracking-tight">
           Cunda Milos <span class="font-sans text-xs font-normal text-stone-500">PANEL</span>
         </a>
-        <nav class="flex items-center gap-1 text-sm">
+
+        <!-- Geniş ekranda yatay menü -->
+        <nav class="hidden items-center gap-1 text-sm sm:flex">
           {
             nav.map((item) => (
               <a
                 href={item.href}
                 class:list={[
-                  "rounded-md px-3 py-1.5 transition-colors",
+                  "rounded-md px-4 py-2 font-medium transition-colors",
                   active === item.key
                     ? "bg-stone-900 text-white"
                     : "text-stone-600 hover:bg-stone-100 hover:text-stone-900",
@@ -50,19 +60,52 @@ const nav = [
               </a>
             ))
           }
-          <form method="post" action="/api/auth/logout" class="ml-2">
-            <button
-              type="submit"
-              class="rounded-md px-3 py-1.5 text-stone-400 transition-colors hover:bg-red-50 hover:text-red-600"
-            >
-              Çıkış
-            </button>
-          </form>
         </nav>
+
+        <form method="post" action="/api/auth/logout">
+          <button
+            type="submit"
+            class="rounded-md px-3 py-2 text-sm font-medium text-stone-400 transition-colors hover:bg-red-50 hover:text-red-600"
+          >
+            Çıkış
+          </button>
+        </form>
       </div>
     </header>
-    <main class="mx-auto max-w-7xl px-4 py-6">
+
+    <main class="mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-6">
       <slot />
     </main>
+
+    <!-- Alt sekme çubuğu: yalnızca mobilde — büyük dokunma alanları -->
+    <nav
+      class="fixed inset-x-0 bottom-0 z-30 flex border-t border-stone-200 bg-white pb-[env(safe-area-inset-bottom)] sm:hidden"
+      aria-label="Panel gezinme"
+    >
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "flex flex-1 flex-col items-center gap-1 py-2.5 text-xs font-medium transition-colors",
+              active === item.key ? "text-stone-900" : "text-stone-400",
+            ]}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width={active === item.key ? 2.25 : 1.75}
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <path d={icons[item.icon]} />
+            </svg>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
   </body>
 </html>

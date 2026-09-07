@@ -76,12 +76,20 @@ export default function ReservationList({ rooms, today }: Props) {
 
   return (
     <div className="space-y-4">
+      {/* Yeni kayıt — her zaman ulaşılabilir, büyük dokunma alanı */}
+      <button
+        onClick={() => setModalTarget("new")}
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-stone-900 px-4 py-3.5 text-base font-semibold text-white hover:bg-stone-700 active:bg-stone-800"
+      >
+        <span className="text-xl leading-none">+</span> Yeni Kayıt
+      </button>
+
       {/* Filtreler */}
-      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-stone-200 bg-white p-3 text-sm">
+      <div className="flex flex-wrap items-center gap-2 rounded-xl border border-stone-200 bg-white p-2.5 text-sm">
         <select
           value={roomFilter}
           onChange={(e) => setRoomFilter(e.target.value)}
-          className="rounded-md border border-stone-300 px-2 py-1.5"
+          className="min-h-11 flex-1 rounded-lg border border-stone-300 px-2.5 py-2"
         >
           <option value="">Tüm odalar</option>
           {rooms.map((r) => (
@@ -93,119 +101,88 @@ export default function ReservationList({ rooms, today }: Props) {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-md border border-stone-300 px-2 py-1.5"
+          className="min-h-11 flex-1 rounded-lg border border-stone-300 px-2.5 py-2"
         >
           <option value="confirmed">Onaylı</option>
           <option value="cancelled">İptal edilmiş</option>
           <option value="">Tümü</option>
         </select>
-        <label className="flex items-center gap-1.5 text-stone-600">
+        <label className="flex min-h-11 basis-full items-center gap-2 px-1 text-stone-600 sm:basis-auto">
           <input
             type="checkbox"
             checked={showPast}
             onChange={(e) => setShowPast(e.target.checked)}
+            className="h-5 w-5"
           />
           Geçmişi göster
         </label>
-        <button
-          onClick={() => setModalTarget("new")}
-          className="ml-auto rounded-md bg-stone-900 px-4 py-1.5 font-medium text-white hover:bg-stone-700"
-        >
-          + Yeni Kayıt
-        </button>
       </div>
 
       {savedWarning && (
-        <div className="flex items-start justify-between rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-800">
+        <div className="flex items-start justify-between rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800">
           <span>⚠ {savedWarning}</span>
-          <button onClick={() => setSavedWarning(null)} className="ml-3 font-bold">
+          <button onClick={() => setSavedWarning(null)} className="ml-3 font-bold" aria-label="Kapat">
             ✕
           </button>
         </div>
       )}
       {error && (
-        <div className="rounded-md border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {error}
         </div>
       )}
 
-      {/* Liste */}
-      <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-stone-200 bg-stone-50 text-left text-xs uppercase tracking-wide text-stone-500">
-              <th className="px-4 py-2">Oda</th>
-              <th className="px-4 py-2">Misafir</th>
-              <th className="px-4 py-2">Giriş</th>
-              <th className="px-4 py-2">Çıkış</th>
-              <th className="px-4 py-2">Kaynak</th>
-              <th className="px-4 py-2">Ücret</th>
-              <th className="px-4 py-2">Durum</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading && (
-              <tr>
-                <td colSpan={7} className="px-4 py-6 text-center text-stone-400">
-                  Yükleniyor…
-                </td>
-              </tr>
-            )}
-            {!loading && reservations.length === 0 && (
-              <tr>
-                <td colSpan={7} className="px-4 py-6 text-center text-stone-400">
-                  Kayıt bulunamadı.
-                </td>
-              </tr>
-            )}
-            {!loading &&
-              reservations.map((r) => {
-                const isConflicted = conflictedIds.has(r.id);
-                return (
-                  <tr
-                    key={r.id}
-                    onClick={() => setModalTarget(r)}
-                    className={`cursor-pointer border-b border-stone-100 hover:bg-stone-50 ${
-                      r.status === "cancelled" ? "opacity-45 line-through" : ""
-                    } ${isConflicted ? "bg-red-50" : ""}`}
-                  >
-                    <td className="px-4 py-2.5 font-medium">
+      {/* Kayıt listesi — mobilde kart, kaydırmalı tablo yok */}
+      <div className="space-y-2">
+        {loading && (
+          <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-400">
+            Yükleniyor…
+          </p>
+        )}
+        {!loading && reservations.length === 0 && (
+          <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-400">
+            Kayıt bulunamadı.
+          </p>
+        )}
+        {!loading &&
+          reservations.map((r) => {
+            const isConflicted = conflictedIds.has(r.id);
+            return (
+              <button
+                key={r.id}
+                onClick={() => setModalTarget(r)}
+                className={`flex w-full items-center justify-between gap-3 rounded-xl border bg-white px-4 py-3.5 text-left transition-colors hover:bg-stone-50 ${
+                  r.status === "cancelled" ? "opacity-50" : ""
+                } ${isConflicted ? "border-red-300 bg-red-50" : "border-stone-200"}`}
+              >
+                <span className="min-w-0">
+                  <span className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                    {isConflicted && <span className="text-red-600" title="Çakışma var">⚠</span>}
+                    <span className={`font-semibold text-stone-800 ${r.status === "cancelled" ? "line-through" : ""}`}>
                       {roomById.get(r.room_id)?.name ?? "?"}
-                      {isConflicted && (
-                        <span className="ml-1.5 text-xs font-bold text-red-600" title="Çakışma var">
-                          ⚠
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-2.5">
-                      {r.type === "block" ? (
-                        <span className="italic text-stone-500">Blokaj</span>
-                      ) : (
-                        (r.guest_name ?? <span className="text-stone-400">—</span>)
-                      )}
-                    </td>
-                    <td className="px-4 py-2.5">{formatTr(r.check_in)}</td>
-                    <td className="px-4 py-2.5">{formatTr(r.check_out)}</td>
-                    <td className="px-4 py-2.5">{SOURCE_LABELS[r.source]}</td>
-                    <td className="px-4 py-2.5">
-                      {r.total_price != null ? `${r.total_price} ${r.currency}` : "—"}
-                    </td>
-                    <td className="px-4 py-2.5">
-                      {r.status === "confirmed" ? (
-                        <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
-                          Onaylı
-                        </span>
-                      ) : (
-                        <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500">
-                          İptal
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+                    </span>
+                    <span className="text-stone-300">·</span>
+                    <span className="truncate text-stone-600">
+                      {r.type === "block" ? "Blokaj" : (r.guest_name ?? "—")}
+                    </span>
+                  </span>
+                  <span className="mt-1 block text-xs text-stone-400">
+                    {formatTr(r.check_in)} → {formatTr(r.check_out)} · {SOURCE_LABELS[r.source]}
+                    {r.total_price != null ? ` · ${r.total_price} ${r.currency}` : ""}
+                  </span>
+                </span>
+                {r.status === "confirmed" ? (
+                  <span className="shrink-0 rounded-full bg-green-100 px-2.5 py-1 text-[11px] font-semibold text-green-700">
+                    Onaylı
+                  </span>
+                ) : (
+                  <span className="shrink-0 rounded-full bg-stone-100 px-2.5 py-1 text-[11px] font-semibold text-stone-500">
+                    İptal
+                  </span>
+                )}
+              </button>
+            );
+          })}
       </div>
 
       {modalTarget !== null && (

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { BookingSource, ConflictPair, Reservation, Room } from "@/lib/supabase/types";
+import type { ConflictPair, Reservation, Room } from "@/lib/supabase/types";
 import { SOURCE_LABELS } from "@/lib/supabase/types";
+import { CHECK_IN_TIME, CHECK_OUT_TIME } from "@/lib/pms/dates";
 import ReservationModal from "./ReservationModal";
 import ConflictBanner from "./ConflictBanner";
 
@@ -32,38 +33,42 @@ const MONTHS_TR = [
 ];
 const WEEKDAYS_TR = ["Pt", "Sa", "Ça", "Pe", "Cu", "Ct", "Pz"];
 
-/** Kaynağa göre bar rengi */
-const SOURCE_COLORS: Record<BookingSource, string> = {
-  direct: "bg-olive-600",
-  phone: "bg-olive-500",
-  whatsapp: "bg-olive-400",
-  airbnb: "bg-[#e0565b]",
-  booking_com: "bg-[#1a4b8c]",
-  hotels_com: "bg-terra-500",
-  other: "bg-stone-500",
-};
+function weekdayIndex(iso: string): number {
+  // getUTCDay: 0=Pazar → Pazartesi-indeksli
+  const wd = new Date(`${iso}T12:00:00Z`).getUTCDay();
+  return (wd + 6) % 7;
+}
 
-/** Çakışmayan barları şeritlere (lane) dağıt — çakışanlar alt alta çizilir. */
-function assignLanes(items: Reservation[]): Map<string, number> {
-  const sorted = [...items].sort((a, b) => a.check_in.localeCompare(b.check_in));
-  const laneEnds: string[] = []; // her şeridin son check_out'u
-  const lanes = new Map<string, number>();
-  for (const r of sorted) {
-    let lane = laneEnds.findIndex((end) => end <= r.check_in);
-    if (lane === -1) {
-      lane = laneEnds.length;
-      laneEnds.push(r.check_out);
-    } else {
-      laneEnds[lane] = r.check_out;
-    }
-    lanes.set(r.id, lane);
+function formatLong(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const wd = WEEKDAYS_FULL_TR[weekdayIndex(iso)];
+  return `${d} ${MONTHS_TR[m - 1]} ${y} · ${wd}`;
+}
+
+const WEEKDAYS_FULL_TR = [
+  "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar",
+];
+
+type Segment = { reservation: Reservation; kind: "arrival" | "staying" | "departure" };
+
+/** Bir odanın belirli bir gündeki durumunu segmentlere ayırır (çıkış/giriş aynı günde olabilir). */
+function segmentsFor(items: Reservation[], date: string): Segment[] {
+  const segments: Segment[] = [];
+  for (const r of items) {
+    if (r.check_out === date) segments.push({ reservation: r, kind: "departure" });
   }
-  return lanes;
+  for (const r of items) {
+    if (r.check_in <= date && date < r.check_out) {
+      segments.push({ reservation: r, kind: r.check_in === date ? "arrival" : "staying" });
+    }
+  }
+  return segments;
 }
 
 export default function ReservationTimeline({ rooms, today }: Props) {
-  const [year, setYear] = useState(() => Number(today.slice(0, 4)));
-  const [month, setMonth] = useState(() => Number(today.slice(5, 7))); // 1-12
+  const [selectedDate, setSelectedDate] = useState(today);
+  const [viewYear, setViewYear] = useState(() => Number(today.slice(0, 4)));
+  const [viewMonth, setViewMonth] = useState(() => Number(today.slice(5, 7))); // 1-12
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [conflicts, setConflicts] = useState<ConflictPair[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -74,9 +79,9 @@ export default function ReservationTimeline({ rooms, today }: Props) {
   >(null);
   const [savedWarning, setSavedWarning] = useState<string | null>(null);
 
-  const numDays = daysInMonth(year, month);
-  const monthStart = isoDate(year, month, 1);
-  const nextMonthStart = addDaysIso(isoDate(year, month, numDays), 1);
+  const numDays = daysInMonth(viewYear, viewMonth);
+  const monthStart = isoDate(viewYear, viewMonth, 1);
+  const nextMonthStart = addDaysIso(isoDate(viewYear, viewMonth, numDays), 1);
   const activeRooms = useMemo(() => rooms.filter((r) => r.is_active), [rooms]);
 
   const load = useCallback(async () => {
@@ -119,29 +124,41 @@ export default function ReservationTimeline({ rooms, today }: Props) {
     return map;
   }, [reservations]);
 
-  function nav(delta: number) {
-    let m = month + delta;
-    let y = year;
+  /** Gün → o gün dolu oda sayısı + çakışma var mı (aylık mini takvim için). */
+  const dayStats = useMemo(() => {
+    const stats = new Map<string, { occupied: number; conflict: boolean }>();
+    for (let day = 1; day <= numDays; day++) {
+      const iso = isoDate(viewYear, viewMonth, day);
+      let occupied = 0;
+      let conflict = false;
+      for (const room of activeRooms) {
+        const items = byRoom.get(room.id) ?? [];
+        const occupying = items.filter((r) => r.check_in <= iso && iso < r.check_out);
+        if (occupying.length > 0) occupied++;
+        if (occupying.some((r) => conflictedIds.has(r.id))) conflict = true;
+      }
+      stats.set(iso, { occupied, conflict });
+    }
+    return stats;
+  }, [activeRooms, byRoom, numDays, viewYear, viewMonth, conflictedIds]);
+
+  function navMonth(delta: number) {
+    let m = viewMonth + delta;
+    let y = viewYear;
     if (m < 1) { m = 12; y--; }
     if (m > 12) { m = 1; y++; }
-    setMonth(m);
-    setYear(y);
+    setViewMonth(m);
+    setViewYear(y);
   }
 
   function goToday() {
-    setYear(Number(today.slice(0, 4)));
-    setMonth(Number(today.slice(5, 7)));
+    setViewYear(Number(today.slice(0, 4)));
+    setViewMonth(Number(today.slice(5, 7)));
+    setSelectedDate(today);
   }
 
-  function weekdayOf(day: number): string {
-    // getUTCDay: 0=Pazar → Pazartesi-indeksli diziye çevir
-    const wd = new Date(`${isoDate(year, month, day)}T12:00:00Z`).getUTCDay();
-    return WEEKDAYS_TR[(wd + 6) % 7];
-  }
-
-  function isWeekend(day: number): boolean {
-    const wd = new Date(`${isoDate(year, month, day)}T12:00:00Z`).getUTCDay();
-    return wd === 0 || wd === 6;
+  function selectDay(iso: string) {
+    setSelectedDate(iso);
   }
 
   function onSaved(_r: Reservation, conflictsWith: Reservation[]) {
@@ -154,55 +171,19 @@ export default function ReservationTimeline({ rooms, today }: Props) {
     load();
   }
 
-  const gridCols = `repeat(${numDays}, minmax(2rem, 1fr))`;
+  // Ayın 1. günü haftanın hangi gününe denk geliyor (Pazartesi=0)?
+  const leadingBlanks = weekdayIndex(monthStart);
 
   return (
     <div className="space-y-4">
-      {/* Ay gezinme */}
-      <div className="flex items-center justify-between rounded-xl border border-stone-200 bg-white px-4 py-2.5">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => nav(-1)}
-            className="rounded-md border border-stone-300 px-2.5 py-1 text-sm hover:bg-stone-50"
-            aria-label="Önceki ay"
-          >
-            ←
-          </button>
-          <button
-            onClick={() => nav(1)}
-            className="rounded-md border border-stone-300 px-2.5 py-1 text-sm hover:bg-stone-50"
-            aria-label="Sonraki ay"
-          >
-            →
-          </button>
-          <button
-            onClick={goToday}
-            className="rounded-md border border-stone-300 px-2.5 py-1 text-sm hover:bg-stone-50"
-          >
-            Bugün
-          </button>
-          <h2 className="ml-2 font-serif text-lg font-bold">
-            {MONTHS_TR[month - 1]} {year}
-          </h2>
-        </div>
-        <button
-          onClick={() =>
-            setModal({ mode: "new", room_id: activeRooms[0]?.id ?? "", check_in: today })
-          }
-          className="rounded-md bg-stone-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-stone-700"
-        >
-          + Yeni Kayıt
-        </button>
-      </div>
-
       {savedWarning && (
-        <div className="flex items-start justify-between rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-800">
+        <div className="flex items-start justify-between rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800">
           <span>⚠ {savedWarning}</span>
-          <button onClick={() => setSavedWarning(null)} className="ml-3 font-bold">✕</button>
+          <button onClick={() => setSavedWarning(null)} className="ml-3 font-bold" aria-label="Kapat">✕</button>
         </div>
       )}
       {error && (
-        <div className="rounded-md border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {error}
         </div>
       )}
@@ -214,136 +195,157 @@ export default function ReservationTimeline({ rooms, today }: Props) {
         onSelect={(r) => setModal({ mode: "edit", reservation: r })}
       />
 
-      {/* Zaman çizelgesi */}
-      {activeRooms.length === 0 ? (
-        <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-400">
-          Aktif oda yok. Önce <a href="/admin/rooms" className="underline">Odalar</a> sayfasından oda ekleyin.
-        </p>
-      ) : (
-        <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white">
-          <div className="min-w-[60rem]">
-            {/* Gün başlıkları */}
-            <div className="flex border-b border-stone-200">
-              <div className="w-32 shrink-0 border-r border-stone-200 px-3 py-1.5 text-xs font-medium uppercase tracking-wide text-stone-500">
-                Oda
-              </div>
-              <div className="grid flex-1" style={{ gridTemplateColumns: gridCols }}>
-                {Array.from({ length: numDays }, (_, i) => {
-                  const day = i + 1;
-                  const iso = isoDate(year, month, day);
-                  const isToday = iso === today;
-                  return (
-                    <div
-                      key={day}
-                      className={`border-r border-stone-100 py-1 text-center text-[10px] leading-tight ${
-                        isToday
-                          ? "bg-aegean-100 font-bold text-aegean-800"
-                          : isWeekend(day)
-                            ? "bg-stone-50 text-stone-500"
-                            : "text-stone-500"
-                      }`}
-                    >
-                      <div>{weekdayOf(day)}</div>
-                      <div className="text-xs font-semibold">{day}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+      {/* Ay gezinme */}
+      <div className="flex items-center justify-between rounded-xl border border-stone-200 bg-white px-2 py-2">
+        <button
+          onClick={() => navMonth(-1)}
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-lg text-stone-500 hover:bg-stone-100 active:bg-stone-200"
+          aria-label="Önceki ay"
+        >
+          ←
+        </button>
+        <div className="flex flex-col items-center">
+          <h2 className="font-serif text-lg font-bold leading-tight">
+            {MONTHS_TR[viewMonth - 1]} {viewYear}
+          </h2>
+          <button onClick={goToday} className="text-xs font-medium text-aegean-700 hover:underline">
+            Bugüne dön
+          </button>
+        </div>
+        <button
+          onClick={() => navMonth(1)}
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-lg text-stone-500 hover:bg-stone-100 active:bg-stone-200"
+          aria-label="Sonraki ay"
+        >
+          →
+        </button>
+      </div>
 
-            {/* Oda satırları */}
+      {/* Mini ay takvimi — büyük dokunma hedefleri */}
+      <div className="rounded-xl border border-stone-200 bg-white p-2">
+        <div className="mb-1 grid grid-cols-7 text-center text-[11px] font-medium uppercase tracking-wide text-stone-400">
+          {WEEKDAYS_TR.map((wd) => (
+            <div key={wd} className="py-1">{wd}</div>
+          ))}
+        </div>
+        <div className="grid grid-cols-7 gap-1">
+          {Array.from({ length: leadingBlanks }, (_, i) => (
+            <div key={`blank-${i}`} />
+          ))}
+          {Array.from({ length: numDays }, (_, i) => {
+            const day = i + 1;
+            const iso = isoDate(viewYear, viewMonth, day);
+            const isToday = iso === today;
+            const isSelected = iso === selectedDate;
+            const stats = dayStats.get(iso) ?? { occupied: 0, conflict: false };
+            const full = activeRooms.length > 0 && stats.occupied >= activeRooms.length;
+
+            return (
+              <button
+                key={day}
+                onClick={() => selectDay(iso)}
+                className={`relative flex h-12 flex-col items-center justify-center rounded-lg text-sm transition-colors sm:h-14 ${
+                  isSelected
+                    ? "bg-stone-900 font-bold text-white"
+                    : isToday
+                      ? "bg-aegean-100 font-bold text-aegean-900"
+                      : "text-stone-700 hover:bg-stone-100"
+                } ${stats.conflict && !isSelected ? "ring-2 ring-red-500" : ""}`}
+              >
+                {day}
+                {stats.occupied > 0 && (
+                  <span
+                    className={`mt-0.5 h-1.5 w-1.5 rounded-full ${
+                      isSelected
+                        ? "bg-white"
+                        : full
+                          ? "bg-terra-500"
+                          : "bg-olive-500"
+                    }`}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Seçili günün oda panosu */}
+      <div>
+        <h3 className="mb-2 px-1 font-serif text-base font-bold text-stone-800">
+          {formatLong(selectedDate)}
+        </h3>
+
+        {activeRooms.length === 0 ? (
+          <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-400">
+            Aktif oda yok. Önce <a href="/admin/rooms" className="underline">Odalar</a> sayfasından oda ekleyin.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {activeRooms.map((room) => {
-              const items = (byRoom.get(room.id) ?? []).filter(
-                (r) => r.check_in < nextMonthStart && r.check_out > monthStart
-              );
-              const lanes = assignLanes(items);
-              const laneCount = Math.max(1, ...[...lanes.values()].map((l) => l + 1));
-              const rowHeight = laneCount * 2 + 0.5; // rem
+              const items = byRoom.get(room.id) ?? [];
+              const segments = segmentsFor(items, selectedDate);
+
+              if (segments.length === 0) {
+                return (
+                  <button
+                    key={room.id}
+                    onClick={() => setModal({ mode: "new", room_id: room.id, check_in: selectedDate })}
+                    className="flex items-center justify-between rounded-xl border border-dashed border-stone-300 bg-white px-4 py-3 text-left transition-colors hover:border-olive-400 hover:bg-olive-50"
+                  >
+                    <span>
+                      <span className="block font-medium text-stone-800">{room.name}</span>
+                      <span className="block text-xs text-stone-400">Boş</span>
+                    </span>
+                    <span className="text-2xl font-light text-stone-300">+</span>
+                  </button>
+                );
+              }
+
+              const hasTurnover =
+                segments.some((s) => s.kind === "departure") &&
+                segments.some((s) => s.kind === "arrival" || s.kind === "staying");
 
               return (
-                <div key={room.id} className="flex border-b border-stone-100 last:border-b-0">
-                  <div className="flex w-32 shrink-0 items-center border-r border-stone-200 px-3 text-sm font-medium">
-                    {room.name}
+                <div
+                  key={room.id}
+                  className={`overflow-hidden rounded-xl border bg-white ${
+                    hasTurnover ? "border-terra-300" : "border-stone-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-between border-b border-stone-100 bg-stone-50 px-4 py-1.5">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+                      {room.name}
+                      {hasTurnover && (
+                        <span className="ml-2 rounded-full bg-terra-100 px-2 py-0.5 text-[10px] font-bold text-terra-700">
+                          DEVİR GÜNÜ
+                        </span>
+                      )}
+                    </span>
+                    <button
+                      onClick={() => setModal({ mode: "new", room_id: room.id, check_in: selectedDate })}
+                      title="Bu odaya bu gün için yeni kayıt ekle"
+                      aria-label="Yeni kayıt ekle"
+                      className="flex h-7 w-7 items-center justify-center rounded-full text-base font-light text-stone-400 hover:bg-stone-200 hover:text-stone-700"
+                    >
+                      +
+                    </button>
                   </div>
-                  <div
-                    className="relative grid flex-1"
-                    style={{ gridTemplateColumns: gridCols, height: `${rowHeight}rem` }}
-                  >
-                    {/* Tıklanabilir boş hücreler */}
-                    {Array.from({ length: numDays }, (_, i) => {
-                      const day = i + 1;
-                      const iso = isoDate(year, month, day);
-                      return (
-                        <button
-                          key={day}
-                          onClick={() => setModal({ mode: "new", room_id: room.id, check_in: iso })}
-                          title={`${room.name} — ${day} ${MONTHS_TR[month - 1]}: yeni kayıt`}
-                          style={{ gridColumn: day, gridRow: 1 }}
-                          className={`h-full border-r border-stone-100 transition-colors hover:bg-aegean-50 ${
-                            iso === today ? "bg-aegean-50/60" : isWeekend(day) ? "bg-stone-50/60" : ""
-                          }`}
-                        />
-                      );
-                    })}
-
-                    {/* Rezervasyon barları */}
-                    {items.map((r) => {
-                      const startDay = r.check_in <= monthStart ? 1 : Number(r.check_in.slice(8, 10));
-                      // check_out münhasır: son dolu gece check_out - 1
-                      const endExclusive =
-                        r.check_out >= nextMonthStart ? numDays + 1 : Number(r.check_out.slice(8, 10));
-                      const lane = lanes.get(r.id) ?? 0;
-                      const isConflicted = conflictedIds.has(r.id);
-                      const label =
-                        r.type === "block"
-                          ? (r.notes?.trim() || "Blokaj")
-                          : (r.guest_name ?? SOURCE_LABELS[r.source]);
-
-                      return (
-                        <button
-                          key={r.id}
-                          onClick={() => setModal({ mode: "edit", reservation: r })}
-                          title={`${label} · ${r.check_in} → ${r.check_out} · ${SOURCE_LABELS[r.source]}`}
-                          style={{
-                            gridColumn: `${startDay} / ${endExclusive}`,
-                            gridRow: 1,
-                            marginTop: `${lane * 2 + 0.25}rem`,
-                          }}
-                          className={`z-10 mx-0.5 h-7 self-start truncate rounded-md px-2 text-left text-xs font-medium leading-7 text-white shadow-sm hover:brightness-110 ${
-                            r.type === "block"
-                              ? "bg-stone-400 bg-[repeating-linear-gradient(45deg,transparent,transparent_6px,rgba(255,255,255,0.25)_6px,rgba(255,255,255,0.25)_12px)]"
-                              : SOURCE_COLORS[r.source]
-                          } ${isConflicted ? "ring-2 ring-red-600 ring-offset-1" : ""}`}
-                        >
-                          {isConflicted && "⚠ "}
-                          {label}
-                        </button>
-                      );
-                    })}
+                  <div className="divide-y divide-stone-100">
+                    {segments.map((seg) => (
+                      <RoomSegmentCard
+                        key={`${seg.reservation.id}-${seg.kind}`}
+                        segment={seg}
+                        conflicted={conflictedIds.has(seg.reservation.id)}
+                        onClick={() => setModal({ mode: "edit", reservation: seg.reservation })}
+                      />
+                    ))}
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
-      )}
-
-      {/* Renk açıklamaları */}
-      <div className="flex flex-wrap items-center gap-3 text-xs text-stone-600">
-        {(Object.keys(SOURCE_COLORS) as BookingSource[]).map((s) => (
-          <span key={s} className="flex items-center gap-1.5">
-            <span className={`inline-block h-3 w-3 rounded ${SOURCE_COLORS[s]}`} />
-            {SOURCE_LABELS[s]}
-          </span>
-        ))}
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-3 w-3 rounded bg-stone-400 bg-[repeating-linear-gradient(45deg,transparent,transparent_3px,rgba(255,255,255,0.3)_3px,rgba(255,255,255,0.3)_6px)]" />
-          Blokaj
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-3 w-3 rounded ring-2 ring-red-600" />
-          Çakışma
-        </span>
+        )}
       </div>
 
       {modal && (
@@ -364,5 +366,50 @@ export default function ReservationTimeline({ rooms, today }: Props) {
         />
       )}
     </div>
+  );
+}
+
+function RoomSegmentCard({
+  segment,
+  conflicted,
+  onClick,
+}: {
+  segment: Segment;
+  conflicted: boolean;
+  onClick: () => void;
+}) {
+  const { reservation: r, kind } = segment;
+  const label = r.type === "block" ? (r.notes?.trim() || "Blokaj") : (r.guest_name ?? SOURCE_LABELS[r.source]);
+
+  const timeLabel =
+    kind === "departure" ? `Çıkış · ${CHECK_OUT_TIME}` : kind === "arrival" ? `Giriş · ${CHECK_IN_TIME}` : "Konaklıyor";
+
+  const badgeCls =
+    kind === "departure"
+      ? "bg-stone-100 text-stone-600"
+      : kind === "arrival"
+        ? "bg-olive-100 text-olive-700"
+        : "bg-aegean-50 text-aegean-700";
+
+  return (
+    <button
+      onClick={onClick}
+      className={`flex w-full items-center justify-between gap-3 px-4 py-3 text-left transition-colors hover:bg-stone-50 ${
+        conflicted ? "bg-red-50" : ""
+      } ${r.type === "block" ? "opacity-80" : ""}`}
+    >
+      <span className="min-w-0">
+        <span className="flex items-center gap-1.5">
+          {conflicted && <span className="text-red-600" title="Çakışma var">⚠</span>}
+          <span className="truncate font-medium text-stone-800">{label}</span>
+        </span>
+        <span className="mt-0.5 block text-xs text-stone-400">
+          {r.type === "block" ? "Blokaj" : SOURCE_LABELS[r.source]}
+        </span>
+      </span>
+      <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold ${badgeCls}`}>
+        {timeLabel}
+      </span>
+    </button>
   );
 }

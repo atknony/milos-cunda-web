@@ -6,9 +6,7 @@ import type { BookingSource, ReservationType } from "@/lib/supabase/types";
 
 export const prerender = false;
 
-const VALID_SOURCES: BookingSource[] = [
-  "direct", "phone", "whatsapp", "airbnb", "booking_com", "hotels_com", "other",
-];
+const VALID_SOURCES: BookingSource[] = ["direct", "phone", "whatsapp", "instagram"];
 const VALID_TYPES: ReservationType[] = ["booking", "block"];
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 

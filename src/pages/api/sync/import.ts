@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { timingSafeEqual } from "node:crypto";
 import { getSessionUser } from "@/lib/supabase/server";
-import { json } from "@/lib/pms/api";
+import { json, SYNC_ENABLED } from "@/lib/pms/api";
 import { runSync } from "@/lib/ical/sync";
 
 export const prerender = false;
@@ -23,6 +23,8 @@ function tokenMatches(provided: string | null): boolean {
  * Opsiyonel filtreler: ?feed_id=... veya ?room_id=...
  */
 const handler: APIRoute = async (context) => {
+  if (!SYNC_ENABLED) return json({ error: "Senkronizasyon şu an devre dışı." }, 403);
+
   const params = context.url.searchParams;
 
   const viaToken = tokenMatches(params.get("token"));

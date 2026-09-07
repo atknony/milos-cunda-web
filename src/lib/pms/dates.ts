@@ -5,6 +5,10 @@
 
 export const HOTEL_TIMEZONE = "Europe/Istanbul";
 
+/** Sabit otel politikası — her rezervasyon için aynıdır, kayıt başına saklanmaz. */
+export const CHECK_OUT_TIME = "11:00";
+export const CHECK_IN_TIME = "13:00";
+
 /** Otelin bulunduğu saat diliminde bugünün tarihi (yyyy-MM-dd). */
 export function todayInHotelTz(): string {
   return new Intl.DateTimeFormat("en-CA", {
