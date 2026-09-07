@@ -1,12 +1,11 @@
 ---
 import "@styles/global.css";
-import { getSessionUser } from "@/lib/supabase/server";
 
 export const prerender = false;
 
-// Zaten oturum açıksa panele yönlendir
-const user = await getSessionUser(Astro.request, Astro.cookies);
-if (user) return Astro.redirect("/admin");
+// Zaten oturum açıksa panele yönlendirme src/middleware.ts içinde yapılır
+// (rol-farkında yönlendirme — sayfa içinden Astro.redirect() kullanmak bu
+// projenin statik çıktı modunda SSR sayfalarında bozuk yanıta yol açıyordu).
 ---
 
 <!doctype html>

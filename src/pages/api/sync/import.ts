@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { timingSafeEqual } from "node:crypto";
 import { getSessionUser } from "@/lib/supabase/server";
 import { json, SYNC_ENABLED } from "@/lib/pms/api";
+import { roleOf } from "@/lib/pms/roles";
 import { runSync } from "@/lib/ical/sync";
 
 export const prerender = false;
@@ -28,7 +29,8 @@ const handler: APIRoute = async (context) => {
   const params = context.url.searchParams;
 
   const viaToken = tokenMatches(params.get("token"));
-  const viaSession = !viaToken && (await getSessionUser(context.request, context.cookies)) !== null;
+  const sessionUser = viaToken ? null : await getSessionUser(context.request, context.cookies);
+  const viaSession = sessionUser !== null && roleOf(sessionUser) === "admin";
   if (!viaToken && !viaSession) return json({ error: "Yetkisiz." }, 401);
 
   try {

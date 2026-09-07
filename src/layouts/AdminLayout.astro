@@ -4,26 +4,36 @@
  * Mobil öncelikli: küçük ekranda alt sekme çubuğu, geniş ekranda üst menü.
  */
 import "@styles/global.css";
+import type { StaffRole } from "@/lib/pms/roles";
 
 interface Props {
   title: string;
   /** Aktif menü öğesi vurgusu için */
-  active?: "dashboard" | "rooms" | "reservations";
+  active?: "dashboard" | "rooms" | "reservations" | "cleaning";
+  /** "cleaner" rolünde yalnızca Temizlik sekmesi gösterilir (tek sayfaya erişimleri var). */
+  role?: StaffRole;
 }
 
-const { title, active } = Astro.props;
+const { title, active, role = "admin" } = Astro.props;
+const home = role === "cleaner" ? "/admin/cleaning" : "/admin";
 
-const nav = [
-  { key: "dashboard", href: "/admin", label: "Takvim", icon: "calendar" },
-  { key: "reservations", href: "/admin/reservations", label: "Rezervasyonlar", icon: "list" },
-  { key: "rooms", href: "/admin/rooms", label: "Odalar", icon: "bed" },
-] as const;
+const nav =
+  role === "cleaner"
+    ? ([{ key: "cleaning", href: "/admin/cleaning", label: "Temizlik", icon: "sparkle" }] as const)
+    : ([
+        { key: "dashboard", href: "/admin", label: "Takvim", icon: "calendar" },
+        { key: "reservations", href: "/admin/reservations", label: "Rezervasyonlar", icon: "list" },
+        { key: "rooms", href: "/admin/rooms", label: "Odalar", icon: "bed" },
+        { key: "cleaning", href: "/admin/cleaning", label: "Temizlik", icon: "sparkle" },
+      ] as const);
 
 const icons: Record<string, string> = {
   calendar:
     "M8 2v3M16 2v3M3.5 9h17M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z",
   list: "M4 6h16M4 12h16M4 18h10",
   bed: "M3 18v-6a2 2 0 0 1 2-2h6v5M3 18h18v-3a2 2 0 0 0-2-2h-6M3 18v2M21 18v2M13 15h6a2 2 0 0 1 2 2v1",
+  sparkle:
+    "M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2M12 8l1.5 3.5L17 13l-3.5 1.5L12 18l-1.5-3.5L7 13l3.5-1.5Z",
 };
 ---
 
@@ -39,7 +49,7 @@ const icons: Record<string, string> = {
     <!-- Üst çubuk: marka + çıkış (her ekran boyutunda) -->
     <header class="sticky top-0 z-30 border-b border-stone-200 bg-white">
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <a href="/admin" class="font-serif text-lg font-bold tracking-tight">
+        <a href={home} class="font-serif text-lg font-bold tracking-tight">
           Cunda Milos <span class="font-sans text-xs font-normal text-stone-500">PANEL</span>
         </a>
 

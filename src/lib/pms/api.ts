@@ -1,5 +1,6 @@
 import type { APIContext } from "astro";
 import { getSessionUser } from "@/lib/supabase/server";
+import { roleOf } from "@/lib/pms/roles";
 
 /**
  * OTA senkronizasyonu (Airbnb/Booking.com/Hotels.com iCal içe aktarma) askıya
@@ -18,13 +19,19 @@ export function json(data: unknown, status = 200): Response {
 }
 
 /**
- * Oturum doğrulaması — middleware'e ek savunma katmanı.
- * Oturum yoksa 401 Response döndürür; varsa null (devam et).
+ * Oturum + rol doğrulaması — middleware'e ek savunma katmanı.
+ * Bu dosyadaki tüm API rotaları admin verisidir (rezervasyon/oda/besleme);
+ * "cleaner" rolündeki hesaplar yalnızca /admin/cleaning sayfasını (statik
+ * sunucu tarafı render, hiçbir API çağrısı yapmaz) kullanabilir — bu yüzden
+ * burada oturum yoksa 401, admin değilse 403 döner; ikisi de yoksa null.
  */
 export async function requireSession(context: APIContext): Promise<Response | null> {
   const user = await getSessionUser(context.request, context.cookies);
   if (!user) {
     return json({ error: "Oturum gerekli." }, 401);
+  }
+  if (roleOf(user) !== "admin") {
+    return json({ error: "Bu işlem için yetkiniz yok." }, 403);
   }
   return null;
 }
