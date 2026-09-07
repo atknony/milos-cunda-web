@@ -9,8 +9,10 @@
  * half the track width is an exact whole number of cards + gutters; with `gap`
  * the loop drifts by half a gutter on every cycle.
  *
- * Motion is paused on hover/focus, and under prefers-reduced-motion the
- * marquee degrades to a normal horizontal scroller (see global.css).
+ * Motion pauses on hover/focus but only where a real pointer exists — a tap
+ * leaves :hover stuck on a touchscreen, which froze the marquee for good.
+ * Under prefers-reduced-motion it degrades to a plain horizontal scroller.
+ * Both live in global.css.
  */
 
 import type { Lang } from "../i18n/ui";
@@ -26,7 +28,6 @@ const t = useTranslations(lang);
 
 const ratingText = reviewSummary.ratingText[lang];
 const starLabel = t("reviews.stars", { rating: ratingText });
-const translatedNote = t("reviews.translated");
 
 /* Two passes over the same list: [0] is read by assistive tech, [1] is the
    visual-only clone that makes the loop continuous. */
@@ -81,9 +82,7 @@ const passes = [false, true];
 
             <figcaption class="review-meta">
               <span class="review-name">{review.name}</span>
-              <span class="review-source">
-                {t("reviews.source")} · {monthLabel(lang, review.month)}
-              </span>
+              <span class="review-source">{monthLabel(lang, review.month)}</span>
             </figcaption>
           </figure>
         ))
@@ -117,7 +116,6 @@ const passes = [false, true];
           <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
         </svg>
       </a>
-      {translatedNote && <p class="reviews-note">{translatedNote}</p>}
     </div>
   </div>
 </section>

@@ -72,6 +72,36 @@ export const ui = {
     en: "Cunda Milos is a six-room boutique hotel set in a protected Greek stone house on Cunda Island, Ayvalık, begun in the late 1800s and completed in 1907. Blending historic stone architecture with modern comfort, we are a short walk from the market square, the windmill, and the sea. Whether you are looking for a boutique hotel or the warmth of a small guesthouse, we look forward to welcoming you.",
     el: "Το Cunda Milos είναι ένα μπουτίκ ξενοδοχείο έξι δωματίων, στεγασμένο σε ένα διατηρητέο ρωμαίικο πέτρινο σπίτι στο νησί Κούνδα (Μοσχονήσι) του Αϊβαλί, που άρχισε να χτίζεται στα τέλη του 19ου αιώνα και ολοκληρώθηκε το 1907. Συνδυάζοντας την πέτρινη αρχιτεκτονική με σύγχρονες ανέσεις, βρισκόμαστε λίγα βήματα από την αγορά, τον ανεμόμυλο και τη θάλασσα. Είτε αναζητάτε μπουτίκ ξενοδοχείο είτε τη ζεστασιά μιας μικρής πανσιόν, σας περιμένουμε.",
   },
+  "home.intro.imageAlt1": {
+    tr: "Cunda Milos'un arnavut kaldırımlı sokaktaki taş cephesi ve yeşil panjurları",
+    en: "The stone facade and green shutters of Cunda Milos on its cobbled lane",
+    el: "Η πέτρινη πρόσοψη και τα πράσινα παντζούρια του Cunda Milos στο καλντερίμι",
+  },
+  "home.intro.imageAlt2": {
+    tr: "Otelin bahçesinden çam ağaçları ve begonvillerin ardında uzanan Ege",
+    en: "The Aegean beyond the pines and bougainvillea of the hotel garden",
+    el: "Το Αιγαίο πίσω από τα πεύκα και τις βουκαμβίλιες του κήπου του ξενοδοχείου",
+  },
+  "home.intro.fact1": {
+    tr: "Yapım Yılı",
+    en: "Completed",
+    el: "Ολοκληρώθηκε",
+  },
+  "home.intro.fact2": {
+    tr: "Oda Sayısı",
+    en: "Rooms",
+    el: "Δωμάτια",
+  },
+  "home.intro.fact3": {
+    tr: "Konum",
+    en: "Location",
+    el: "Τοποθεσία",
+  },
+  "home.intro.fact3.value": {
+    tr: "Cunda Adası",
+    en: "Cunda Island",
+    el: "Νησί Κούνδα",
+  },
 
   // ─── CTAs ───
   "cta.whatsapp": {
@@ -116,20 +146,10 @@ export const ui = {
     en: "{rating} out of 5 stars",
     el: "{rating} στα 5 αστέρια",
   },
-  "reviews.source": {
-    tr: "Google değerlendirmesi",
-    en: "Google review",
-    el: "Κριτική στο Google",
-  },
   "reviews.cta": {
     tr: "Tüm Yorumları Google'da Okuyun",
     en: "Read All Reviews on Google",
     el: "Διαβάστε Όλες τις Κριτικές στο Google",
-  },
-  "reviews.translated": {
-    tr: "",
-    en: "Reviews are translated from the original Turkish.",
-    el: "Οι κριτικές είναι μεταφρασμένες από τα τουρκικά πρωτότυπα.",
   },
 
   // ─── WhatsApp Pre-filled Messages ───

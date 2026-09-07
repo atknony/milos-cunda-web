@@ -8,6 +8,8 @@
  *  - Turkish text is the guest's own wording. Where a quote is shortened it is
  *    always a CONTIGUOUS opening excerpt (never stitched from separate parts);
  *    only punctuation is tidied and emoji are dropped for typographic calm.
+ *    Excerpts are kept to roughly 200 characters so no card towers over the
+ *    others in the marquee — length is a layout constraint here, not just taste.
  *  - `en` / `el` are translations of that Turkish original, kept in the guest's
  *    register rather than polished into marketing copy.
  *  - Surnames are reduced to an initial — the reviews are public, the display
@@ -57,9 +59,9 @@ export const reviews: Review[] = [
     rating: 5,
     month: "2026-08",
     quote: {
-      tr: "103 yıl önce gelenlerin dördüncü nesil Girit göçmenlerine aktardıkları ruhla yeniden canlanan harika Rum evi mükemmel bir otele dönüşmüş; her şey tertemiz ve mis kokulu. Bahçe, değirmen manzarası, uzaklardan gelen dalgaların sesi, her biri bir mutluluk kaynağı.",
-      en: "A wonderful Greek house, brought back to life by the spirit those who arrived 103 years ago passed down to the fourth generation of Cretan émigrés, has become a perfect hotel; everything is spotless and sweet-smelling. The garden, the view of the windmill, the sound of waves carrying from far off — each one a source of happiness.",
-      el: "Ένα υπέροχο ρωμαίικο σπίτι, που ξαναζωντάνεψε με το πνεύμα το οποίο όσοι ήρθαν πριν από 103 χρόνια κληροδότησαν στην τέταρτη γενιά των Κρητικών προσφύγων, έγινε ένα τέλειο ξενοδοχείο· όλα πεντακάθαρα και μυρωδάτα. Ο κήπος, η θέα στον ανεμόμυλο, ο ήχος των κυμάτων που φτάνει από μακριά — το καθένα πηγή χαράς.",
+      tr: "103 yıl önce gelenlerin dördüncü nesil Girit göçmenlerine aktardıkları ruhla yeniden canlanan harika Rum evi mükemmel bir otele dönüşmüş; her şey tertemiz ve mis kokulu.",
+      en: "A wonderful Greek house, brought back to life by the spirit those who arrived 103 years ago passed down to the fourth generation of Cretan émigrés, has become a perfect hotel; everything is spotless and sweet-smelling.",
+      el: "Ένα υπέροχο ρωμαίικο σπίτι, που ξαναζωντάνεψε με το πνεύμα το οποίο όσοι ήρθαν πριν από 103 χρόνια κληροδότησαν στην τέταρτη γενιά των Κρητικών προσφύγων, έγινε ένα τέλειο ξενοδοχείο· όλα πεντακάθαρα και μυρωδάτα.",
     },
   },
   {
@@ -67,9 +69,9 @@ export const reviews: Review[] = [
     rating: 5,
     month: "2026-08",
     quote: {
-      tr: "Tarihi bir Rum evinin ruhu korunarak harika bir otele dönüştürülmüş. Her yer tertemiz ve mis gibi. Bahçesi, deniz ve Milos değirmeni manzaralı odaları, yüksek tavanları ve ferah atmosferiyle çok keyifli. Cunda'da gerçekten özel bir konaklama yaşadık.",
-      en: "The spirit of a historic Greek house has been preserved and turned into a wonderful hotel. Every corner is spotless and fresh. The garden, the rooms looking out over the sea and the Milos windmill, the high ceilings and the airy feel make it a delight. We had a truly special stay in Cunda.",
-      el: "Το πνεύμα ενός ιστορικού ρωμαίικου σπιτιού διατηρήθηκε και μετατράπηκε σε ένα υπέροχο ξενοδοχείο. Κάθε γωνιά πεντακάθαρη και φρέσκια. Ο κήπος, τα δωμάτια με θέα στη θάλασσα και στον ανεμόμυλο του Μήλου, τα ψηλά ταβάνια και η ευάερη ατμόσφαιρα το κάνουν απολαυστικό. Ζήσαμε μια πραγματικά ξεχωριστή διαμονή στην Κούνδα.",
+      tr: "Tarihi bir Rum evinin ruhu korunarak harika bir otele dönüştürülmüş. Her yer tertemiz ve mis gibi. Bahçesi, deniz ve Milos değirmeni manzaralı odaları, yüksek tavanları ve ferah atmosferiyle çok keyifli.",
+      en: "The spirit of a historic Greek house has been preserved and turned into a wonderful hotel. Every corner is spotless and fresh. The garden, the rooms looking out over the sea and the Milos windmill, the high ceilings and the airy feel make it a delight.",
+      el: "Το πνεύμα ενός ιστορικού ρωμαίικου σπιτιού διατηρήθηκε και μετατράπηκε σε ένα υπέροχο ξενοδοχείο. Κάθε γωνιά πεντακάθαρη και φρέσκια. Ο κήπος, τα δωμάτια με θέα στη θάλασσα και στον ανεμόμυλο του Μήλου, τα ψηλά ταβάνια και η ευάερη ατμόσφαιρα το κάνουν απολαυστικό.",
     },
   },
   {
@@ -77,9 +79,9 @@ export const reviews: Review[] = [
     rating: 5,
     month: "2026-08",
     quote: {
-      tr: "Cunda'nın ruhunu yansıtan, aile yadigârı taş bir evden otele dönüştürülmüş çok güzel bir yer. Otelin her köşesinde bunun izini göreceksiniz zaten. Bahçesi çok güzel, girişte Türk kahvesi ikramı çok hoş. Odamız yel değirmeni manzaralıydı, temiz ve ferahtı. Çok keyifli ve huzurlu bir konaklamaydı.",
-      en: "A beautiful place that reflects the spirit of Cunda — a stone house handed down through the family and turned into a hotel. You see traces of that in every corner. The garden is lovely, and the Turkish coffee on arrival is a charming touch. Our room looked out on the windmill; clean and airy. A thoroughly enjoyable, peaceful stay.",
-      el: "Ένα πανέμορφο μέρος που αποπνέει το πνεύμα της Κούνδας — ένα πέτρινο σπίτι, οικογενειακό κειμήλιο, που έγινε ξενοδοχείο. Θα δείτε τα ίχνη του σε κάθε γωνιά. Ο κήπος είναι υπέροχος και ο τούρκικος καφές στην άφιξη μια χαριτωμένη λεπτομέρεια. Το δωμάτιό μας είχε θέα στον ανεμόμυλο, καθαρό και ευάερο. Μια πολύ ευχάριστη και γαλήνια διαμονή.",
+      tr: "Cunda'nın ruhunu yansıtan, aile yadigârı taş bir evden otele dönüştürülmüş çok güzel bir yer. Otelin her köşesinde bunun izini göreceksiniz zaten. Bahçesi çok güzel, girişte Türk kahvesi ikramı çok hoş.",
+      en: "A beautiful place that reflects the spirit of Cunda — a stone house handed down through the family and turned into a hotel. You see traces of that in every corner. The garden is lovely, and the Turkish coffee on arrival is a charming touch.",
+      el: "Ένα πανέμορφο μέρος που αποπνέει το πνεύμα της Κούνδας — ένα πέτρινο σπίτι, οικογενειακό κειμήλιο, που έγινε ξενοδοχείο. Θα δείτε τα ίχνη του σε κάθε γωνιά. Ο κήπος είναι υπέροχος και ο τούρκικος καφές στην άφιξη μια χαριτωμένη λεπτομέρεια.",
     },
   },
   {
@@ -87,9 +89,9 @@ export const reviews: Review[] = [
     rating: 5,
     month: "2026-08",
     quote: {
-      tr: "Eski bir Rum evinin dokusu korunarak çok güzel ve keyifli bir butik otele dönüştürülmüş. Taş konsepti, yüksek tavanları ve ferah odalarıyla kendine has çok güzel bir atmosferi var. Her yer tertemiz ve özenli. Çarşıya çok yakın olması da ayrıca büyük bir avantaj.",
-      en: "The fabric of an old Greek house has been preserved and turned into a beautiful, welcoming boutique hotel. With its stone character, high ceilings and airy rooms it has an atmosphere all of its own. Everywhere is spotless and cared for. Being so close to the market square is a great advantage too.",
-      el: "Ο ιστός ενός παλιού ρωμαίικου σπιτιού διατηρήθηκε και μετατράπηκε σε ένα πανέμορφο, φιλόξενο μπουτίκ ξενοδοχείο. Με την πέτρινη ταυτότητα, τα ψηλά ταβάνια και τα ευάερα δωμάτιά του έχει μια ολότελα δική του ατμόσφαιρα. Παντού πεντακάθαρα και περιποιημένα. Το ότι βρίσκεται πολύ κοντά στην αγορά είναι επίσης μεγάλο πλεονέκτημα.",
+      tr: "Eski bir Rum evinin dokusu korunarak çok güzel ve keyifli bir butik otele dönüştürülmüş. Taş konsepti, yüksek tavanları ve ferah odalarıyla kendine has çok güzel bir atmosferi var. Her yer tertemiz ve özenli.",
+      en: "The fabric of an old Greek house has been preserved and turned into a beautiful, welcoming boutique hotel. With its stone character, high ceilings and airy rooms it has an atmosphere all of its own. Everywhere is spotless and cared for.",
+      el: "Ο ιστός ενός παλιού ρωμαίικου σπιτιού διατηρήθηκε και μετατράπηκε σε ένα πανέμορφο, φιλόξενο μπουτίκ ξενοδοχείο. Με την πέτρινη ταυτότητα, τα ψηλά ταβάνια και τα ευάερα δωμάτιά του έχει μια ολότελα δική του ατμόσφαιρα. Παντού πεντακάθαρα και περιποιημένα.",
     },
   },
   {
@@ -97,9 +99,9 @@ export const reviews: Review[] = [
     rating: 5,
     month: "2026-08",
     quote: {
-      tr: "İçeriye ilk adım attığımız anda tertemiz ve mis gibi bir ortamla karşılaştık. Odamız son derece temizdi, konforlu ve ferahtı. Otel sahipleri çok ilgili ve güler yüzlüydü; çevrede gezilecek yerler konusunda bize birkaç güzel tavsiyede de bulundular.",
-      en: "The moment we stepped inside we found a spotless, fresh space. Our room was extremely clean, comfortable and airy. The owners were attentive and warm, and gave us several lovely suggestions for places to see nearby.",
-      el: "Από τη στιγμή που μπήκαμε, βρεθήκαμε σε έναν πεντακάθαρο, φρέσκο χώρο. Το δωμάτιό μας ήταν εξαιρετικά καθαρό, άνετο και ευάερο. Οι ιδιοκτήτες ήταν προσεκτικοί και χαμογελαστοί· μας έδωσαν και αρκετές ωραίες προτάσεις για μέρη να δούμε στην περιοχή.",
+      tr: "İçeriye ilk adım attığımız anda tertemiz ve mis gibi bir ortamla karşılaştık. Odamız son derece temizdi, konforlu ve ferahtı.",
+      en: "The moment we stepped inside we found a spotless, fresh space. Our room was extremely clean, comfortable and airy.",
+      el: "Από τη στιγμή που μπήκαμε, βρεθήκαμε σε έναν πεντακάθαρο, φρέσκο χώρο. Το δωμάτιό μας ήταν εξαιρετικά καθαρό, άνετο και ευάερο.",
     },
   },
   {

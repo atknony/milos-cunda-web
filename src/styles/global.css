@@ -1347,6 +1347,161 @@ body {
   background-color: var(--color-stone-400);
 }
 
+/* ─── Homepage intro — staggered photo triptych ──────────────────────────────
+   Named grid areas rather than auto-placement: the copy sits between the two
+   figures in source order, but on phones it has to jump above both of them,
+   and auto-placement can't walk the cursor backwards to fill the gap. */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "copy"
+    "figa";
+  gap: 2rem;
+  align-items: center;
+}
+
+/* On a phone the pair would be two 150px thumbnails, so the second photo steps
+   aside and the facade runs the full width instead. */
+.intro-figure-b {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .intro-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "copy copy"
+      "figa figb";
+    gap: 2rem 1.25rem;
+  }
+
+  .intro-figure-b {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-areas: "figa copy figb";
+    gap: 3rem;
+  }
+}
+
+.intro-copy {
+  grid-area: copy;
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.intro-copy p {
+  max-width: none;
+}
+
+.intro-figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-soft);
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 640px) {
+  .intro-figure {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+.intro-figure-a {
+  grid-area: figa;
+}
+
+/* The facade sits in the right-hand third of the landscape original, so a
+   centre crop would frame the empty lane instead of the house. */
+.intro-figure-a img {
+  object-position: 62% 58%;
+}
+
+.intro-figure-b {
+  grid-area: figb;
+}
+
+.intro-figure-b img {
+  object-position: 55% center;
+}
+
+/* The offset is what makes the pair read as a composition rather than two
+   photos in a row. Only worth it once the columns are side by side. */
+@media (min-width: 1024px) {
+  .intro-figure {
+    aspect-ratio: 2 / 3;
+  }
+
+  .intro-figure-a {
+    transform: translateY(2rem);
+  }
+
+  .intro-figure-b {
+    transform: translateY(-2rem);
+  }
+}
+
+.intro-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 0;
+  margin-top: 2.25rem;
+}
+
+.intro-fact {
+  padding-inline: 1.5rem;
+  text-align: center;
+}
+
+.intro-fact + .intro-fact {
+  border-left: 1px solid var(--color-stone-200);
+}
+
+.intro-fact dt {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-stone-500);
+}
+
+.intro-fact dd {
+  margin-top: 0.3rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--color-stone-900);
+}
+
+/* Tight enough that all three stay on one line at 360px, where wrapping left a
+   stranded item carrying its divider rule. */
+@media (max-width: 30rem) {
+  .intro-facts {
+    margin-top: 2rem;
+  }
+
+  .intro-fact {
+    padding-inline: 0.8rem;
+  }
+
+  .intro-fact dt {
+    font-size: 0.5625rem;
+    letter-spacing: 0.14em;
+  }
+
+  .intro-fact dd {
+    font-size: 1rem;
+  }
+}
+
 /* ─── Guest Reviews (Google) — right-to-left marquee ─────────────────────────
    The card list is rendered twice; the track scrolls exactly -50%, at which
    point clone #1 sits where original #1 started and the loop is invisible.
@@ -1455,26 +1610,42 @@ body {
   }
 }
 
-/* Let a reader stop the carousel to finish a quote. */
-.reviews-marquee:hover .reviews-track,
-.reviews-marquee:focus-within .reviews-track {
-  animation-play-state: paused;
+/* Let a reader stop the carousel to finish a quote — but ONLY on devices with
+   a real pointer. A tap on a touchscreen leaves :hover stuck on the card until
+   something else is tapped, which froze the marquee permanently on phones. */
+@media (hover: hover) and (pointer: fine) {
+  .reviews-marquee:hover .reviews-track,
+  .reviews-marquee:focus-within .reviews-track {
+    animation-play-state: paused;
+  }
 }
 
+/* All cards share the tallest card's height; the byline is pushed to the floor
+   (see .review-meta) so the attributions line up across the row regardless of
+   quote length. Quotes are capped at ~200 characters in reviews.ts so that
+   shared height stays modest. */
 .review-card {
   display: flex;
   flex-direction: column;
   flex: none;
-  width: min(23rem, 78vw);
-  margin: 0 1.5rem 0 0;
-  padding: 1.85rem 1.75rem 1.6rem;
+  width: min(20rem, 74vw);
+  margin: 0 1.25rem 0 0;
+  padding: 1.4rem 1.4rem 1.25rem;
   background-color: var(--color-stone-50);
   border: 1px solid var(--color-stone-200);
   border-radius: var(--radius-soft);
 }
 
+@media (min-width: 640px) {
+  .review-card {
+    width: 21rem;
+    margin-inline-end: 1.5rem;
+    padding: 1.65rem 1.6rem 1.4rem;
+  }
+}
+
 .review-quote {
-  margin: 1rem 0 0;
+  margin: 0.85rem 0 0;
   padding: 0;
   border: 0;
   quotes: none;
@@ -1483,20 +1654,25 @@ body {
 .review-quote p {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: var(--color-stone-800);
   text-wrap: pretty;
 }
 
-/* Pushes the byline to the card floor so every card's attribution lines up,
-   however short the quote. */
+@media (min-width: 640px) {
+  .review-quote p {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+}
+
 .review-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.15rem;
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding-top: 1.15rem;
 }
 
 .review-name {
@@ -1509,12 +1685,6 @@ body {
   font-size: 0.6875rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-stone-500);
-}
-
-.reviews-note {
-  margin-top: 1.25rem;
-  font-size: var(--font-size-xs);
   color: var(--color-stone-500);
 }
 
