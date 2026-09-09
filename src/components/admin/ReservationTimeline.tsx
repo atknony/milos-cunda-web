@@ -161,6 +161,13 @@ export default function ReservationTimeline({ rooms, today }: Props) {
     setSelectedDate(iso);
   }
 
+  /** Seçili günü değiştir ve mini takvimin ay görünümünü de senkronize et. */
+  function goToDate(iso: string) {
+    setSelectedDate(iso);
+    setViewYear(Number(iso.slice(0, 4)));
+    setViewMonth(Number(iso.slice(5, 7)));
+  }
+
   function onSaved(_r: Reservation, conflictsWith: Reservation[]) {
     setModal(null);
     setSavedWarning(
@@ -272,9 +279,25 @@ export default function ReservationTimeline({ rooms, today }: Props) {
 
       {/* Seçili günün oda panosu */}
       <div>
-        <h3 className="mb-2 px-1 font-serif text-base font-bold text-stone-800">
-          {formatLong(selectedDate)}
-        </h3>
+        <div className="mb-2 flex items-center justify-between gap-2 px-1">
+          <button
+            onClick={() => goToDate(addDaysIso(selectedDate, -1))}
+            aria-label="Önceki gün"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-lg text-stone-500 hover:bg-stone-100 active:bg-stone-200"
+          >
+            ←
+          </button>
+          <h3 className="text-center font-serif text-base font-bold text-stone-800">
+            {formatLong(selectedDate)}
+          </h3>
+          <button
+            onClick={() => goToDate(addDaysIso(selectedDate, 1))}
+            aria-label="Sonraki gün"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-lg text-stone-500 hover:bg-stone-100 active:bg-stone-200"
+          >
+            →
+          </button>
+        </div>
 
         {activeRooms.length === 0 ? (
           <p className="rounded-xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-400">
