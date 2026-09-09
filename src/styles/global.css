@@ -4,6 +4,7 @@
    ============================================ */
 
 @import "tailwindcss";
+@import "./admin.css";
 
 /* ─── Custom Fonts ─── */
 @font-face {

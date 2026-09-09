@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { BookingSource, Reservation, Room } from "@/lib/supabase/types";
 import { SOURCE_LABELS } from "@/lib/supabase/types";
 import { CHECK_IN_TIME, CHECK_OUT_TIME } from "@/lib/pms/dates";
+import { useModalLifecycle } from "@/lib/hooks/useModalLifecycle";
 
 interface Props {
   rooms: Room[];
@@ -49,6 +50,8 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useModalLifecycle(onClose);
 
   function set<K extends keyof typeof form>(key: K, value: (typeof form)[K]) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -131,10 +134,10 @@ export default function ReservationModal({ rooms, reservation, defaults, onClose
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center sm:p-4"
+      className="admin-modal-backdrop fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center sm:p-4"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-2xl bg-white p-5 shadow-xl sm:rounded-xl sm:p-6">
+      <div className="admin-modal-sheet max-h-[92vh] w-full max-w-lg overflow-y-auto overscroll-contain rounded-t-2xl bg-white p-5 shadow-xl sm:rounded-xl sm:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-serif text-xl font-bold">
             {isEdit ? (isBlock ? "Blokajı Düzenle" : "Rezervasyonu Düzenle") : "Yeni Kayıt"}
